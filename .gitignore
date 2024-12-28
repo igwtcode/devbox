@@ -1,4 +1,12 @@
 .DS_Store
 *secret*
+*.log
 
 **/tmux/plugins/
+tmp/
+
+config/Code/*
+!config/Code/User/
+config/Code/User/*
+!config/Code/User/settings.json
+bin/x-*
