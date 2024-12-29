@@ -8,12 +8,11 @@ isgit=$(git branch --show-current 2>/dev/null)
 [ -n "$isgit" ] || git-pull-all-branches.sh && exit 0
 
 dir=$(pwd)
-
 trap 'cd "$dir"' EXIT
 
 for d in $(ls -1 | fzf --multi); do
   cd "$d" || exit 1
-  echo_cyan "----------------------------------------"
+  echo_gray "----------------------------------------"
   echo_amber "*** $1"
   git-pull-all-branches.sh
   cd "$dir" || exit 1

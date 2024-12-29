@@ -27,3 +27,25 @@ echo_magenta() {
 get_aws_profile() {
   grep -E '^\[.+\]$' ~/.aws/credentials | sed -E 's/^\[(.+)\]$/\1/' | fzf
 }
+
+# mac, archlinux, al2023 or empty string
+get_os() {
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    echo "mac"
+  elif [[ -f /etc/os-release ]]; then
+    local os_id=$(grep ^ID= /etc/os-release | cut -d'=' -f2 | tr -d '"')
+    case "$os_id" in
+    arch)
+      echo "archlinux"
+      ;;
+    amzn)
+      echo "al2023"
+      ;;
+    *)
+      echo ""
+      ;;
+    esac
+  else
+    echo ""
+  fi
+}
