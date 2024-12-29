@@ -1,0 +1,19 @@
+// vim: ft=sass ts=2 sts=2 sw=2 et
+
+@import "base"
+
+configuration {
+  monitor: "eDP-1";
+}
+
+window {
+  width: 1234px;
+}
+
+listview {
+  lines: 18;
+}
+
+entry {
+  placeholder: "Clipboard Seach...";
+}

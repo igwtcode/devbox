@@ -1,0 +1,15 @@
+// vim: ft=sass ts=2 sts=2 sw=2 et
+
+@import "base"
+
+window {
+  width: 369px;
+}
+
+mainbox {
+  children: [inputbar];
+}
+
+entry {
+  placeholder: "sudo password";
+}

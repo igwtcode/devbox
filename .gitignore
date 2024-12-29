@@ -2,6 +2,7 @@
 *secret*
 *.log
 
+**/alacritty/alacritty.toml
 **/tmux/plugins/
 tmp/
 

@@ -1,0 +1,115 @@
+/* vim: ft=sass */
+
+configuration {
+  display-drun: "Applications:";
+  display-window: "Windows:";
+  //drun-display-format: "{icon} {name} - {generic}"; // Include description for drun
+  font: "MesloLGS Nerd Font Medium 14";
+  // modi: "run,drun,ssh,window";
+
+  // Set icon theme
+  // icon-theme: "Papirus-Dark";
+  // show-icons: true;
+
+  // run,drun,ssh,window {
+  //   matching: "fuzzy";
+  //   case-sensitive: false;
+  // }
+}
+
+@theme "/dev/null"
+
+* {
+  bg: #1e1e2e30;
+  bg-alt: #45475a60;
+  bg-selected: #89b4fa33;
+
+  fg: #cdd6f4;
+  fg-alt: #7f849c;
+  fg-selected: #89b4fa;
+  bd-c: #b4befe69;
+
+  myhighlight: bold #f9e2af;
+
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+
+window {
+  width: 33%;
+  background-color: @bg;
+  border-radius: 3px;
+  border: 1px;
+  border-color: @bd-c;
+  transparency: "real";
+}
+
+element {
+  padding: 9 12;
+  background-color: transparent;
+  text-color: @fg-alt;
+}
+
+message {
+  padding: 9 12;
+  text-color: @fg-alt;
+  background-color: transparent;
+}
+
+textbox {
+  background-color: transparent;
+  text-color: @fg-alt;
+  font: "MesloLGS Nerd Font Medium 12";
+}
+
+element selected {
+  text-color: @fg-selected;
+  background-color: @bg-selected;
+}
+
+element-text {
+  background-color: transparent;
+  text-color: inherit;
+  vertical-align: 0.5;
+  highlight: @myhighlight;
+}
+
+element-icon {
+  size: 14;
+  padding: 0 10 0 0;
+  background-color: transparent;
+}
+
+entry {
+  padding: 12;
+  background-color: @bg-alt;
+  text-color: @fg;
+}
+
+inputbar {
+  children: [prompt, entry];
+  background-color: @bg;
+}
+
+listview {
+  background-color: @bg;
+  columns: 1;
+  lines: 10;
+  // fixed-height:   false;
+}
+
+mainbox {
+  children: [inputbar, message, listview];
+  background-color: @bg;
+}
+
+prompt {
+  enabled: true;
+  padding: 12 0 0 12;
+  background-color: @bg-alt;
+  text-color: @fg;
+}
+
+

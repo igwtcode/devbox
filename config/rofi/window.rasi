@@ -1,0 +1,21 @@
+// vim: ft=sass ts=2 sts=2 sw=2 et
+
+@import "base"
+
+configuration {
+  show-icons: true;
+}
+
+window {
+  width: 1200px;
+}
+
+listview {
+  lines: 12;
+  fixed-height: false;
+}
+
+entry {
+  placeholder: "Search...";
+}
+

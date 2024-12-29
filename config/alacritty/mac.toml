@@ -1,0 +1,27 @@
+general.import = ["~/.config/alacritty/catppuccin-mocha.toml"]
+
+[window]
+padding = { x = 12, y = 6 }
+decorations = "buttonless"
+opacity = 0.77
+blur = true
+startup_mode = "SimpleFullscreen"
+option_as_alt = "Both"
+
+[font]
+# normal = { family = "UbuntuMono Nerd Font", style = "Regular" }
+# normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+# normal = { family = "JetBrainsMono Nerd Font", style = "Medium" }
+normal = { family = "MesloLGM Nerd Font" }
+size = 15
+offset = { y = 3 }
+# glyph_offset = { y = 6 }
+# builtin_box_drawing = false
+
+[cursor]
+style = { shape = "Underline", blinking = "Always" }
+# style = { shape = "Beam", blinking = "Always" }
+
+[env]
+TERM = "xterm-256color"
+COLORTERM = "truecolor"

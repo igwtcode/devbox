@@ -1,0 +1,13 @@
+{
+  "bottomup": true,
+  "cleanAfter": true,
+  "cleanmenu": false,
+  "debug": false,
+  "diffmenu": false,
+  "doubleconfirm": false,
+  "editmenu": false,
+  "keepSrc": false,
+  "maxconcurrentdownloads": 15,
+  "rebuild": "no",
+  "removemake": "always"
+}

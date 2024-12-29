@@ -1,0 +1,123 @@
+/* vim: ft=sass */
+@import "mocha.css";
+
+* {
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 17px;
+  min-height: 0;
+}
+
+#waybar {
+  background: transparent;
+  color: @text;
+}
+
+#custom-rofilauncher,
+#workspaces,
+#pulseaudio,
+#backlight,
+#network,
+#memory,
+#temperature,
+#cpu,
+#bluetooth,
+#clock,
+#battery,
+#custom-lock,
+#custom-hypridle,
+#custom-power {
+  /* background-color: @surface0; */
+  background-color: rgba(31, 32, 44, 0.72);
+  padding: 0 9px;
+  margin: 3px 3px 0px 3px;
+  border-radius: 6px;
+}
+
+#cpu {
+  color: @sky;
+}
+
+#temperature {
+  color: @mauve;
+}
+
+#temperature.critical {
+  color: @red;
+}
+
+#memory {
+  color: @rosewater;
+}
+
+#workspaces button {
+  color: @lavender;
+  border-radius: 6px;
+  padding: 0.3rem 0.2rem;
+}
+
+#workspaces button.active {
+  color: @peach;
+  font-weight: 900;
+  border-radius: 6px;
+}
+
+#workspaces button:hover {
+  color: @sapphire;
+  border-radius: 6px;
+}
+
+#bluetooth.on {
+  color: @blue;
+}
+
+#bluetooth.off {
+  color: @surface0;
+}
+
+#bluetooth.connected {
+  color: @green;
+}
+
+#network.wifi {
+  color: @blue;
+}
+
+#network.disconnected {
+  color: @subtext0;
+}
+
+#clock {
+  color: @sky;
+}
+
+#battery {
+  color: @green;
+}
+
+#battery.charging {
+  color: @teal;
+}
+
+#battery.warning:not(.charging) {
+  color: @yellow;
+}
+
+#battery.critical:not(.charging) {
+  color: @red;
+}
+
+#backlight {
+  color: @subtext1;
+}
+
+#pulseaudio {
+  color: @maroon;
+}
+
+#custom-lock {
+  color: @lavender;
+}
+
+#custom-power {
+  color: @rosewater;
+}

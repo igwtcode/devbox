@@ -1,0 +1,20 @@
+{
+  "overrides": [
+    {
+      "files": ["*.yaml", "*.yml"],
+      "options": {
+        "singleQuote": false,
+        "tabWidth": 2,
+        "printWidth": 150
+      }
+    },
+    {
+      "files": "*.json",
+      "options": {
+        "tabWidth": 2,
+        "trailingComma": "es5",
+        "printWidth": 150
+      }
+    }
+  ]
+}
