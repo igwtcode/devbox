@@ -1,13 +1,16 @@
 .DS_Store
 *secret*
 *.log
-
-**/alacritty/alacritty.toml
-**/tmux/plugins/
 tmp/
+bin/x-*
+
+config/alacritty/alacritty.toml
+config/tmux/plugins/
+
+config/vim/*
+!config/vim/colors
 
 config/Code/*
 !config/Code/User/
 config/Code/User/*
 !config/Code/User/settings.json
-bin/x-*
