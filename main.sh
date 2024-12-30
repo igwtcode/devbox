@@ -141,8 +141,9 @@ post_install() {
   ln -sfn "$(pwd)/bin" "$HOME/bin"
 
   ln -sfn "$CONFIG_DIR/prettierrc" "$HOME/prettierrc"
+  ln -sfn "$CONFIG_DIR/terraformrc" "$HOME/.terraformrc"
 
-  ln -sfn "$CONFIG_DIR/vim" "$DOTCONFIG_DIR/.vim"
+  ln -sfn "$CONFIG_DIR/vim" "$HOME/.vim"
   ln -sfn "$CONFIG_DIR/vimrc" "$HOME/.vimrc"
   ln -sfn "$CONFIG_DIR/nvim" "$DOTCONFIG_DIR/nvim"
 
