@@ -9,11 +9,11 @@
       }
     },
     {
-      "files": "*.json",
+      "files": ["*.json", "*.jsonc"],
       "options": {
         "tabWidth": 2,
-        "trailingComma": "es5",
-        "printWidth": 150
+        "trailingComma": "none",
+        "printWidth": 120
       }
     }
   ]

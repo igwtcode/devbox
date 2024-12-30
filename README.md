@@ -27,7 +27,7 @@ ILoveCandy
 ## Usage
 
 ```bash
-
+./main.sh
 ```
 
 ## Post install

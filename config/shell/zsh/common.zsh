@@ -33,15 +33,14 @@ if command -v op &>/dev/null; then
   compdef _op op
 fi
 
-if command -v kubectl &>/dev/null; then
-  source <(kubectl completion zsh)
-fi
-
 if command -v tbx &>/dev/null; then
   source <(tbx completion zsh)
 fi
 
-source $HOME/.config/shell/catppuccin_mocha-zsh-syntax-highlighting.zsh
+if command -v kubectl &>/dev/null; then
+  source <(kubectl completion zsh)
+fi
+
 [[ -f "$HOME/.config/shell/secret.sh" ]] && source $HOME/.config/shell/secret.sh
 
 export EDITOR=nvim
@@ -52,7 +51,7 @@ export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
 
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin/bin:$HOME/bin
+export PATH=$PATH:$GOPATH/bin/bin:$HOME/.local/bin:$HOME/bin
 
 # nvim_mason=$HOME/.local/share/nvim/mason/bin
 # export PATH=$nvim_mason:$PATH
@@ -69,35 +68,34 @@ export FZF_DEFAULT_OPTS=" \
 # --tmux \
 # --multi"
 
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
-alias exit=' exit'
-alias pwd=' pwd'
-alias bg=' bg'
-alias fg=' fg'
-alias lazygit=' lazygit'
-alias lazydocker=' CONFIG_DIR=~/.config/lazydocker lazydocker'
-alias clear=' clear'
-alias lg=lazygit
-alias lzd=lazydocker
-alias c=clear
-alias v=nvim
-alias b=bat
-alias k=kubectl
-alias tf=terraform
-alias hist='history -E'
-alias grep='grep --color=auto'
-alias ls='ls --color=auto'
-alias ll='eza -l --group-directories-first --git --git-repos --icons --ignore-glob ".DS_Store"'
-alias lt='eza -l --group-directories-first --ignore-glob ".git|.DS_Store" -aTL'
-alias lla='ll -A'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
 alias .....='cd ../../../..'
-
+alias ....='cd ../../..'
+alias ...='cd ../..'
+alias ..='cd ..'
+alias b=bat
+alias bg=' bg'
+alias c=clear
+alias clear=' clear'
+alias cp='cp -i'
+alias exit=' exit'
+alias fg=' fg'
+alias grep='grep --color=auto'
+alias hist='history -E'
+alias k=kubectl
+alias lazydocker=' CONFIG_DIR=~/.config/lazydocker lazydocker'
+alias lazygit=' lazygit'
+alias lg=lazygit
+alias ll='eza -l --group-directories-first --git --git-repos --icons --ignore-glob ".DS_Store"'
+alias lla='ll -A'
+alias ls='ls --color=auto'
+alias lt='eza -l --group-directories-first --ignore-glob ".git|.DS_Store" -aTL'
+alias lzd=lazydocker
+alias mv='mv -i'
+alias pwd=' pwd'
+alias rm='rm -i'
 alias sel-awsprofile="grep -E '^\[.+\]$' ~/.aws/credentials | sed -E 's/^\[(.+)\]$/\1/' | sort -u | fzf"
+alias tf=terraform
+alias v=nvim
 
 rbin() {
   find "$(readlink -f $HOME/bin)" -type f -perm -u+x -maxdepth 1 | while read -r file; do

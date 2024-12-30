@@ -68,7 +68,7 @@ return {
           ['yaml.cfn'] = { 'custom_prettier' },
           ['yaml.sam'] = { 'custom_prettier' },
           json = { 'prettier', 'custom_prettier', stop_after_first = true },
-          jsonc = { 'prettier', 'custom_prettier', stop_after_first = true },
+          jsonc = { 'custom_prettier', stop_after_first = true },
           markdown = { 'prettier' },
           ['markdown.mdx'] = { 'prettier' },
           javascript = { 'prettier' },

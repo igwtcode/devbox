@@ -58,13 +58,16 @@ pre_install() {
   if [[ "$DOS" == "mac" || "$DOS" == "al2023" ]]; then
     echo_gray "checking for homebrew..."
     if ! command -v brew &>/dev/null; then
-      echo_blue "installing homebrew..."
+      echo_cyan "installing homebrew..."
       NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       echo_green "homebrew installed"
-    else
-      echo_green "homebrew already installed"
     fi
-  elif [[ "$DOS" == "archlinux" ]]; then
+    echo_gray "update, upgrade and cleanup homebrew..."
+    brew update && brew upgrade && brew cleanup
+    echo_green "homebrew updated"
+  fi
+
+  if [[ "$DOS" == "archlinux" ]]; then
     echo_gray "setting timezone to Europe/Berlin..."
     sudo ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
     sudo hwclock --systohc
@@ -75,6 +78,13 @@ pre_install() {
     sudo pacman -Sy --needed --noconfirm archlinux-keyring && sudo pacman -Su --noconfirm
     sudo pacman -Sc --noconfirm
 
+    echo_gray "checking for yay config..."
+    if [ ! -d "$DOTCONFIG_DIR/yay" ]; then
+      echo_amber "yay config not found, copying..."
+      cp -r "$CONFIG_DIR/yay" "$DOTCONFIG_DIR/yay"
+      echo_green "yay config copied"
+    fi
+
     local yay_dir="/opt/yay"
     echo_gray "checking for yay..."
     if ! command -v yay &>/dev/null; then
@@ -82,30 +92,23 @@ pre_install() {
       sudo mkdir -p "$yay_dir"
       sudo chown -R "$USER":"$USER" "$yay_dir"
       git clone https://aur.archlinux.org/yay.git "$yay_dir"
-      cd "$yay_dir" || exit
+      cd "$yay_dir" || { echo_red "yay directory not found" && exit 1; }
       makepkg -si --noconfirm
       yay -Y --gendb --noconfirm && yay -Syu --noconfirm
       # yay -Y --gendb --noconfirm && yay -Syu --devel --noconfirm
-      cd - || exit
+      cd - || { echo_red "failed to change directory" && exit 1; }
       echo_green "yay installed."
-    else
-      echo_green "yay already installed."
     fi
+    echo_gray "update, upgrade and cleanup yay..."
+    yay -Syyu --noconfirm && yay -Yc --noconfirm
+    echo_green "yay updated"
 
-    echo_gray "checking for yay config..."
-    if [ ! -d "$DOTCONFIG_DIR/yay" ]; then
-      echo_amber "yay config not found, copying..."
-      cp -r "$CONFIG_DIR/yay" "$DOTCONFIG_DIR/yay"
-      echo_green "yay config copied."
-    else
-      echo_green "yay config already exists."
-    fi
   fi
 }
 
 install() {
   local pkg_file="$(pwd)/pkg/$DOS.txt"
-  [ ! -f "$pkg_file" ] && echo_red "package file not found: $pkg_file" && exit 1
+  [[ -f "$pkg_file" ]] || { echo_red "package file not found: $pkg_file" && exit 1; }
 
   echo_gray "reading packages from $pkg_file..."
   local items=()
@@ -127,13 +130,14 @@ install() {
       printf "%s\n" "${items[@]}" | xargs brew install -q
       echo_green "homebrew packages installed"
     elif [[ "$DOS" == "archlinux" ]]; then
+      echo_gray "checking ${#items[@]} yay packages..."
       yay -S --needed --noconfirm "${items[@]}"
+      echo_green "yay packages installed"
     fi
   fi
 }
 
-# update, upgrade and cleanup (if applicable) packages
-update_and_cleanup_packages() {
+post_install() {
   echo_gray "checking default shell..."
   if [ "$SHELL" != "$(which zsh)" ]; then
     echo_amber "changing default shell to zsh..."
@@ -141,18 +145,6 @@ update_and_cleanup_packages() {
     echo_green "default shell changed to zsh"
   fi
 
-  if [[ "$DOS" == "mac" || "$DOS" == "al2023" ]]; then
-    echo_gray "update, upgrade and cleanup homebrew..."
-    brew update && brew upgrade && brew cleanup
-    echo_green "homebrew updated"
-  elif [[ "$DOS" == "archlinux" ]]; then
-    echo_gray "update, upgrade and cleanup yay..."
-    yay -Syyu --noconfirm && yay -Yc --noconfirm
-    echo_green "yay updated"
-  fi
-}
-
-post_install() {
   ln -sfn "$(pwd)/bin" "$HOME/bin"
 
   ln -sfn "$CONFIG_DIR/prettierrc" "$HOME/prettierrc"
@@ -172,8 +164,8 @@ post_install() {
 
   ln -sfn "$CONFIG_DIR/shell" "$DOTCONFIG_DIR/shell"
 
-  local zshrc="$DOTCONFIG_DIR/shell/$DOS.zsh"
-  local bashrc="$DOTCONFIG_DIR/shell/$DOS.bash"
+  local zshrc="$DOTCONFIG_DIR/shell/zsh/$DOS.zsh"
+  local bashrc="$DOTCONFIG_DIR/shell/bash/$DOS.bash"
   [ -f "$zshrc" ] && ln -sfn "$zshrc" "$HOME/.zshrc"
   [ -f "$bashrc" ] && ln -sfn "$bashrc" "$HOME/.bashrc"
 
@@ -183,10 +175,7 @@ post_install() {
 
   ln -sfn "$CONFIG_DIR/tmux" "$DOTCONFIG_DIR/tmux"
   local tmux_tpm="$DOTCONFIG_DIR/tmux/plugins/tpm"
-  if [ ! -d "$tmux_tpm" ]; then
-    git clone https://github.com/tmux-plugins/tpm "$tmux_tpm" &&
-      $tmux_tpm/bin/install_plugins
-  fi
+  [[ -d "$tmux_tpm" ]] || { git clone https://github.com/tmux-plugins/tpm "$tmux_tpm" && $tmux_tpm/bin/install_plugins; }
 
   if [[ "$DOS" == "mac" || "$DOS" == "archlinux" ]]; then
     ln -sfn "$CONFIG_DIR/alacritty" "$DOTCONFIG_DIR/alacritty"
@@ -194,25 +183,6 @@ post_install() {
     ln -sfn "$CONFIG_DIR/kitty" "$DOTCONFIG_DIR/kitty"
 
     ln -sfn "$CONFIG_DIR/wallpaper" "$DOTCONFIG_DIR/wallpaper"
-  fi
-
-  if [[ "$DOS" == "al2023" || "$DOS" == "archlinux" ]]; then
-    # Add user to docker group for running docker without sudo
-    sudo usermod -aG docker "$USER"
-
-    local services=(
-      "acpid"
-      "bluetooth"
-      "docker"
-      "fstrim.timer"
-      "NetworkManager"
-      "sshd"
-      # "avahi-daemon"
-    )
-    # Enable and start necessary services
-    for svc in "${services[@]}"; do
-      sudo systemctl enable --now "$svc"
-    done
   fi
 
   if [[ "$DOS" == "mac" ]]; then
@@ -229,7 +199,29 @@ post_install() {
     ln -sfn "$CONFIG_DIR/hypr" "$DOTCONFIG_DIR/hypr"
     ln -sfn "$CONFIG_DIR/rofi" "$DOTCONFIG_DIR/rofi"
     ln -sfn "$CONFIG_DIR/waybar" "$DOTCONFIG_DIR/waybar"
-    ln -sfn "$CONFIG_DIR/yay" "$DOTCONFIG_DIR/yay"
+  fi
+
+  if [[ "$DOS" == "al2023" || "$DOS" == "archlinux" ]]; then
+    # Add user to docker group for running docker without sudo
+    sudo usermod -aG docker "$USER"
+
+    local services=("docker" "sshd")
+
+    if [[ "$DOS" == "archlinux" ]]; then
+      services+=(
+        "acpid"
+        "bluetooth"
+        "fstrim.timer"
+        "NetworkManager"
+        # "avahi-daemon"
+      )
+    fi
+
+    # Enable and start necessary services
+    for svc in "${services[@]}"; do
+      echo_gray "enabling and starting service: $svc"
+      sudo systemctl enable --now "$svc" || { echo_red "failed to enable/start service: $svc" >&2; }
+    done
   fi
 }
 
@@ -237,7 +229,6 @@ main() {
   detect_os
   pre_install
   install
-  update_and_cleanup_packages
   post_install
 }
 
