@@ -58,13 +58,11 @@ pre_install() {
   if [[ "$DOS" == "mac" || "$DOS" == "al2023" ]]; then
     echo_gray "checking for homebrew..."
     if ! command -v brew &>/dev/null; then
-      echo_cyan "installing homebrew..."
+      echo_gray "installing homebrew..."
       NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      echo_green "homebrew installed"
     fi
     echo_gray "update, upgrade and cleanup homebrew..."
     brew update && brew upgrade && brew cleanup
-    echo_green "homebrew updated"
   fi
 
   if [[ "$DOS" == "archlinux" ]]; then
@@ -82,7 +80,6 @@ pre_install() {
     if [ ! -d "$DOTCONFIG_DIR/yay" ]; then
       echo_amber "yay config not found, copying..."
       cp -r "$CONFIG_DIR/yay" "$DOTCONFIG_DIR/yay"
-      echo_green "yay config copied"
     fi
 
     local yay_dir="/opt/yay"
@@ -97,11 +94,9 @@ pre_install() {
       yay -Y --gendb --noconfirm && yay -Syu --noconfirm
       # yay -Y --gendb --noconfirm && yay -Syu --devel --noconfirm
       cd - || { echo_red "failed to change directory" && exit 1; }
-      echo_green "yay installed."
     fi
     echo_gray "update, upgrade and cleanup yay..."
     yay -Syyu --noconfirm && yay -Yc --noconfirm
-    echo_green "yay updated"
 
   fi
 }
@@ -128,11 +123,9 @@ install() {
     if [[ "$DOS" == "mac" || "$DOS" == "al2023" ]]; then
       echo_gray "checking ${#items[@]} homebrew packages..."
       printf "%s\n" "${items[@]}" | xargs brew install -q
-      echo_green "homebrew packages installed"
     elif [[ "$DOS" == "archlinux" ]]; then
       echo_gray "checking ${#items[@]} yay packages..."
       yay -S --needed --noconfirm "${items[@]}"
-      echo_green "yay packages installed"
     fi
   fi
 }
@@ -163,10 +156,9 @@ post_install() {
   ln -sfn "$CONFIG_DIR/zsh" "$DOTCONFIG_DIR/zsh"
   local zshrc="$DOTCONFIG_DIR/zsh/$DOS.zsh"
   [ -f "$zshrc" ] && ln -sfn "$zshrc" "$HOME/.zshrc"
-  if [[ "$SHELL" != "$(which zsh)" ]]; then
+  if [[ "$(realpath "$SHELL")" != "$(which zsh)" ]]; then
     echo_amber "changing default shell to zsh..."
     sudo chsh -s "$(which zsh)" "$USER"
-    echo_green "default shell changed to zsh"
   fi
 
   ln -sfn "$CONFIG_DIR/yazi" "$DOTCONFIG_DIR/yazi"
