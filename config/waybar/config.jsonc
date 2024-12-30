@@ -1,6 +1,11 @@
 {
   "layer": "top",
+  "spacing": 3,
   "position": "top", // Waybar position (top|bottom|left|right)
+  "margin-top": 3,
+  "margin-bottom": 0,
+  "margin-left": 9,
+  "margin-right": 9,
   "modules-left": [
     // "custom/rofilauncher",
     "hyprland/workspaces"
@@ -43,8 +48,8 @@
       "9": " ",
       "10": "󰖳",
       // "3": "󱋊",
-      "default": "",
-      "active": ""
+      "default": ""
+      // "active": ""
       // "default": ""
     },
     "persistent-workspaces": {

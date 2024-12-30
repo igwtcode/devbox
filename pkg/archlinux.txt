@@ -38,14 +38,14 @@ fd
 firefox
 flatpak
 freerdp
-fuse-overlayfs
 fuse2
+fuse-overlayfs
 fzf
 gcc
 git
 git-delta
-git-remote-codecommit
 github-cli
+git-remote-codecommit
 gnome-calculator
 go
 grim
@@ -56,6 +56,7 @@ gvfs-smb
 htop
 hypridle
 hyprland
+hyprland-qtutils
 hyprlock
 hyprpaper
 imagemagick
@@ -75,8 +76,8 @@ mpv
 mtools
 nano
 neovim
-network-manager-applet
 networkmanager
+network-manager-applet
 nfs-utils
 nm-connection-editor
 noto-fonts
@@ -107,10 +108,10 @@ python-pip
 python-virtualenv
 python-yaml
 qt5-wayland
+qt6ct
 qt6-declarative
 qt6-svg
 qt6-wayland
-qt6ct
 redis
 ripgrep
 rofi-wayland
