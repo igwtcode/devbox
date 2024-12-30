@@ -22,7 +22,7 @@ if command -v tbx &>/dev/null; then
   source <(tbx completion bash)
 fi
 
-[[ -f "$HOME/.config/shell/secret.sh" ]] && source $HOME/.config/shell/secret.sh
+[[ -f "$HOME/.customrc.sh" ]] && source $HOME/.customrc.sh
 
 export EDITOR=nvim
 export VISUAL=nvim

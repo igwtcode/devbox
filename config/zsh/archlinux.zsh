@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 # vim: ft=zsh
 
-source $HOME/.config/shell/zsh/common.zsh
+source $HOME/.config/zsh/common.zsh
 
 export MOZ_ENABLE_WAYLAND=1
 
@@ -9,7 +9,7 @@ export SUDO_ASKPASS=$HOME/.config/rofi/askpass.sh
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/.config/shell/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+source $HOME/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source /usr/share/nvm/init-nvm.sh
 
 alias cp-awsprofile="sel-awsprofile | tr -d '\n' | wl-copy"

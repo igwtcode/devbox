@@ -41,7 +41,7 @@ if command -v kubectl &>/dev/null; then
   source <(kubectl completion zsh)
 fi
 
-[[ -f "$HOME/.config/shell/secret.sh" ]] && source $HOME/.config/shell/secret.sh
+[[ -f "$HOME/.customrc.sh" ]] && source $HOME/.customrc.sh
 
 export EDITOR=nvim
 export VISUAL=nvim

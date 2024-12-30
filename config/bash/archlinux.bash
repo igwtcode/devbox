@@ -4,7 +4,7 @@
 # If not running interactively, don't do anything
 # [[ $- != *i* ]] && return
 
-source $HOME/.config/shell/bash/common.bash
+source $HOME/.config/bash/common.bash
 
 source /usr/share/nvm/init-nvm.sh
 
