@@ -10,7 +10,7 @@ normal = { family = "MesloLGM Nerd Font" }
 size = 15
 
 [cursor]
-style = { shape = "Underline", blinking = "Always" }
+style = { shape = "Block", blinking = "Off" }
 
 [env]
 TERM = "xterm-256color"

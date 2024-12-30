@@ -19,7 +19,8 @@ offset = { y = 3 }
 # builtin_box_drawing = false
 
 [cursor]
-style = { shape = "Underline", blinking = "Always" }
+style = { shape = "Block", blinking = "Off" }
+# style = { shape = "Underline", blinking = "Always" }
 # style = { shape = "Beam", blinking = "Always" }
 
 [env]
