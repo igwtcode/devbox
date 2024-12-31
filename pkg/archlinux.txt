@@ -119,7 +119,6 @@ rsync
 rust
 sed
 slurp
-smile
 sof-firmware
 starship
 swappy
@@ -130,6 +129,7 @@ terraform
 thunderbird
 ticktick
 tldr
+tmux
 tokei
 ttf-cascadia-code-nerd
 ttf-cascadia-mono-nerd

@@ -24,6 +24,10 @@ ParallelDownloads = 15
 ILoveCandy
 ```
 
+> [!TIP]
+> Open the file `/etc/makepkg.conf` and search for the line that starts with `OPTIONS=`.
+> Change `debug` to `!debug`. This prevents installing `*-debug` packages.
+
 ## Usage
 
 ```bash
