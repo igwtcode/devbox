@@ -49,7 +49,7 @@ return {
               '--stdin-filepath',
               '$FILENAME',
               '--config',
-              os.getenv 'HOME' .. '/.config/prettierrc',
+              os.getenv 'HOME' .. '/prettierrc',
               '--write',
             },
           },
