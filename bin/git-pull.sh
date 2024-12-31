@@ -4,17 +4,16 @@
 SCRIPT_DIR=$(dirname "$(realpath "$0")")
 source ./_lib.sh 2>/dev/null || source "$SCRIPT_DIR/_lib.sh"
 
+get_current_branch() { git branch --show-current 2>/dev/null; }
+
 # Function to pull all branches in a git repository
 git_pull_all_branches() {
-  local current_branch="$(git branch --show-current 2>/dev/null)"
-  if [[ -n "$current_branch" ]]; then
-    trap 'git switch "$current_branch"' EXIT
-  fi
+  local current_branch="$1"
 
   git fetch origin
 
   # Get a list of all remote branches (stripped of the 'origin/' prefix)
-  local remote_branches=$(git branch -r | grep -v '\->' | sed 's/origin\///')
+  local remote_branches=$(git branch -r | grep -v HEAD | sed 's|origin/||')
   [[ -z "$remote_branches" ]] && return 0
 
   for branch in $remote_branches; do
@@ -23,9 +22,11 @@ git_pull_all_branches() {
     fi
     if ! git checkout "$branch" || ! git pull origin "$branch"; then
       echo_red "failed to checkout or pull branch: $branch"
+      git switch "$current_branch"
       return 1
     fi
   done
+  git switch "$current_branch"
 }
 
 # Function to loop through directories and pull branches for each git repository
@@ -38,13 +39,14 @@ process_directories() {
       cd "$d" || { echo_red "failed to enter directory: $d" && return 1; }
       echo_gray "----------------------------------------"
       echo_amber "*** $d"
-      git_pull_all_branches || { echo_red "failed to process git repository in $d" && return 1; }
+      git_pull_all_branches "$(get_current_branch)" || { echo_red "failed to process git repository in $d" && return 1; }
     )
   done
 }
 
-if [ -n "$(git branch --show-current 2>/dev/null)" ]; then
+cb=$(get_current_branch)
+if [[ -z "$cb" ]]; then
   process_directories
 else
-  git_pull_all_branches
+  git_pull_all_branches "$cb"
 fi
