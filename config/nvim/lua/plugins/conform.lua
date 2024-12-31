@@ -64,11 +64,9 @@ return {
           sh = { 'shfmt', 'beautysh' },
           bash = { 'shfmt', 'beautysh' },
           zsh = { 'shfmt', 'beautysh' },
-          yaml = { 'prettier', 'custom_prettier', stop_after_first = true },
+          yaml = { 'custom_prettier' },
           ['yaml.cfn'] = { 'custom_prettier' },
           ['yaml.sam'] = { 'custom_prettier' },
-          json = { 'prettier', 'custom_prettier', stop_after_first = true },
-          jsonc = { 'custom_prettier', stop_after_first = true },
           markdown = { 'prettier' },
           ['markdown.mdx'] = { 'prettier' },
           javascript = { 'prettier' },
@@ -78,6 +76,9 @@ return {
           html = { 'prettier' },
           css = { 'prettier' },
           sass = { 'prettier', 'stylelint' },
+          -- json = { 'custom_prettier' },
+          -- jsonc = { 'custom_prettier' },
+          -- yaml = { 'prettier', 'custom_prettier', stop_after_first = true },
         },
       }
 
