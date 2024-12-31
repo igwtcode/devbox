@@ -23,6 +23,7 @@
 #bluetooth,
 #clock,
 #battery,
+#custom-lang,
 #custom-lock,
 #custom-hypridle,
 #custom-power {
@@ -120,4 +121,8 @@
 
 #custom-power {
   color: @rosewater;
+}
+
+#custom-lang {
+  color: @lavender;
 }
