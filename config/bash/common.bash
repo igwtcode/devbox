@@ -77,3 +77,8 @@ rbin() {
     echo -e "$(basename "$file")\t$file"
   done | fzf --with-nth=1 --delimiter="\t" | awk -F'\t' '{print $2}' | xargs -r bash
 }
+
+fcd() {
+  local dir=$(find . -maxdepth 1 -type d -not -path . | sed 's|^\./||' | fzf) || return
+  cd "$dir"
+}
