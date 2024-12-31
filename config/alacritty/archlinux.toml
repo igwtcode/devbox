@@ -1,12 +1,13 @@
 general.import = ["~/.config/alacritty/catppuccin-mocha.toml"]
 
 [window]
-padding = { x = 6, y = 6 }
-opacity = 0.81
+padding = { x = 12, y = 9 }
+opacity = 0.84
 option_as_alt = "Both"
 
 [font]
-normal = { family = "MesloLGM Nerd Font" }
+normal = { family = "MesloLGM Nerd Font", style = "Regular" }
+bold = { family = "MesloLGM Nerd Font", style = "Bold" }
 size = 15
 
 [cursor]
