@@ -10,9 +10,15 @@ Tools and configurations
 xcode-select --install
 ```
 
-## Optional
-
 ### archlinux
+
+```bash
+nmcli device wifi connect "<SSID>" password "<password>"
+```
+
+> [!IMPORTANT]
+> Open the file `/etc/makepkg.conf` and search for the line that starts with `OPTIONS=`.
+> Change `debug` to `!debug`. This prevents installing `*-debug` packages.
 
 Check these in `/etc/pacman.conf`
 
@@ -23,10 +29,6 @@ VerbosePkgLists
 ParallelDownloads = 15
 ILoveCandy
 ```
-
-> [!TIP]
-> Open the file `/etc/makepkg.conf` and search for the line that starts with `OPTIONS=`.
-> Change `debug` to `!debug`. This prevents installing `*-debug` packages.
 
 ## Usage
 
