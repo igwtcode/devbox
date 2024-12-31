@@ -5,7 +5,7 @@ SCRIPT_DIR=$(dirname "$(realpath "$0")")
 source ./_lib.sh 2>/dev/null || source "$SCRIPT_DIR/_lib.sh"
 
 [[ "$(get_os)" != "mac" ]] && {
-  echo_red "This script is for macOS only"
+  echo_red "this script is for macOS only"
   exit 1
 }
 

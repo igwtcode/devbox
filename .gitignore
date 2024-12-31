@@ -2,6 +2,7 @@
 *secret*
 *.log
 tmp/
+bin/.*.sh
 bin/x-*
 
 config/alacritty/alacritty.toml

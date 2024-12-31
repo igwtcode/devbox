@@ -73,7 +73,7 @@ alias tf=terraform
 alias v=nvim
 
 rbin() {
-  find "$(readlink -f $HOME/bin)" -type f -perm -u+x -maxdepth 1 | while read -r file; do
+  find "$(readlink -f $HOME/bin)" -maxdepth 1 -type f -perm -u+x | while read -r file; do
     echo -e "$(basename "$file")\t$file"
   done | fzf --with-nth=1 --delimiter="\t" | awk -F'\t' '{print $2}' | xargs -r bash
 }

@@ -36,9 +36,9 @@ while IFS= read -r doc; do
         echo_gray "zipping directory $dir_path to $path..."
         (
           cd "$(dirname "$dir_path")" || { echo_red "failed to cd to $(dirname "$dir_path")" && exit 1; }
-          zip -r "$(basename "$path")" "$(basename "$dir_path")" -x "*.DS_Store" &&
-            mv "$(basename "$path")" "$path" &&
-            cd -
+          zip -r "$(basename "$path")" "$(basename "$dir_path")" -x "*.DS_Store"
+          # mv "$(basename "$path")" "$path" &&
+          # cd -
         ) &&
           echo_gray "saving $path..." &&
           op document edit "$id" "$path" &&
