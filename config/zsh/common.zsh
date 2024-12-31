@@ -51,7 +51,7 @@ export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
 
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin/bin:$HOME/.local/bin:$HOME/bin
+export PATH=$PATH:$GOPATH/bin:$GOPATH/bin/bin:$HOME/.local/bin:$HOME/bin
 
 # nvim_mason=$HOME/.local/share/nvim/mason/bin
 # export PATH=$nvim_mason:$PATH
@@ -65,8 +65,8 @@ export FZF_DEFAULT_OPTS=" \
 --reverse \
 --prompt ' '"
 # --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
-# --tmux \
-# --multi"
+  # --tmux \
+  # --multi"
 
 alias .....='cd ../../../..'
 alias ....='cd ../../..'
