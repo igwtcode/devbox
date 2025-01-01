@@ -149,13 +149,9 @@ post_install() {
 
   ln -sfn "$CONFIG_DIR/starship" "$DOTCONFIG_DIR/starship"
 
-  ln -sfn "$CONFIG_DIR/bash" "$DOTCONFIG_DIR/bash"
-  local bashrc="$DOTCONFIG_DIR/bash/$DOS.bash"
-  [ -f "$bashrc" ] && ln -sfn "$bashrc" "$HOME/.bashrc"
+  ln -sfn "$CONFIG_DIR/bashrc" "$HOME/.bashrc"
+  ln -sfn "$CONFIG_DIR/zshrc" "$HOME/.zshrc"
 
-  ln -sfn "$CONFIG_DIR/zsh" "$DOTCONFIG_DIR/zsh"
-  local zshrc="$DOTCONFIG_DIR/zsh/$DOS.zsh"
-  [ -f "$zshrc" ] && ln -sfn "$zshrc" "$HOME/.zshrc"
   if [[ "$(realpath "$SHELL")" != "$(which zsh)" ]]; then
     echo_amber "changing default shell to zsh..."
     sudo chsh -s "$(which zsh)" "$USER"
