@@ -48,6 +48,7 @@ github-cli
 git-remote-codecommit
 gnome-calculator
 go
+google-chrome
 ghostty
 grim
 grimblast
