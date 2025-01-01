@@ -181,7 +181,9 @@ return {
         },
 
         ansiblels = {},
-        bashls = {},
+        bashls = {
+          filetypes = { 'sh', 'bash', 'zsh' },
+        },
         cssls = {},
         docker_compose_language_service = {},
         dockerls = {},
