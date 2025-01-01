@@ -48,6 +48,7 @@ github-cli
 git-remote-codecommit
 gnome-calculator
 go
+ghostty
 grim
 grimblast
 gtk4

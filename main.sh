@@ -168,7 +168,11 @@ post_install() {
   if [[ "$DOS" == "mac" || "$DOS" == "archlinux" ]]; then
     ln -sfn "$CONFIG_DIR/alacritty/$DOS.toml" "$CONFIG_DIR/alacritty/alacritty.toml"
     ln -sfn "$CONFIG_DIR/alacritty" "$DOTCONFIG_DIR/alacritty"
+
     ln -sfn "$CONFIG_DIR/kitty" "$DOTCONFIG_DIR/kitty"
+
+    ln -sfn "$CONFIG_DIR/ghostty/$DOS" "$CONFIG_DIR/ghostty/config"
+    ln -sfn "$CONFIG_DIR/ghostty" "$DOTCONFIG_DIR/ghostty"
 
     ln -sfn "$CONFIG_DIR/wallpaper" "$DOTCONFIG_DIR/wallpaper"
   fi

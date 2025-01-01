@@ -6,6 +6,8 @@ bin/.*.sh
 bin/x-*
 
 config/alacritty/alacritty.toml
+config/ghostty/config
+
 config/tmux/plugins/
 
 config/vim/*

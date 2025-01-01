@@ -24,6 +24,7 @@ fzf
 gh
 git
 git-delta
+ghostty
 gnu-sed
 hashicorp/tap/terraform
 hdf5
