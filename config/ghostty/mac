@@ -1,6 +1,10 @@
 # vim: ft=conf
 
 font-size = 16.5
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+
 theme = dark:catppuccin-mocha,light:catppuccin-latte
 window-padding-y = 9
 window-padding-x = 12

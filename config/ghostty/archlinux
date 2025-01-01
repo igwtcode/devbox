@@ -1,6 +1,9 @@
 # vim: ft=conf
 
 font-size = 15
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
 
 window-decoration = false
 window-theme = dark
