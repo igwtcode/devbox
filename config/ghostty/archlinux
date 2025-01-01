@@ -1,7 +1,12 @@
 # vim: ft=conf
 
-font-size = 16.5
-theme = dark:catppuccin-mocha,light:catppuccin-latte
+font-size = 15
+
+window-decoration = false
+window-theme = dark
+theme = catppuccin-mocha
+shell-integration-features = sudo,cursor,no-title
+
 window-padding-y = 9
 window-padding-x = 9
 
