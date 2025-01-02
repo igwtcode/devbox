@@ -129,6 +129,7 @@ tar
 telegram-desktop
 terminus-font
 terraform
+teams
 thunderbird
 ticktick
 tldr
