@@ -12,7 +12,6 @@ return {
         tf = { 'tflint' },
         python = { 'flake8' },
         json = { 'jsonlint' },
-        go = { 'golangci' },
         javascript = { 'eslint' },
         typescript = { 'eslint' },
         vue = { 'eslint' },

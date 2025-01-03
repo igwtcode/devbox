@@ -131,6 +131,8 @@ return {
       local mason_registry = require 'mason-registry'
       local vue_language_server_path = mason_registry.get_package('vue-language-server'):get_install_path() .. '/node_modules/@vue/language-server'
 
+      local lspconfig = require 'lspconfig'
+
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
       --
@@ -208,7 +210,14 @@ return {
 
         golangci_lint_ls = {
           filetypes = { 'go', 'gomod' },
+          cmd = { 'golangci-lint-langserver', '-nolintername' },
+          root_dir = lspconfig.util.root_pattern('.git', 'go.mod'),
+          init_options = {
+            command = { 'golangci-lint', 'run', '--out-format', 'json', '--issues-exit-code=1' },
+            -- command = { 'golangci-lint', 'run', '--enable-all', '--disable', 'lll', '--out-format', 'json', '--issues-exit-code=1' },
+          },
         },
+
         gopls = {
           settings = {
             gopls = {
@@ -233,8 +242,10 @@ return {
                 rangeVariableTypes = false,
               },
               analyses = {
-                fieldalignment = true,
+                appends = true,
+                assign = true,
                 nilness = true,
+                defers = true,
                 unusedparams = true,
                 unusedwrite = true,
                 useany = true,
@@ -344,6 +355,7 @@ return {
         'goimports',
         'gomodifytags',
         'gofumpt',
+        'golangci-lint',
         'prettier',
         'shfmt',
         'beautysh',
