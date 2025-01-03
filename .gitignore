@@ -4,6 +4,7 @@
 tmp/
 bin/.*.sh
 bin/x-*
+bin/*tbx*
 
 config/alacritty/alacritty.toml
 config/ghostty/config
