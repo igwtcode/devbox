@@ -192,7 +192,25 @@ return {
         html = {},
         marksman = {},
         pyright = {},
-        rust_analyzer = {},
+        -- rust_analyzer = {
+        --   ['rust_analyzer'] = {
+        --     imports = {
+        --       granularity = {
+        --         group = 'module',
+        --       },
+        --       prefix = 'self',
+        --     },
+        --     cargo = {
+        --       allFeatures = true,
+        --       buildScripts = {
+        --         enable = true,
+        --       },
+        --     },
+        --     procMacro = {
+        --       enable = true,
+        --     },
+        --   },
+        -- },
         stylelint = { filetypes = { 'sass' } },
         tailwindcss = {},
         taplo = {},

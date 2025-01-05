@@ -119,7 +119,9 @@ redis
 ripgrep
 rofi-wayland
 rsync
-rust
+rustup
+rust-src
+rust-analyzer
 sed
 slurp
 sof-firmware
