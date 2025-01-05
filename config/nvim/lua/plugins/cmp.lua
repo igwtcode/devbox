@@ -51,18 +51,36 @@ return {
             luasnip.lsp_expand(args.body)
           end,
         },
+
         formatting = {
-          fields = { 'kind', 'menu', 'abbr' },
+          fields = { 'kind', 'abbr' },
+          -- fields = { 'kind', 'abbr', 'menu' },
           expandable_indicator = true,
-          format = require('lspkind').cmp_format {
-            mode = 'symbol_text',
-            maxwidth = 180,
-            maxHeight = 90,
-            ellipsis_char = '...',
-            symbol_map = {
-              Copilot = '',
-            },
-          },
+          format = function(entry, vim_item)
+            if vim.tbl_contains({ 'path' }, entry.source.name) then
+              local icon, hl_group = require('nvim-web-devicons').get_icon(entry:completion_item().label)
+              if icon then
+                vim_item.kind = icon
+                vim_item.kind_hl_group = hl_group
+                return vim_item
+              end
+            end
+            return require('lspkind').cmp_format {
+              with_text = false,
+              -- ellipsis_char = '...',
+              maxwidth = 30,
+              maxHeight = 18,
+            }(entry, vim_item)
+          end,
+          -- format = require('lspkind').cmp_format {
+          --   mode = 'symbol_text',
+          --   maxwidth = 180,
+          --   maxHeight = 90,
+          --   ellipsis_char = '...',
+          --   symbol_map = {
+          --     Copilot = '',
+          --   },
+          -- },
         },
         experimental = {
           ghost_text = true,
@@ -103,8 +121,8 @@ return {
           --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
         },
         sources = {
-          { name = 'copilot' },
           { name = 'nvim_lsp' },
+          { name = 'copilot' },
           { name = 'path', max_item_count = 7 }, -- file system paths
           { name = 'buffer', max_item_count = 7 }, -- text within current buffer
           { name = 'luasnip', max_item_count = 7 }, -- snippets
