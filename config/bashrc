@@ -35,8 +35,8 @@ export FZF_DEFAULT_OPTS=" \
 --reverse \
 --prompt ' '"
 # --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
-# --tmux \
-# --multi"
+  # --tmux \
+  # --multi"
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin:$GOPATH/bin/bin:$HOME/.local/bin:$HOME/bin
@@ -62,10 +62,10 @@ if [[ "$os_alias" == "mac" || "$os_alias" == "al2023" ]]; then
   export NVM_DIR="$HOME/.nvm"
   [ -d "$NVM_DIR" ] || {
     git clone https://github.com/nvm-sh/nvm.git "$NVM_DIR" &&
-      (
-        cd "$NVM_DIR" &&
-          git checkout "$(git describe --abbrev=0 --tags --match 'v[0-9]*' $(git rev-list --tags --max-count=1))"
-      )
+    (
+      cd "$NVM_DIR" &&
+      git checkout "$(git describe --abbrev=0 --tags --match 'v[0-9]*' $(git rev-list --tags --max-count=1))"
+    )
   }
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
@@ -138,15 +138,25 @@ elif [[ "$os_alias" == "archlinux" ]]; then
   alias ch="cliphist list | fzf --no-sort -d $'\t' --with-nth 2 | cliphist decode | wl-copy"
 fi
 
-rbin() {
-  find "$(readlink -f $HOME/bin)" -maxdepth 1 -type f -perm -u+x | while read -r file; do
-    echo -e "$(basename "$file")\t$file"
-  done | fzf --with-nth=1 --delimiter="\t" | awk -F'\t' '{print $2}' | xargs -r bash
+xx() {
+  # find "$(readlink -f $HOME/bin)" -maxdepth 1 -type f -perm -u+x | while read -r file; do
+  #   echo -e "$(basename "$file")\t$file"
+  # done | fzf --with-nth=1 --delimiter="\t" | awk -F'\t' '{print $2}' | xargs -r bash
+  local base_dir="$HOME/bin"
+  local b=$(fd -t x -d 3 -H -I --base-directory "$base_dir" | fzf)
+  [[ -n "$b" ]] && "$base_dir/$b"
 }
 
-fcd() {
-  local dir=$(find . -maxdepth 1 -type d -not -path . | sed 's|^\./||' | fzf)
+ff() {
+  # local dir=$(find . -maxdepth 1 -type d -not -path . | sed 's|^\./||' | fzf)
+  local dir=$(fd -t d -d 6 -H -E node_modules -E '.git' -E '.terraform' | fzf)
   [[ -n "$dir" ]] && cd "$dir"
+}
+
+gg() {
+  local base_dir="$HOME/codebox"
+  local dir=$(fd -t d -d 3 -H -E node_modules -E '.git' -E '.terraform' --base-directory $base_dir --min-depth 2 | fzf)
+  [[ -n "$dir" ]] && cd "$base_dir/$dir"
 }
 
 [[ -f "$HOME/.customrc.sh" ]] && source $HOME/.customrc.sh
