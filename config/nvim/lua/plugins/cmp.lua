@@ -52,35 +52,41 @@ return {
           end,
         },
 
+        sorting = {
+          priority_weight = 10.0,
+          comparators = {
+            cmp.config.compare.score, -- based on :  score = score + ((#sources - (source_index - 1)) * sorting.priority_weight)
+            cmp.config.compare.locality,
+            cmp.config.compare.recently_used,
+            cmp.config.compare.offset,
+            cmp.config.compare.order,
+            -- cmp.config.compare.kind,
+            -- compare.exact,
+            -- compare.scopes, -- what?
+            -- compare.sort_text,
+            -- compare.length, -- useless
+            -- compare.score_offset, -- not good at all
+          },
+        },
+
         formatting = {
           fields = { 'kind', 'abbr' },
           -- fields = { 'kind', 'abbr', 'menu' },
-          expandable_indicator = true,
-          format = function(entry, vim_item)
-            if vim.tbl_contains({ 'path' }, entry.source.name) then
-              local icon, hl_group = require('nvim-web-devicons').get_icon(entry:completion_item().label)
-              if icon then
-                vim_item.kind = icon
-                vim_item.kind_hl_group = hl_group
-                return vim_item
-              end
-            end
-            return require('lspkind').cmp_format {
-              with_text = false,
-              -- ellipsis_char = '...',
-              maxwidth = 30,
-              maxHeight = 18,
-            }(entry, vim_item)
-          end,
-          -- format = require('lspkind').cmp_format {
-          --   mode = 'symbol_text',
-          --   maxwidth = 180,
-          --   maxHeight = 90,
-          --   ellipsis_char = '...',
-          --   symbol_map = {
-          --     Copilot = '',
-          --   },
-          -- },
+          expandable_indicator = false,
+          format = require('lspkind').cmp_format {
+            mode = 'symbol',
+            preset = 'codicons',
+            -- mode = 'symbol_text',
+            maxwidth = {
+              abbr = 30,
+              menu = 0,
+            },
+            maxHeight = 18,
+            ellipsis_char = '...',
+            symbol_map = {
+              Copilot = '',
+            },
+          },
         },
         experimental = {
           ghost_text = true,
@@ -120,12 +126,15 @@ return {
           -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
           --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
         },
-        sources = {
-          { name = 'nvim_lsp' },
-          { name = 'copilot' },
-          { name = 'path', max_item_count = 7 }, -- file system paths
-          { name = 'buffer', max_item_count = 7 }, -- text within current buffer
-          { name = 'luasnip', max_item_count = 7 }, -- snippets
+        sources = cmp.config.sources {
+          { name = 'copilot', priority = 10 },
+          { name = 'nvim_lsp', priority = 9 },
+          { name = 'buffer', priority = 8, max_item_count = 7 }, -- text within current buffer
+          { name = 'luasnip', priority = 7, max_item_count = 7 }, -- snippets
+          { name = 'path', priority = 6, max_item_count = 7 }, -- file system paths
+          { name = 'spell', keyword_length = 3, priority = 5, keyword_pattern = [[\w\+]] },
+          { name = 'nerdfont', priority = 3 },
+          { name = 'calc', priority = 3 },
           {
             name = 'lazydev',
             -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
