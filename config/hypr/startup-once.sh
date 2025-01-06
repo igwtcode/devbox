@@ -25,21 +25,6 @@ sleep 1
 /usr/lib/xdg-desktop-portal &
 wl-paste --watch cliphist store &
 
-sleep 2
-
-hyprctl dispatch workspace 1 && (ghostty &)
-sleep 1
-
-hyprctl dispatch workspace 2 && (1password &)
-sleep 3
-
-hyprctl dispatch workspace 4 && (firefox &)
-sleep 2
-
-hyprctl dispatch workspace 6 && (ghostty -e zsh -c 'tmux' &)
-sleep 2
-
-hyprctl dispatch workspace 7 && (firefox &)
-sleep 2
-
-hyprctl dispatch workspace 6
+# sleep 2
+#
+# hyprctl dispatch workspace 6 && (ghostty -e zsh -c 'tmux' &)
