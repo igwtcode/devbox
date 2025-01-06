@@ -2,33 +2,11 @@
 
 Tools and configurations
 
-## Requirements
-
-### mac
-
-```bash
-xcode-select --install
-```
-
-### archlinux
-
-```bash
-nmcli device wifi connect "<SSID>" password "<password>"
-```
-
 > [!IMPORTANT]
-> Open the file `/etc/makepkg.conf` and search for the line that starts with `OPTIONS=`.
-> Change `debug` to `!debug`. This prevents installing `*-debug` packages.
+> Read docs before running the script
 
-Check these in `/etc/pacman.conf`
-
-```bash
-Color
-CheckSpace
-VerbosePkgLists
-ParallelDownloads = 15
-ILoveCandy
-```
+- [archlinux](/docs/archlinux.md)
+- [mac](/docs/mac.md)
 
 ## Usage
 
@@ -36,11 +14,8 @@ ILoveCandy
 ./main.sh
 ```
 
-## Post install
+## After
 
-Open `tmux` and press `Ctrl-a + I` to install all plugins
-
-## Hints
-
-> [!TIP]
-> To export brew packages to a text file: `brew leaves > brew.txt`
+- open tmux with `tmux`.
+  If plugins are not auto installed on first run,
+  press `Ctrl-a + I` to install all plugins.
