@@ -126,8 +126,12 @@ install() {
     elif [[ "$DOS" == "archlinux" ]]; then
       echo_gray "checking ${#items[@]} yay packages..."
       yay -S --needed --noconfirm "${items[@]}"
+
       echo_gray "installing rust with rustup..."
       rustup default stable
+
+      echo_gray "installing ms teams with flatpak..."
+      flatpak install -y com.github.IsmaelMartinez.teams_for_linux
     fi
   fi
 }
