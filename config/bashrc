@@ -149,13 +149,13 @@ xx() {
 
 ff() {
   # local dir=$(find . -maxdepth 1 -type d -not -path . | sed 's|^\./||' | fzf)
-  local dir=$(fd -t d -d 6 -H -E node_modules -E '.git' -E '.terraform' | fzf)
+  local dir=$(fd -t d -d 6 -H -E node_modules -E '.git' -E '.terraform' -E '.vscode' | fzf)
   [[ -n "$dir" ]] && cd "$dir"
 }
 
 gg() {
   local base_dir="$HOME/codebox"
-  local dir=$(fd -t d -d 3 -H -E node_modules -E '.git' -E '.terraform' --base-directory $base_dir --min-depth 2 | fzf)
+  local dir=$(fd -t d -d 3 -H -E node_modules -E '.git' -E '.terraform' -E '.vscode' --base-directory $base_dir --min-depth 2 | fzf)
   [[ -n "$dir" ]] && cd "$base_dir/$dir"
 }
 
