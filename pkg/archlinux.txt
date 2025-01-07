@@ -42,6 +42,7 @@ fuse2
 fuse-overlayfs
 fzf
 gcc
+ghostty
 git
 git-delta
 github-cli
@@ -49,7 +50,6 @@ git-remote-codecommit
 gnome-calculator
 go
 google-chrome
-ghostty
 grim
 grimblast
 gtk4
@@ -91,6 +91,7 @@ nvm
 nwg-look
 obsidian
 openbsd-netcat
+opensearch-cli
 openssh
 otf-font-awesome
 p7zip
@@ -119,9 +120,9 @@ redis
 ripgrep
 rofi-wayland
 rsync
-rustup
-rust-src
 rust-analyzer
+rust-src
+rustup
 sed
 slurp
 sof-firmware
