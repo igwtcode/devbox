@@ -40,7 +40,8 @@ return {
             prepend_args = { '-i', '2' },
           },
           beautysh = {
-            prepend_args = { '-i', '2', '--force-function-style', 'paronly', '$FILENAME' },
+            prepend_args = { '-i', '2', '--force-function-style', 'fnonly', '$FILENAME' },
+            -- prepend_args = { '-i', '2', '--force-function-style', 'paronly', '$FILENAME' },
           },
           custom_prettier = {
             command = 'prettier',
