@@ -37,10 +37,11 @@ return {
         end,
         formatters = {
           shfmt = {
-            prepend_args = { '-i', '2' },
+            -- prepend_args = { '-i', '2' },
           },
           beautysh = {
-            prepend_args = { '-i', '2', '--force-function-style', 'fnonly', '$FILENAME' },
+            prepend_args = { '--force-function-style', 'fnonly', '$FILENAME' },
+            -- prepend_args = { '-i', '2', '--force-function-style', 'fnonly', '$FILENAME' },
             -- prepend_args = { '-i', '2', '--force-function-style', 'paronly', '$FILENAME' },
           },
           custom_prettier = {
@@ -62,9 +63,11 @@ return {
           terraform = { 'terraform_fmt' },
           tf = { 'terraform_fmt' },
           ['terraform-vars'] = { 'terraform_fmt' },
-          sh = { 'shfmt', 'beautysh' },
-          bash = { 'shfmt', 'beautysh' },
-          zsh = { 'shfmt', 'beautysh' },
+          sh = { 'shfmt' },
+          bash = { 'shfmt' },
+          zsh = { 'shfmt' },
+          -- bash = { 'beautysh', 'shfmt' },
+          -- zsh = { 'beautysh', 'shfmt' },
           yaml = { 'custom_prettier' },
           ['yaml.cfn'] = { 'custom_prettier' },
           ['yaml.sam'] = { 'custom_prettier' },
