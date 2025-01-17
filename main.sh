@@ -33,15 +33,15 @@ detect_os() {
   elif [[ -f /etc/os-release ]]; then
     local os_id=$(grep ^ID= /etc/os-release | cut -d'=' -f2 | tr -d '"')
     case "$os_id" in
-      arch)
-        DOS="archlinux"
-        ;;
-      amzn)
-        DOS="al2023"
-        ;;
-      *)
-        echo_red "unsupported os: $os_id" && exit 1
-        ;;
+    arch)
+      DOS="archlinux"
+      ;;
+    amzn)
+      DOS="al2023"
+      ;;
+    *)
+      echo_red "unsupported os: $os_id" && exit 1
+      ;;
     esac
   else
     echo "unknown os" && exit 1
@@ -129,6 +129,7 @@ install() {
 
       echo_gray "installing rust with rustup..."
       rustup default stable
+      rustup update
 
       echo_gray "installing ms teams with flatpak..."
       flatpak install -y com.github.IsmaelMartinez.teams_for_linux
