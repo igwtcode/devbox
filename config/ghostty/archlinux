@@ -13,4 +13,6 @@ shell-integration-features = sudo,cursor,no-title
 window-padding-y = 9
 window-padding-x = 9
 
-background-opacity = 0.81
+background-opacity = 1
+
+term = xterm-256color
