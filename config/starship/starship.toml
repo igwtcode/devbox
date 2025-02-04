@@ -5,6 +5,7 @@ $os\
 $directory\
 $git_branch\
 $golang\
+$rust\
 $bun\
 $nodejs\
 $terraform\
@@ -49,6 +50,10 @@ detect_files = ['package.json', '.node-version', '!bunfig.toml', '!bun.lockb']
 [golang]
 symbol = "󰟓"
 format = "[$symbol ](fg:sapphire)"
+
+[rust]
+symbol = "󱘗"
+format = "[$symbol ](fg:maroon)"
 
 [python]
 symbol = ""

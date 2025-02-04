@@ -80,6 +80,7 @@ mpv
 mtools
 nano
 neovim
+nerd-fonts-sf-mono
 networkmanager
 network-manager-applet
 nfs-utils

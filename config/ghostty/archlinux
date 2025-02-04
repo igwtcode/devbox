@@ -1,18 +1,26 @@
 # vim: ft=conf
 
-font-size = 15
+font-family = "SFMono Nerd Font Mono Medium"
+font-size = 18
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
+adjust-cell-height = 9%
+
+theme = catppuccin-mocha
 
 window-decoration = false
 window-theme = dark
-theme = catppuccin-mocha
-shell-integration-features = sudo,cursor,no-title
+window-save-state= always
+# window-padding-y = 9
+# window-padding-x = 9
 
-window-padding-y = 9
-window-padding-x = 9
+shell-integration-features = no-cursor,sudo,no-title
+cursor-style = block
+mouse-hide-while-typing = true
 
 background-opacity = 1
 
 term = xterm-256color
+
+keybind = ctrl+shift+r=reload_config
