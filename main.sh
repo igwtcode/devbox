@@ -127,14 +127,14 @@ install() {
       echo_gray "checking ${#items[@]} yay packages..."
       yay -S --needed --noconfirm "${items[@]}"
 
-      echo_gray "installing rust with rustup..."
-      rustup default stable
-      rustup update
-
       echo_gray "installing ms teams with flatpak..."
       flatpak install -y com.github.IsmaelMartinez.teams_for_linux
     fi
   fi
+
+  echo_gray "installing rust with rustup..."
+  rustup default stable
+  rustup update
 }
 
 post_install() {
