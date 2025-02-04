@@ -1,18 +1,28 @@
 # vim: ft=conf
 
-font-size = 16.5
+font-size = 18
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
 
-theme = dark:catppuccin-mocha,light:catppuccin-latte
-window-padding-y = 9
-window-padding-x = 12
+theme = catppuccin-mocha
 
-background-opacity = 0.81
-background-blur-radius = 17
+window-theme = dark
+window-save-state= always
+# window-padding-y = 9
+# window-padding-x = 9
 
-macos-non-native-fullscreen = true
+shell-integration-features = no-cursor,sudo,no-title
+cursor-style = block
+mouse-hide-while-typing = true
+
+background-opacity = 1
+
+term = xterm-256color
+
+keybind = ctrl+shift+r=reload_config
+
+macos-non-native-fullscreen = false
 # macos-titlebar-style = tabs
 
 # shell-integration = zsh
