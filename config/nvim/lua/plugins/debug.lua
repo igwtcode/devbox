@@ -51,6 +51,7 @@ return {
         'js-debug-adapter',
         'delve',
         'debugpy',
+        'codelldb',
       },
     }
 
