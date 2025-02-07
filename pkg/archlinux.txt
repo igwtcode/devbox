@@ -66,6 +66,7 @@ inetutils
 intel-ucode
 ipset
 jq
+k9s
 kitty
 kubectl
 lazydocker
