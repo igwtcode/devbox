@@ -78,7 +78,7 @@ return {
             preset = 'codicons',
             -- mode = 'symbol_text',
             maxwidth = {
-              abbr = 30,
+              abbr = 60,
               menu = 0,
             },
             maxHeight = 18,
