@@ -47,7 +47,8 @@ require('lazy').setup({
   },
   {
     'zbirenbaum/copilot-cmp',
-    event = 'InsertEnter',
+    -- event = 'InsertEnter',
+    cmd = 'Copilot',
     config = function()
       require('copilot_cmp').setup()
     end,
