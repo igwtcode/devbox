@@ -37,6 +37,7 @@ fastfetch
 fd
 firefox
 flatpak
+fluxcd
 freerdp
 fuse2
 fuse-overlayfs
@@ -55,6 +56,7 @@ grimblast
 gtk4
 gvfs
 gvfs-smb
+helm
 htop
 hypridle
 hyprland
