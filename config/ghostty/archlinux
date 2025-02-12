@@ -7,6 +7,7 @@ font-feature = -liga
 font-feature = -dlig
 adjust-cell-height = 9%
 
+# background = 030303
 theme = catppuccin-mocha
 
 window-decoration = false
@@ -15,11 +16,13 @@ window-save-state= always
 # window-padding-y = 9
 # window-padding-x = 9
 
-shell-integration-features = sudo,cursor,no-title
+shell-integration-features = no-cursor,sudo,no-title
 # cursor-style = underline
 mouse-hide-while-typing = true
+cursor-color=ededed
+cursor-text=090909
 
-background-opacity = 1
+background-opacity = 0.84
 
 term = xterm-256color
 

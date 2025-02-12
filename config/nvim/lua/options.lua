@@ -124,6 +124,8 @@ vim.opt.foldlevel = 99
 vim.opt.foldmethod = 'expr'
 
 vim.opt.modeline = true
--- vim.opt.guicursor = 'a:hor100-blinkon1'
+-- vim.opt.guicursor = 'a:hor100-blinkon1,i:ver100'
+-- vim.opt.guicursor = 'n-ci:hor30-iCursor-blinkwait300-blinkon200-blinkoff150'
 
+-- n-v-c-sm:block,ci-ve:ver25,r-cr-o:hor20,i:block-blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
 -- vim: ts=2 sts=2 sw=2 et
