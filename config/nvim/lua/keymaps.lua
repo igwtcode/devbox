@@ -112,6 +112,9 @@ end, { desc = 'Open Diagnostic' })
 -- replace the selected text with the copied text
 vim.keymap.set('x', '<leader>p', [["_dP]])
 
+vim.keymap.set('x', 'p', '"_dP', { noremap = true, silent = true })
+-- vim.keymap.set("x", "d", '"_d', { noremap = true, silent = true })
+
 -- vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 -- vim.keymap.set("n", "<leader>Y", [["+Y]])
 -- vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
