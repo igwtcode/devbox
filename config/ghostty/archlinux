@@ -22,7 +22,7 @@ mouse-hide-while-typing = true
 cursor-color=ededed
 cursor-text=090909
 
-background-opacity = 0.84
+background-opacity = 1
 
 term = xterm-256color
 
