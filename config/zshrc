@@ -126,8 +126,8 @@ export FZF_DEFAULT_OPTS=" \
 --reverse \
 --prompt ' '"
 # --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
-  # --tmux \
-  # --multi"
+# --tmux \
+# --multi"
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin:$GOPATH/bin/bin:$HOME/.local/bin:$HOME/bin
@@ -157,10 +157,10 @@ if [[ "$os_alias" == "mac" || "$os_alias" == "al2023" ]]; then
   export NVM_DIR="$HOME/.nvm"
   [ -d "$NVM_DIR" ] || {
     git clone https://github.com/nvm-sh/nvm.git "$NVM_DIR" &&
-    (
-      cd "$NVM_DIR" &&
-      git checkout "$(git describe --abbrev=0 --tags --match 'v[0-9]*' $(git rev-list --tags --max-count=1))"
-    )
+      (
+        cd "$NVM_DIR" &&
+          git checkout "$(git describe --abbrev=0 --tags --match 'v[0-9]*' $(git rev-list --tags --max-count=1))"
+      )
   }
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
@@ -212,6 +212,10 @@ fi
 
 if command -v kubectl &>/dev/null; then
   source <(kubectl completion zsh)
+fi
+
+if command -v devpod &>/dev/null; then
+  source <(devpod completion zsh)
 fi
 
 alias .....='cd ../../../..'
