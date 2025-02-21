@@ -14,7 +14,7 @@ gui:
     "*": "#b4befe"
   theme:
     activeBorderColor:
-      - "#b4befe"
+      - "#fab387"
       - bold
     inactiveBorderColor:
       - "#a6adc8"
