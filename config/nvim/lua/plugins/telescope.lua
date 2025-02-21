@@ -113,18 +113,20 @@ return {
           find_files = {
             hidden = true,
             find_command = {
-              'rg',
-              '--files',
-              '--hidden',
-              -- "--no-ignore-vcs",
-              '--glob=!**/.git/*',
-              '--glob=!**/.idea/*',
-              '--glob=!**/.vscode/*',
-              '--glob=!**/build/*',
-              '--glob=!**/dist/*',
-              '--glob=!**/*.zip',
-              '--glob=!**/yarn.lock',
-              '--glob=!**/package-lock.json',
+              'fd',
+              '--type',
+              'f', -- Only files
+              '--hidden', -- Include hidden files
+              '--exclude',
+              '.git', -- Exclude unnecessary directories
+              '--exclude',
+              '.idea',
+              '--exclude',
+              'build',
+              '--exclude',
+              'dist',
+              '--exclude',
+              '*.zip',
             },
           },
           live_grep = {
