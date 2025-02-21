@@ -8,6 +8,10 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- Open Oil (file explorer)
 vim.keymap.set('n', '<leader>e', '<cmd>Oil --float<CR>', { desc = 'Explorer' })
 
+vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = 'Write' })
+vim.keymap.set('n', '<leader>ww', ':wa<CR>', { desc = 'Write All' })
+vim.keymap.set('n', '<leader>qq', ':qa<CR>', { desc = 'Quit All' })
+
 -- zen mode
 vim.keymap.set('n', '<leader>z', '<cmd>ZenMode<CR>', { desc = 'Toggle [Z]en mode' })
 
