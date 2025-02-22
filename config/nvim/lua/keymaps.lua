@@ -3,13 +3,14 @@
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set('n', '<leader>qf', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Open Oil (file explorer)
 vim.keymap.set('n', '<leader>e', '<cmd>Oil --float<CR>', { desc = 'Explorer' })
 
 vim.keymap.set('n', '<leader>w', ':w<CR>', { desc = 'Write' })
 vim.keymap.set('n', '<leader>ww', ':wa<CR>', { desc = 'Write All' })
+vim.keymap.set('n', '<leader>q', ':q<CR>', { desc = 'Quit' })
 vim.keymap.set('n', '<leader>qq', ':qa<CR>', { desc = 'Quit All' })
 
 -- zen mode
@@ -116,7 +117,8 @@ end, { desc = 'Open Diagnostic' })
 -- replace the selected text with the copied text
 vim.keymap.set('x', '<leader>p', [["_dP]])
 
-vim.keymap.set('x', 'p', '"_dP', { noremap = true, silent = true })
+-- vim.keymap.set('x', 'p', '"_dP', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('x', 'p', '"_dP', { noremap = true, silent = true })
 -- vim.keymap.set("x", "d", '"_d', { noremap = true, silent = true })
 
 -- vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
