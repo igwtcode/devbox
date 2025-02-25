@@ -54,6 +54,7 @@ google-chrome
 grim
 grimblast
 gtk4
+gum
 gvfs
 gvfs-smb
 helm
