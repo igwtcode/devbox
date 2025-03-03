@@ -210,16 +210,17 @@ if command -v tbx &>/dev/null; then
   source <(tbx completion zsh)
 fi
 
-if command -v kubectl &>/dev/null; then
-  source <(kubectl completion zsh)
-fi
+# if command -v kubectl &>/dev/null; then
+#   source <(kubectl completion zsh)
+# fi
 
-source <(gum completion zsh)
+# source <(gum completion zsh)
 
 # if command -v devpod &>/dev/null; then
 #   source <(devpod completion zsh)
 # fi
 
+alias task='go-task'
 alias .....='cd ../../../..'
 alias ....='cd ../../..'
 alias ...='cd ../..'
