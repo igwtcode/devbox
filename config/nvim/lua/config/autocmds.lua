@@ -6,3 +6,11 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+--
+
+vim.api.nvim_create_autocmd("VimLeave", {
+  callback = function()
+    vim.o.guicursor = ""
+    vim.api.nvim_chan_send(vim.v.stderr, "\x1b[ q")
+  end,
+})
