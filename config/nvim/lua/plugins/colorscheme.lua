@@ -4,6 +4,13 @@ return {
     lazy = true,
     name = "catppuccin",
     opts = {
+      flavour = "mocha", -- latte, frappe, macchiato, mocha
+      background = { light = "latte", dark = "mocha" },
+      dim_inactive = {
+        enabled = true,
+        shade = "dark",
+        percentage = 0.15,
+      },
       integrations = {
         aerial = true,
         alpha = true,

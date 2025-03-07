@@ -2,10 +2,10 @@
   "layer": "top",
   "spacing": 3,
   "position": "top", // Waybar position (top|bottom|left|right)
-  "margin-top": 3,
+  "margin-top": 0,
   "margin-bottom": 0,
-  "margin-left": 9,
-  "margin-right": 9,
+  "margin-left": 0,
+  "margin-right": 0,
   "modules-left": [
     // "custom/rofilauncher",
     "hyprland/workspaces"
@@ -39,21 +39,21 @@
     "sort-by-name": true,
     "format": " {name} {icon} ",
     "format-icons": {
-      "1": "",
-      "2": "󱕵",
-      "3": "",
-      "4": "󰊻",
-      "6": "",
-      "7": "",
-      "8": "",
-      "9": "",
+      // "1": "",
+      // "2": "󱕵",
+      // "3": "",
+      // "4": "󰊻",
+      // "6": "",
+      // "7": "",
+      // "8": "",
+      // "9": "",
       // "7": "",
       // "8": "",
       // "9": " ",
-      "10": "󰖳",
+      // "10": "󰖳",
       // "3": "󱋊",
-      "default": ""
-      // "active": ""
+      "default": "",
+      "active": ""
       // "default": ""
     },
     "persistent-workspaces": {

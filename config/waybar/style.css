@@ -8,8 +8,9 @@
 }
 
 #waybar {
-  background: transparent;
+  /*background: transparent; */
   color: @text;
+  background-color: rgba(31, 32, 44, 0.72);
 }
 
 #custom-rofilauncher,
@@ -28,10 +29,10 @@
 #custom-hypridle,
 #custom-power {
   /* background-color: @surface0; */
-  background-color: rgba(31, 32, 44, 0.72);
-  padding: 0 9px;
-  margin: 3px 3px 0px 3px;
-  border-radius: 6px;
+  /* background-color: rgba(31, 32, 44, 0.72); */
+  padding: 6 9px;
+  margin: 0px 0px 0px 0px;
+  border-radius: 0px;
 }
 
 #cpu {
@@ -53,7 +54,8 @@
 #workspaces button {
   color: @lavender;
   border-radius: 6px;
-  padding: 0.3rem 0.2rem;
+  padding: 0;
+  /* padding: 0 0 0.2rem 0.3rem; */
 }
 
 #workspaces button.active {

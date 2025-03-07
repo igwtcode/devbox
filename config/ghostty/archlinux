@@ -5,6 +5,7 @@ font-size = 16
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
+font-synthetic-style = true
 adjust-cell-height = 9%
 
 # background = 030303
@@ -13,14 +14,18 @@ theme = catppuccin-mocha
 window-decoration = false
 window-theme = dark
 window-save-state= always
-# window-padding-y = 9
-# window-padding-x = 9
+window-padding-y = 0
+window-padding-x = 0
+window-padding-balance = true
+window-padding-color = background
 
 shell-integration-features = no-cursor,sudo,no-title
 cursor-style = underline
 mouse-hide-while-typing = true
-cursor-color=ededed
+cursor-color=f9e2af
 cursor-text=090909
+# adjust-cursor-height = 32%
+# adjust-cursor-thickness = 32%
 
 background-opacity = 1
 
