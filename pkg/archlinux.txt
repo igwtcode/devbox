@@ -96,13 +96,13 @@ nss-mdns
 ntfs-3g
 nvm
 nwg-look
-obsidian
+#obsidian
 openbsd-netcat
 opensearch-cli
 openssh
 otf-font-awesome
 p7zip
-packer
+#packer
 pacman-contrib
 papirus-icon-theme
 pavucontrol
@@ -124,7 +124,7 @@ qt6ct
 qt6-declarative
 qt6-svg
 qt6-wayland
-redis
+#redis
 ripgrep
 rofi-wayland
 rsync
@@ -141,7 +141,7 @@ telegram-desktop
 terminus-font
 terraform
 thunderbird
-ticktick
+#ticktick
 tldr
 tmux
 tokei
