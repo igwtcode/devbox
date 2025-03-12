@@ -5,7 +5,15 @@ return {
     name = "catppuccin",
     opts = {
       flavour = "mocha", -- latte, frappe, macchiato, mocha
+      term_colors = true, -- sets terminal colors (e.g. `g:terminal_color_0`)
       background = { light = "latte", dark = "mocha" },
+      color_overrides = {
+        mocha = {
+          base = "#121212",
+          mantle = "#121212",
+          crust = "#121212",
+        },
+      },
       dim_inactive = {
         enabled = true,
         shade = "dark",

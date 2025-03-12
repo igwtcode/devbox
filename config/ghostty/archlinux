@@ -8,7 +8,7 @@ font-feature = -dlig
 font-synthetic-style = true
 adjust-cell-height = 9%
 
-# background = 030303
+background = 181818
 theme = catppuccin-mocha
 
 window-decoration = false
