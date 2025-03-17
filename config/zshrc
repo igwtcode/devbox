@@ -119,9 +119,9 @@ export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
 
 export FZF_DEFAULT_OPTS=" \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#a6e3a1 \
---color=marker:#b4befe,fg+:#cdd6f4,prompt:#fab387,hl+:#f38ba8 \
---color=selected-bg:#45475a \
+--color=fg:#cdd6f4,fg+:#f9e2af,bg+:#303030 \
+--color=header:#89b4fa,info:#cba6f7,pointer:#a6e3a1,marker:#b4befe \
+--color=prompt:#fab387,spinner:#f9e2af,hl:#f38ba8,hl+:#f38ba8 \
 --border=rounded \
 --height=~33% \
 --reverse \
