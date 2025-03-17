@@ -6,6 +6,13 @@ return {
       yamlls = {
         filetypes = { "yaml", "yaml.ansible", "yaml.github", "yaml.cfn", "yaml.sam" },
       },
+      gopls = {
+        settings = {
+          gopls = {
+            usePlaceholders = false,
+          },
+        },
+      },
     },
   },
 }
