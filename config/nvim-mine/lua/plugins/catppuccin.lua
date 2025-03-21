@@ -11,7 +11,7 @@ return {
           light = 'latte',
           dark = 'mocha',
         },
-        transparent_background = false, -- disables setting the background color.
+        transparent_background = true, -- disables setting the background color.
         show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
         term_colors = true, -- sets terminal colors (e.g. `g:terminal_color_0`)
         dim_inactive = {
@@ -37,7 +37,13 @@ return {
           operators = {},
           -- miscs = {}, -- Uncomment to turn off hard-coded styles
         },
-        color_overrides = {},
+        -- color_overrides = {
+        --   mocha = {
+        --     base = '#121212',
+        --     mantle = '#121212',
+        --     crust = '#121212',
+        --   },
+        -- },
         custom_highlights = function(colors)
           local highlights = {}
 

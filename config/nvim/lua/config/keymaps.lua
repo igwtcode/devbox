@@ -5,6 +5,8 @@
 -- Open Oil (file explorer)
 vim.keymap.set("n", "<leader>o", "<cmd>Oil --float<CR>", { desc = "Explorer" })
 
+vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<CR>", { desc = "Toggle [Z]en mode" })
+
 -- Center buffer while navigating
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")

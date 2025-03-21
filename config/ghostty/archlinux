@@ -1,14 +1,14 @@
 # vim: ft=conf
 
 font-family = "SFMono Nerd Font Mono Medium"
-font-size = 16
+font-size = 17
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
 font-synthetic-style = true
-adjust-cell-height = 9%
+adjust-cell-height = 10%
 
-background = 181818
+# background = 181818
 theme = catppuccin-mocha
 
 window-decoration = false
@@ -27,7 +27,7 @@ cursor-text=090909
 # adjust-cursor-height = 32%
 # adjust-cursor-thickness = 32%
 
-background-opacity = 1
+background-opacity = 0.85
 
 # term = xterm-256color
 

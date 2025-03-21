@@ -7,17 +7,18 @@ return {
       flavour = "mocha", -- latte, frappe, macchiato, mocha
       term_colors = true, -- sets terminal colors (e.g. `g:terminal_color_0`)
       background = { light = "latte", dark = "mocha" },
-      color_overrides = {
-        mocha = {
-          base = "#121212",
-          mantle = "#121212",
-          crust = "#121212",
-        },
-      },
+      transparent_background = true, -- disables setting the background color.
+      -- color_overrides = {
+      --   mocha = {
+      --     base = "#121212",
+      --     mantle = "#121212",
+      --     crust = "#121212",
+      --   },
+      -- },
       dim_inactive = {
         enabled = true,
         shade = "dark",
-        percentage = 0.15,
+        percentage = 0.39,
       },
       integrations = {
         aerial = true,

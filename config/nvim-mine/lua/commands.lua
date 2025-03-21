@@ -338,3 +338,10 @@ end, {})
 --     vim.api.nvim_buf_set_keymap(0, 'n', '<leader>r', '<cmd>Rest run<CR>', { noremap = true, silent = true })
 --   end,
 -- })
+
+vim.api.nvim_create_autocmd('VimLeave', {
+  callback = function()
+    vim.o.guicursor = ''
+    vim.api.nvim_chan_send(vim.v.stderr, '\x1b[ q')
+  end,
+})
