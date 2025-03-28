@@ -130,15 +130,15 @@ install() {
       echo_gray "installing ms teams with flatpak..."
       flatpak install -y com.github.IsmaelMartinez.teams_for_linux
 
-      curl -L -o devpod "https://github.com/loft-sh/devpod/releases/latest/download/devpod-linux-amd64" &&
-        sudo install -c -m 0755 devpod /usr/local/bin &&
-        rm -f devpod
+      # curl -L -o devpod "https://github.com/loft-sh/devpod/releases/latest/download/devpod-linux-amd64" &&
+      #   sudo install -c -m 0755 devpod /usr/local/bin &&
+      #   rm -f devpod
     fi
   fi
 
-  echo_gray "installing rust with rustup..."
-  rustup default stable
-  rustup update
+  # echo_gray "installing rust with rustup..."
+  # rustup default stable
+  # rustup update
 }
 
 post_install() {
