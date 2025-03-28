@@ -186,6 +186,8 @@ post_install() {
     ln -sfn "$CONFIG_DIR/ghostty" "$DOTCONFIG_DIR/ghostty"
 
     ln -sfn "$CONFIG_DIR/wallpaper" "$DOTCONFIG_DIR/wallpaper"
+
+    ln -sfn "$CONFIG_DIR/k9s" "$DOTCONFIG_DIR/k9s"
   fi
 
   if [[ "$DOS" == "mac" ]]; then
@@ -197,7 +199,6 @@ post_install() {
     # Fix btop Intel graphics issue (set performance monitoring capability)
     sudo setcap cap_perfmon=+ep "$(which btop)"
 
-    ln -sfn "$CONFIG_DIR/k9s" "$DOTCONFIG_DIR/k9s"
     ln -sfn "$CONFIG_DIR/code-flags.conf" "$DOTCONFIG_DIR/code-flags.conf"
     ln -sfn "$CONFIG_DIR/dunst" "$DOTCONFIG_DIR/dunst"
     ln -sfn "$CONFIG_DIR/hypr" "$DOTCONFIG_DIR/hypr"

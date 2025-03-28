@@ -1,3 +1,6 @@
+#dbeaver-community
+#rust
+#rustup
 1password-cli
 alacritty
 ansible
@@ -8,7 +11,6 @@ bat
 c-blosc
 cmake
 coreutils
-dbeaver-community
 docker
 docker-buildx
 docker-completion
@@ -29,6 +31,7 @@ gnu-sed
 hashicorp/tap/terraform
 hdf5
 jq
+k9s
 kitty
 lazydocker
 lazygit
@@ -38,8 +41,6 @@ neovim
 oven-sh/bun/bun
 pgadmin4
 ripgrep
-rust
-rustup
 starship
 tldr
 tmux
