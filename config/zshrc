@@ -221,7 +221,6 @@ fi
 #   source <(devpod completion zsh)
 # fi
 
-alias task='go-task'
 alias .....='cd ../../../..'
 alias ....='cd ../../..'
 alias ...='cd ../..'
@@ -254,6 +253,7 @@ alias v=nvim
 if [[ "$os_alias" == "mac" ]]; then
   alias cp-awsprofile="sel-awsprofile | tr -d '\n' | pbcopy"
 elif [[ "$os_alias" == "archlinux" ]]; then
+  alias task='go-task'
   alias cp-awsprofile="sel-awsprofile | tr -d '\n' | wl-copy"
   alias ch="cliphist list | fzf --no-sort -d $'\t' --with-nth 2 | cliphist decode | wl-copy"
 fi
