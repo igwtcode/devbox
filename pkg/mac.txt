@@ -1,4 +1,5 @@
 #dbeaver-community
+#pgadmin4
 #rust
 #rustup
 1password-cli
@@ -39,7 +40,6 @@ libpq
 make
 neovim
 oven-sh/bun/bun
-pgadmin4
 ripgrep
 starship
 tldr
