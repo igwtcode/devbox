@@ -6,7 +6,7 @@
 vim.g.snacks_animate = false
 
 local opt = vim.opt
-opt.relativenumber = false -- Relative line numbers
+-- opt.relativenumber = false -- Relative line numbers
 opt.list = false -- hide ">" symbol for tabs
 
 -- LazyVim root dir detection
@@ -17,5 +17,5 @@ opt.list = false -- hide ">" symbol for tabs
 vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
 -- vim.g.root_spec = { ".git", "cwd" }
 
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
+-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
+-- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
