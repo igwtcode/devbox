@@ -1,14 +1,22 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
 git:
+  log:
+    showWholeGraph: true
+  branchLogCmd: git log --graph --color=always --abbrev-commit --decorate=full --date=local --pretty=fuller {{branchName}} --
+  allBranchesLogCmds:
+    - git log --graph --color=always --abbrev-commit --decorate=full --date=local --pretty=fuller --
   paging:
     colorArg: always
     pager: delta --features catppuccin-mocha --paging=never --tabs=2
 
 gui:
+  timeFormat: 01/02 15:04:05
+  shortTimeFormat: "Today 15:04:05"
   nerdFontsVersion: "3"
   showRandomTip: false
   showDivergenceFromBaseBranch: arrowAndNumber
-  showFileIcons: false
-  sidePanelWidth: 0.21
+  showFileIcons: true
+  sidePanelWidth: 0.16
 
   authorColors:
     "*": "#b4befe"
