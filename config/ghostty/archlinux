@@ -1,7 +1,7 @@
 # vim: ft=conf
 
 font-family = "SFMono Nerd Font Mono Medium"
-font-size = 21
+font-size = 16
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
