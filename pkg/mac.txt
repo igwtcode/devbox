@@ -22,6 +22,7 @@ firefox
 font-caskaydia-cove-nerd-font
 font-jetbrains-mono-nerd-font
 font-meslo-lg-nerd-font
+font-sf-mono-nerd-font-ligaturized
 font-ubuntu-mono-nerd-font
 fzf
 gh

@@ -1,10 +1,12 @@
 # vim: ft=conf
 
-font-size = 21
+font-family = "Liga SFMono Nerd Font"
+font-size = 16
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
 font-synthetic-style = true
+adjust-cell-height = 10%
 
 theme = catppuccin-mocha
 
@@ -22,7 +24,7 @@ cursor-color=f9e2af
 cursor-text=090909
 
 background-opacity = 0.84
-background-blur = 24
+background-blur = 27
 
 keybind = ctrl+shift+r=reload_config
 
