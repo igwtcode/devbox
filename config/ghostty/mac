@@ -28,7 +28,7 @@ background-blur = 27
 
 keybind = ctrl+shift+r=reload_config
 
-macos-non-native-fullscreen = true
+macos-non-native-fullscreen = false
 # macos-titlebar-style = tabs
 
 # term = xterm-256color

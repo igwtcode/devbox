@@ -136,7 +136,7 @@ export PATH=$PATH:$GOPATH/bin:$GOPATH/bin/bin:$HOME/.local/bin:$HOME/bin
 # export PATH=$nvim_mason:$PATH
 # unset nvim_mason
 if [[ "$os_alias" == "mac" ]]; then
-  export PATH=$PATH:/opt/homebrew/opt/libpq/bin
+  export PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/opt/gnu-sed/libexec/gnubin:/opt/homebrew/opt/grep/libexec/gnubin:/opt/homebrew/opt/libpq/bin:$PATH
 elif [[ "$os_alias" == "al2023" ]]; then
   export PATH=$PATH:/home/linuxbrew/.linuxbrew/opt/libpq/bin
 fi

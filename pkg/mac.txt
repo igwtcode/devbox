@@ -30,6 +30,7 @@ ghostty
 git
 git-delta
 gnu-sed
+grep
 hashicorp/tap/terraform
 hdf5
 jq
