@@ -170,10 +170,10 @@ elif [[ "$os_alias" == "archlinux" ]]; then
   export SUDO_ASKPASS=$HOME/.config/rofi/askpass.sh
 
   source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-  if [[ -n "$WAYLAND_DISPLAY" || -n "$DISPLAY" ]]; then
-    syntax_highlighting_theme
-    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  fi
+  # if [[ -n "$WAYLAND_DISPLAY" || -n "$DISPLAY" ]]; then
+  syntax_highlighting_theme
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  # fi
 
   source /usr/share/nvm/init-nvm.sh
 fi
@@ -188,11 +188,12 @@ autoload -U +X bashcompinit && bashcompinit
 autoload -Uz compinit
 compinit -u
 
-if [[ "$os_alias" == "archlinux" ]]; then
-  [[ -n "$WAYLAND_DISPLAY" || -n "$DISPLAY" ]] && eval "$(starship init zsh)"
-else
-  eval "$(starship init zsh)"
-fi
+eval "$(starship init zsh)"
+# if [[ "$os_alias" == "archlinux" ]]; then
+#   [[ -n "$WAYLAND_DISPLAY" || -n "$DISPLAY" ]] && eval "$(starship init zsh)"
+# else
+#   eval "$(starship init zsh)"
+# fi
 
 eval "$(zoxide init --cmd cd zsh)"
 
