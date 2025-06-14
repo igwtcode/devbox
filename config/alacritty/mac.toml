@@ -3,8 +3,8 @@ general.import = ["~/.config/alacritty/catppuccin-mocha.toml"]
 [window]
 padding = { x = 12, y = 6 }
 decorations = "buttonless"
-opacity = 0.77
-blur = true
+opacity = 0.87
+# blur = true
 startup_mode = "SimpleFullscreen"
 option_as_alt = "Both"
 
@@ -13,15 +13,15 @@ option_as_alt = "Both"
 # normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
 # normal = { family = "JetBrainsMono Nerd Font", style = "Medium" }
 normal = { family = "MesloLGM Nerd Font", style = "Regular" }
-bold = { family = "MesloLGM Nerd Font", style = "Bold" }
-size = 15
+# bold = { family = "MesloLGM Nerd Font", style = "Bold" }
+size = 17
 offset = { y = 3 }
 # glyph_offset = { y = 6 }
 # builtin_box_drawing = false
 
 [cursor]
-style = { shape = "Block", blinking = "Off" }
-# style = { shape = "Underline", blinking = "Always" }
+# style = { shape = "Block", blinking = "Off" }
+style = { shape = "Underline", blinking = "Always" }
 # style = { shape = "Beam", blinking = "Always" }
 
 [env]
