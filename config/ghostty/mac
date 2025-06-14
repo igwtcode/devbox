@@ -24,11 +24,11 @@ cursor-color=f9e2af
 cursor-text=090909
 
 background-opacity = 0.84
-background-blur = 27
+# background-blur = 27
 
 keybind = ctrl+shift+r=reload_config
 
-macos-non-native-fullscreen = false
+macos-non-native-fullscreen = true
 # macos-titlebar-style = tabs
 
 # term = xterm-256color
