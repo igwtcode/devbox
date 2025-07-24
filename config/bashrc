@@ -39,7 +39,7 @@ export FZF_DEFAULT_OPTS=" \
 # --multi"
 
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin:$GOPATH/bin/bin:$HOME/.local/bin:$HOME/bin
+export PATH=$PATH:$GOPATH/bin:$GOPATH/bin/bin:$HOME/.bun/bin:$HOME/.local/bin:$HOME/bin
 # nvim_mason=$HOME/.local/share/nvim/mason/bin
 # export PATH=$nvim_mason:$PATH
 # unset nvim_mason
