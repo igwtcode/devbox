@@ -1,0 +1,15 @@
+[Unit]
+Description=Cliphist clipboard watcher (wl-paste)
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/wl-paste --watch /usr/bin/cliphist store
+Restart=always
+RestartSec=1
+Environment=PATH=/usr/local/bin:/usr/bin
+
+[Install]
+WantedBy=graphical-session.target
+

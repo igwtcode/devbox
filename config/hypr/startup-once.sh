@@ -23,7 +23,7 @@ dunst &
 /usr/lib/xdg-desktop-portal-wlr &
 sleep 1
 /usr/lib/xdg-desktop-portal &
-wl-paste --watch cliphist store &
+# wl-paste --watch cliphist store &
 
 # sleep 2
 #

@@ -3,6 +3,8 @@
 
 CONFIG_DIR=$(pwd)/config
 DOTCONFIG_DIR=$HOME/.config
+SVC_DIR=$(pwd)/service
+DOTSVC_DIR=$DOTCONFIG_DIR/systemd/user
 
 echo_gray() {
   echo -e "\033[90m$1\033[0m" # Gray/Dim
@@ -230,11 +232,25 @@ post_install() {
   fi
 }
 
+user_services() {
+  if [[ "$DOS" == "al2023" || "$DOS" == "archlinux" ]]; then
+    local services=("wl-paste.service")
+    for svc in "${services[@]}"; do
+      ln -sfn "$SVC_DIR/$svc" "$DOTSVC_DIR/$svc"
+    done
+    systemctl --user daemon-reload
+    for svc in "${services[@]}"; do
+      systemctl --user enable --now "$svc"
+    done
+  fi
+}
+
 main() {
   detect_os
   pre_install
   install
   post_install
+  user_services
 }
 
 main
