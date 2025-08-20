@@ -199,3 +199,17 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 vim.api.nvim_create_user_command("CopyFilePathToClipboard", function()
   vim.fn.setreg("+", vim.fn.expand("%:p"))
 end, {})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = vim.api.nvim_create_augroup("edit_raw_text", { clear = true }),
+  pattern = { "gitcommit", "markdown", "txt" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = false
+    vim.opt_local.conceallevel = 0
+    -- vim.opt_local.spelllang = "en_us"
+    -- vim.opt_local.shiftwidth = 2
+    -- vim.opt_local.softtabstop = 2
+    -- vim.opt_local.expandtab = true
+  end,
+})

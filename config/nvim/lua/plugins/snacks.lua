@@ -1,6 +1,7 @@
 return {
   "snacks.nvim",
   opts = {
+    bigfile = { enabled = false },
     indent = { enabled = false },
     input = { enabled = true },
     notifier = { enabled = true },
