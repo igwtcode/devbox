@@ -213,6 +213,10 @@ if command -v tbx &>/dev/null; then
   source <(tbx completion zsh)
 fi
 
+if command -v tbx-v1 &>/dev/null; then
+  source <(tbx-v1 completion zsh)
+fi
+
 # if command -v kubectl &>/dev/null; then
 #   source <(kubectl completion zsh)
 # fi
