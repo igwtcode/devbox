@@ -9,7 +9,7 @@ font-synthetic-style = true
 adjust-cell-height = 10%
 
 # background = 181818
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 
 window-decoration = false
 window-theme = dark
