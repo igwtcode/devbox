@@ -8,8 +8,8 @@ alsa-utils
 ansible
 arc-gtk-theme
 avahi
-#aws-cli-v2
 aws-cli-bin
+#aws-cli-v2
 aws-sam-cli
 base
 base-devel
@@ -102,6 +102,7 @@ openbsd-netcat
 opensearch-cli
 openssh
 otf-font-awesome
+otf-geist-mono-nerd
 p7zip
 #packer
 pacman-contrib
