@@ -21,3 +21,6 @@ vim.g.root_spec = { "cwd", { ".git", "lua" } }
 
 -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
 -- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
+
+---- Enable this option to avoid conflicts with Prettier.
+vim.g.lazyvim_prettier_needs_config = true
