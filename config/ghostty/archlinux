@@ -29,7 +29,7 @@ cursor-text=090909
 # adjust-cursor-height = 32%
 # adjust-cursor-thickness = 32%
 
-background-opacity = 0.85
+background-opacity = 0.93
 
 # term = xterm-256color
 
