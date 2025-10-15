@@ -22,7 +22,8 @@ window-padding-balance = true
 window-padding-color = background
 
 shell-integration-features = no-cursor,sudo,no-title
-cursor-style = underline
+cursor-style = block
+# cursor-style = underline
 mouse-hide-while-typing = true
 cursor-color=f9e2af
 cursor-text=090909

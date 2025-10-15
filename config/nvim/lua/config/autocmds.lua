@@ -8,12 +8,12 @@
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 --
 
-vim.api.nvim_create_autocmd("VimLeave", {
-  callback = function()
-    vim.o.guicursor = ""
-    vim.api.nvim_chan_send(vim.v.stderr, "\x1b[ q")
-  end,
-})
+-- vim.api.nvim_create_autocmd("VimLeave", {
+--   callback = function()
+--     vim.o.guicursor = ""
+--     vim.api.nvim_chan_send(vim.v.stderr, "\x1b[ q")
+--   end,
+-- })
 
 -- Check if the file is an aws CloudFormation template
 local function is_cloudformation_template(filepath)
