@@ -1,10 +1,11 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
 git:
   log:
-    showWholeGraph: true
-  branchLogCmd: git log --graph --color=always --abbrev-commit --decorate=full --date=local --pretty=fuller {{branchName}} --
+    # showWholeGraph: true
+    showGraph: when-maximised
+  branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --date=local --pretty=medium {{branchName}} --
   allBranchesLogCmds:
-    - git log --graph --color=always --abbrev-commit --decorate=full --date=local --pretty=fuller --
+    - git log --graph --color=always --abbrev-commit --decorate --date=local --pretty=medium --
   paging:
     colorArg: always
     pager: delta --features catppuccin-mocha --paging=never --tabs=2
