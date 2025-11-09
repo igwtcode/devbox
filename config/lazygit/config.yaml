@@ -6,10 +6,9 @@ git:
   branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --date=local --pretty=medium {{branchName}} --
   allBranchesLogCmds:
     - git log --graph --color=always --abbrev-commit --decorate --date=local --pretty=medium --
-  paging:
-    colorArg: always
-    pager: delta --features catppuccin-mocha --paging=never --tabs=2
-
+  pagers:
+    - colorArg: always
+      pager: delta --features catppuccin-mocha --paging=never --tabs=2
 gui:
   timeFormat: 01/02 15:04:05
   shortTimeFormat: "Today 15:04:05"
@@ -18,7 +17,6 @@ gui:
   showDivergenceFromBaseBranch: arrowAndNumber
   showFileIcons: true
   sidePanelWidth: 0.16
-
   authorColors:
     "*": "#b4befe"
   theme:
