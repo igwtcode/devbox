@@ -6,7 +6,7 @@
 vim.g.snacks_animate = false
 
 local opt = vim.opt
--- opt.relativenumber = false -- Relative line numbers
+opt.relativenumber = false -- Relative line numbers
 opt.list = false -- hide ">" symbol for tabs
 opt.conceallevel = 0
 
