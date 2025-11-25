@@ -85,7 +85,10 @@ else
 fi
 
 eval "$(zoxide init --cmd cd bash)"
-source <(supabase completion zsh)
+
+if command -v supabase &>/dev/null; then
+  source <(supabase completion bash)
+fi
 
 complete -C "$(which aws_completer)" aws
 complete -C "$(which terraform)" terraform

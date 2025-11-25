@@ -204,7 +204,10 @@ complete -o nospace -C "$(which terraform)" terraform
 
 source <(fzf --zsh)
 source <(gh completion -s zsh)
-source <(supabase completion zsh)
+
+if command -v supabase &>/dev/null; then
+  source <(supabase completion zsh)
+fi
 
 if command -v op &>/dev/null; then
   eval "$(op completion zsh)"
