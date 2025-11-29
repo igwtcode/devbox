@@ -38,7 +38,7 @@ fastfetch
 fd
 firefox
 flatpak
-fluxcd
+#fluxcd
 freerdp
 fuse2
 fuse-overlayfs
