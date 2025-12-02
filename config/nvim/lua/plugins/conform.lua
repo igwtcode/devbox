@@ -27,6 +27,7 @@ return {
         ["typescriptreact"] = { "biome", "prettier", stop_after_first = true },
         yaml = { "prettier" },
         yml = { "prettier" },
+        go = { "goimports", "gofumpt", "gofmt" },
       },
       -- The options you set here will be merged with the builtin formatters.
       -- You can also define any custom formatters here.
