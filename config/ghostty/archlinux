@@ -3,7 +3,7 @@
 # font-family = "SFMono Nerd Font Mono Bold"
 font-family = "GeistMono NF Medium"
 
-font-size = 16
+font-size = 17
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
@@ -30,7 +30,7 @@ cursor-text=090909
 # adjust-cursor-height = 32%
 # adjust-cursor-thickness = 32%
 
-background-opacity = 0.93
+background-opacity = 0.81
 
 # term = xterm-256color
 
