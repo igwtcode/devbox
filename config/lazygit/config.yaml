@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
 git:
   log:
-    # showWholeGraph: true
+    showWholeGraph: true
     showGraph: when-maximised
   branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --date=local --pretty=medium {{branchName}} --
   allBranchesLogCmds:
