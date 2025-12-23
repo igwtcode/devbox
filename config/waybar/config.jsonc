@@ -1,188 +1,178 @@
 {
-  "layer": "top",
-  "spacing": 3,
-  "position": "bottom", // Waybar position (top|bottom|left|right)
-  "margin-top": 0,
-  "margin-bottom": 0,
-  "margin-left": 0,
-  "margin-right": 0,
-  "modules-left": [
-    // "custom/rofilauncher",
-    "hyprland/workspaces"
-  ],
-  "reload_style_on_change": true,
-  // "modules-center": [],
-  "modules-right": [
-    // "temperature",
-    "cpu",
-    "memory",
-    "network",
-    "battery",
-    "pulseaudio",
-    "bluetooth",
-    // "backlight",
-    // "custom/lang",
-    "clock"
-    // "custom/power"
-  ],
-  "custom/rofilauncher": {
-    "format": " ",
-    "on-click": "rofi -show drun",
-    "tooltip-format": "Open Application Launcher"
-  },
-  "hyprland/workspaces": {
-    "on-scroll-up": "hyprctl dispatch workspace r-1",
-    "on-scroll-down": "hyprctl dispatch workspace r+1",
-    "on-click": "activate",
-    "active-only": false,
-    "all-outputs": false,
-    "sort-by-name": true,
-    "format": " {name} {icon} ",
-    "format-icons": {
-      // "1": "",
-      // "2": "󱕵",
-      // "3": "",
-      // "4": "󰊻",
-      // "6": "",
-      // "7": "",
-      // "8": "",
-      // "9": "",
-      // "7": "",
-      // "8": "",
-      // "9": " ",
-      // "10": "󰖳",
-      // "3": "󱋊",
-      "default": "",
-      "active": ""
-      // "default": ""
-    },
-    "persistent-workspaces": {
-      // "*": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-      "DP-1": [1, 2, 3, 4, 5, 6, 7, 10],
-      "eDP-1": [8, 9]
-    }
-  },
-  "custom/lang": {
-    "on-click": "hyprctl switchxkblayout current next",
-    "tooltip": true,
-    "tooltip-format": "Click to change language or Super+Ctrl+Tab",
-    "format": "  {}",
-    "interval": 1,
-    "exec": "hyprctl devices -j | jq -r '.keyboards[] | select(.main == true) | .active_keymap'"
-  },
-  "temperature": {
-    "interval": 6,
-    "critical-threshold": 70,
-    "format-critical": " {temperatureC}°C",
-    "format": " {temperatureC}°C"
-  },
-  "cpu": {
-    "interval": 6,
-    "format": "  {usage}%",
-    // "format": "  {usage}% ({avg_frequency} GHz)",
-    "max-length": 21
-  },
-  "memory": {
-    "interval": 6,
-    "format": "  {percentage}%",
-    "tooltip-format": "Used : {used:0.1f} ({percentage}%)\nAvail: {avail:0.1f}\nTotal: {total:0.1f}\nSwap : {swapUsed:0.1f}/{swapTotal:0.1f}"
-  },
-  "network": {
-    "format": "{ifname}",
-    "format-wifi": "  {signalStrength}%",
-    "format-ethernet": "  {ifname}",
-    "format-disconnected": "Disconnected",
-    "tooltip-format": " {ifname} via {gwaddri}",
-    "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
-    "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
-    "tooltip-format-disconnected": "Disconnected",
-    "max-length": 50,
-    "on-click": "nm-connection-editor"
-  },
-  "battery": {
-    "states": {
-      // "good": 95,
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{icon} {capacity}%",
-    "format-charging": " {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-alt": "{icon} {time}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
-    "format-icons": [
-      " ",
-      " ",
-      " ",
-      " ",
-      " "
-    ]
-  },
-  "pulseaudio": {
-    "scroll-step": 5, // %, can be a float
-    "format": "{icon} {volume}%",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": "{volume}% ",
-    "format-source-muted": "",
-    "format-icons": {
-      "headphone": " ",
-      "hands-free": " ",
-      "headset": " ",
-      "phone": " ",
-      "portable": " ",
-      "car": " ",
-      "default": [
-        " ",
-        " ",
-        " "
-      ]
-    },
-    "on-click": "pavucontrol"
-  },
-  "bluetooth": {
-    "format": " {status}",
-    "format-disabled": "  ",
-    "format-off": "",
-    "interval": 30,
-    "on-click": "blueman-manager",
-    "format-no-controller": ""
-  },
-  "backlight": {
-    "device": "intel_backlight",
-    "format": " {icon} ",
-    "tooltip": false,
-    // "format": "{icon} {percent}%",
-    "scroll-step": 5,
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
-  },
-  "clock": {
-    "timezone": "Europe/Berlin",
-    "tooltip-format": "<big>{:%d %Y %B}</big>\n<tt>{calendar}</tt>",
-    "format": " {:%a %Y-%m-%d %H:%M}",
-    "format-alt": " {:%H:%M}"
-  },
-  "custom/power": {
-    "tooltip-format": "Power",
-    "on-click": "~/.config/rofi/powermenu.sh",
-    "format": " "
-  }
+	"layer": "top",
+	"spacing": 3,
+	"position": "bottom", // Waybar position (top|bottom|left|right)
+	"margin-top": 0,
+	"margin-bottom": 9,
+	"margin-left": 18,
+	"margin-right": 18,
+	"modules-left": [
+		// "custom/rofilauncher",
+		"hyprland/workspaces"
+	],
+	"reload_style_on_change": true,
+	"modules-center": [],
+	"modules-right": [
+		// "temperature",
+		"cpu",
+		"memory",
+		"network",
+		"battery",
+		"pulseaudio",
+		"bluetooth",
+		// "backlight",
+		"custom/lang",
+		"clock"
+		// "custom/power"
+	],
+	"custom/rofilauncher": {
+		"format": " ",
+		"on-click": "rofi -show drun",
+		"tooltip-format": "Open Application Launcher"
+	},
+	"hyprland/workspaces": {
+		"on-scroll-up": "hyprctl dispatch workspace r-1",
+		"on-scroll-down": "hyprctl dispatch workspace r+1",
+		"on-click": "activate",
+		"active-only": false,
+		"all-outputs": false,
+		"sort-by-name": true,
+		"format": " {name} {icon} ",
+		"format-icons": {
+			// "1": "",
+			// "2": "󱕵",
+			// "3": "",
+			// "4": "󰊻",
+			// "6": "",
+			// "7": "",
+			// "8": "",
+			// "9": "",
+			// "7": "",
+			// "8": "",
+			// "9": " ",
+			// "10": "󰖳",
+			// "3": "󱋊",
+			"default": "",
+			"active": ""
+			// "default": ""
+		}
+		// "persistent-workspaces": {
+		//   // "*": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+		//   "DP-1": [1, 2, 3, 4, 5, 6, 7, 10],
+		//   "eDP-1": [8, 9]
+		// }
+	},
+	"custom/lang": {
+		"on-click": "hyprctl switchxkblayout current next",
+		"tooltip": true,
+		"tooltip-format": "Click to change language or Super+Ctrl+Tab",
+		"format": "  {}",
+		"interval": 1,
+		"exec": "hyprctl devices -j | jq -r '.keyboards[] | select(.main == true) | .active_keymap'"
+	},
+	"temperature": {
+		"interval": 6,
+		"critical-threshold": 70,
+		"format-critical": " {temperatureC}°C",
+		"format": " {temperatureC}°C"
+	},
+	"cpu": {
+		"interval": 6,
+		"format": "  {usage}%",
+		// "format": "  {usage}% ({avg_frequency} GHz)",
+		"max-length": 21
+	},
+	"memory": {
+		"interval": 6,
+		"format": "  {percentage}%",
+		"tooltip-format": "Used : {used:0.1f} ({percentage}%)\nAvail: {avail:0.1f}\nTotal: {total:0.1f}\nSwap : {swapUsed:0.1f}/{swapTotal:0.1f}"
+	},
+	"network": {
+		"format": "{ifname}",
+		"format-wifi": "  {signalStrength}%",
+		"format-ethernet": "  {ifname}",
+		"format-disconnected": "Disconnected",
+		"tooltip-format": " {ifname} via {gwaddri}",
+		"tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+		"tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+		"tooltip-format-disconnected": "Disconnected",
+		"max-length": 50,
+		"on-click": "nm-connection-editor"
+	},
+	"battery": {
+		"states": {
+			// "good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}%",
+		"format-charging": " {capacity}%",
+		"format-plugged": " {capacity}%",
+		"format-alt": "{icon} {time}",
+		// "format-good": "", // An empty format will hide the module
+		// "format-full": "",
+		"format-icons": [" ", " ", " ", " ", " "]
+	},
+	"pulseaudio": {
+		"scroll-step": 5, // %, can be a float
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{volume}% {icon} {format_source}",
+		"format-bluetooth-muted": " {icon} {format_source}",
+		"format-muted": " {format_source}",
+		"format-source": "{volume}% ",
+		"format-source-muted": "",
+		"format-icons": {
+			"headphone": " ",
+			"hands-free": " ",
+			"headset": " ",
+			"phone": " ",
+			"portable": " ",
+			"car": " ",
+			"default": [" ", " ", " "]
+		},
+		"on-click": "pavucontrol"
+	},
+	"bluetooth": {
+		"format": " {status}",
+		"format-disabled": "  ",
+		"format-off": "",
+		"interval": 30,
+		"on-click": "blueman-manager",
+		"format-no-controller": ""
+	},
+	"backlight": {
+		"device": "intel_backlight",
+		"format": " {icon} ",
+		"tooltip": false,
+		// "format": "{icon} {percent}%",
+		"scroll-step": 5,
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		]
+	},
+	"clock": {
+		"timezone": "Europe/Berlin",
+		"tooltip-format": "<big>{:%d %Y %B}</big>\n<tt>{calendar}</tt>",
+		"format": " {:%a %Y-%m-%d %H:%M}",
+		"format-alt": " {:%H:%M}"
+	},
+	"custom/power": {
+		"tooltip-format": "Power",
+		"on-click": "~/.config/rofi/powermenu.sh",
+		"format": " "
+	}
 }
