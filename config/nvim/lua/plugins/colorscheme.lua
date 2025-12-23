@@ -2,8 +2,11 @@ return {
   "folke/tokyonight.nvim",
   lazy = true,
   opts = {
-    style = "moon",
+    style = "night",
     transparent = true,
+    on_highlights = function(hl, c)
+      hl.WinSeparator = { fg = c.dark3, bg = "NONE" }
+    end,
   },
 }
 -- return {
