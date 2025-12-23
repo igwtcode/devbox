@@ -11,13 +11,17 @@ font-synthetic-style = true
 adjust-cell-height = 10%
 
 # background = 181818
-theme = Catppuccin Mocha
+# theme = Catppuccin Mocha
+theme = TokyoNight Night
+# theme = Nord Wave
+# theme = GitHub Dark Default
+# theme = Nvim Dark
 
 window-decoration = false
 window-theme = dark
 window-save-state= always
-window-padding-y = 0
-window-padding-x = 0
+window-padding-y = 10
+window-padding-x = 18
 window-padding-balance = true
 window-padding-color = background
 
@@ -30,7 +34,7 @@ cursor-text=090909
 # adjust-cursor-height = 32%
 # adjust-cursor-thickness = 32%
 
-background-opacity = 0.87
+background-opacity = 0.84
 
 # term = xterm-256color
 
