@@ -1,17 +1,20 @@
-general.import = ["~/.config/alacritty/catppuccin-mocha.toml"]
+general.import = ["~/.config/alacritty/tokyonight-night.toml"]
 
 [window]
-# padding = { x = 12, y = 9 }
+padding = { x = 21, y = 12 }
 opacity = 0.81
 option_as_alt = "Both"
 
 [font]
-normal = { family = "JetBrainsMonoNL Nerd Font", style = "Medium" }
-bold = { family = "JetBrainsMonoNL Nerd Font", style = "Medium" }
-size = 15
+# normal = { family = "JetBrainsMonoNL Nerd Font", style = "Medium" }
+# bold = { family = "JetBrainsMonoNL Nerd Font", style = "Medium" }
+normal = { family = "GeistMono Nerd Font", style = "Medium" }
+bold = { family = "GeistMono Nerd Font", style = "Medium" }
+size = 16
 
 [cursor]
-style = { shape = "Underline", blinking = "Always" }
+style = { shape = "Block", blinking = "Off" }
+# style = { shape = "Underline", blinking = "Always" }
 
 [env]
 # TERM = "tmux-256color"
