@@ -4,39 +4,43 @@
 
 configuration {
   // font: "MesloLGS Nerd Font Medium 14";
-  font: "JetBrainsMono Nerd Font Medium 14";
+  // font: "JetBrainsMono Nerd Font Medium 14";
+  font: "GeistMono Nerd Font 14";
   terminal: "ghostty";
+  case-smart: true;
 }
 
 * {
-  bg: #1e1e2e30;
-  bg-alt: #45475a60;
-  bg-selected: #89b4fa33;
+  //bg: #1e1e2e30;
+  bg: transparent;
+  bg-alt: #11111199;
+  bg-selected: #769ff033;
 
   fg: #cdd6f4;
   fg-alt: #7f849c;
-  fg-selected: #89b4fa;
+  fg-selected: #769ff0;
   bd-c: #b4befe69;
 
-  myhighlight: bold #f9e2af;
+  myhighlight: bold #f38ba8;
 
   border: 0;
   margin: 0;
   padding: 0;
   spacing: 0;
+  border-radius: 21px;
 }
 
 window {
   width: 33%;
   background-color: @bg;
-  border-radius: 6px;
-  border: 1px;
+  border: 3px;
+  padding: 15px;
   border-color: @bd-c;
   transparency: "real";
 }
 
 element {
-  padding: 9 12;
+  padding: 12;
   background-color: transparent;
   text-color: @fg;
 }
@@ -50,7 +54,7 @@ message {
 textbox {
   background-color: transparent;
   text-color: @fg-alt;
-  font: "MesloLGS Nerd Font Medium 12";
+  font: "GeistMono Nerd Font 12";
 }
 
 element selected {
@@ -72,8 +76,9 @@ element-icon {
 }
 
 entry {
-  font: "JetBrainsMono Nerd Font Medium 16";
+  font: "GeistMono Nerd Font 15";
   padding: 12;
+  margin: 0 0 18 0;
   background-color: @bg-alt;
   vertical-align: 0.5;
   horizontal-align: 0.5;
@@ -82,14 +87,14 @@ entry {
 
 inputbar {
   children: [entry];
-  // children: [prompt, entry];
+  children: [prompt, entry];
   background-color: @bg;
 }
 
 listview {
-  background-color: @bg;
+  background-color: @bg-alt;
   columns: 1;
-  lines: 10;
+  lines: 12;
   // fixed-height:   false;
 }
 
@@ -100,8 +105,8 @@ mainbox {
 
 prompt {
   enabled: true;
-  padding: 12 0 0 12;
+  padding: 12;
+  margin: 0 10 18 0;
   background-color: @bg-alt;
   text-color: @fg;
 }
-

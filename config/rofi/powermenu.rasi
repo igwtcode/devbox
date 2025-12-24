@@ -3,7 +3,7 @@
 @import "base"
 
 window {
-  width: 270px;
+  width: 300px;
 }
 
 listview {
@@ -13,4 +13,8 @@ listview {
 
 entry {
   placeholder: "Power Menu";
+}
+
+prompt {
+  enabled: false;
 }

@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 # vim: ft=bash
 
-conf=~/.config/rofi/cliphist.rasi
-cliphist list | rofi -dmenu -i -display-columns 2 -config $conf | cliphist decode | wl-copy
+cliphist list |
+  rofi \
+    -dmenu \
+    -matching-negate-char '\0' \
+    -display-columns 2 \
+    -p ' ' \
+    -config ~/.config/rofi/cliphist.rasi |
+  cliphist decode | wl-copy
