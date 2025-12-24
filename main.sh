@@ -152,6 +152,7 @@ post_install() {
   ln -sfn "$CONFIG_DIR/vim" "$HOME/.vim"
   ln -sfn "$CONFIG_DIR/vimrc" "$HOME/.vimrc"
   ln -sfn "$CONFIG_DIR/nvim" "$DOTCONFIG_DIR/nvim"
+  ln -sfn "$CONFIG_DIR/eza" "$DOTCONFIG_DIR/eza"
 
   ln -sfn "$CONFIG_DIR/bat" "$DOTCONFIG_DIR/bat"
   # Rebuild bat cache for syntax highlighting
