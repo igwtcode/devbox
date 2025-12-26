@@ -144,4 +144,5 @@ set wildmenu
 set modeline
 
 syntax on
-colorscheme catppuccin_mocha
+" colorscheme catppuccin_mocha
+colorscheme tokyonight-night

@@ -2,15 +2,15 @@
 @import "mocha.css";
 
 * {
-  font-family: JetBrainsMono Nerd Font;
+  font-family: GeistMono Nerd Font;
   font-size: 17px;
   min-height: 0;
 }
 
 #waybar {
-  /*background: transparent; */
+  background: transparent;
   color: @text;
-  background-color: rgba(31, 32, 44, 0.72);
+  /* background-color: rgba(31, 32, 44, 0.72); */
 }
 
 #custom-rofilauncher,
@@ -31,8 +31,9 @@
   /* background-color: @surface0; */
   /* background-color: rgba(31, 32, 44, 0.72); */
   padding: 6 9px;
-  margin: 0px 0px 0px 0px;
-  border-radius: 0px;
+  margin: 0px 3px;
+  border-radius: 9px;
+  background-color: @surface0;
 }
 
 #cpu {
@@ -53,7 +54,7 @@
 
 #workspaces button {
   color: @lavender;
-  border-radius: 6px;
+  border-radius: 9px;
   padding: 0;
   /* padding: 0 0 0.2rem 0.3rem; */
 }
@@ -61,12 +62,12 @@
 #workspaces button.active {
   color: @peach;
   font-weight: 900;
-  border-radius: 6px;
+  border-radius: 9px;
 }
 
 #workspaces button:hover {
   color: @sapphire;
-  border-radius: 6px;
+  border-radius: 9px;
 }
 
 #bluetooth.on {

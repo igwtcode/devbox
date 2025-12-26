@@ -4,6 +4,9 @@
 
 configuration {
   show-icons: true;
+  sort: true;
+  sorting-method: "fzf";
+  display-drun: "   ";
 }
 
 window {
@@ -15,6 +18,5 @@ listview {
 }
 
 entry {
-  placeholder: "Search...";
+  placeholder: "App...";
 }
-

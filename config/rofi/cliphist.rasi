@@ -15,5 +15,5 @@ listview {
 }
 
 entry {
-  placeholder: "Clipboard Seach...";
+  placeholder: "Clipboard...";
 }

@@ -4,6 +4,7 @@
 
 configuration {
   show-icons: true;
+  display-window: "   ";
 }
 
 window {
@@ -16,6 +17,6 @@ listview {
 }
 
 entry {
-  placeholder: "Search...";
+  placeholder: "Window...";
 }
 

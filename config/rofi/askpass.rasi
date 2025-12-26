@@ -3,7 +3,7 @@
 @import "base"
 
 window {
-  width: 369px;
+  width: 444px;
 }
 
 mainbox {
@@ -11,5 +11,13 @@ mainbox {
 }
 
 entry {
-  placeholder: "sudo password";
+  placeholder: "sudo";
+}
+
+entry {
+  margin: 0;
+}
+
+prompt {
+  margin: 0 10 0 0;
 }

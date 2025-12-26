@@ -1,7 +1,7 @@
 return {
   { "akinsho/bufferline.nvim", enabled = false },
   { "MeanderingProgrammer/render-markdown.nvim", enabled = false },
-  -- { "folke/noice.nvim", enabled = false },
+  { "folke/noice.nvim", enabled = false },
   -- border highlight when background is transparent
   {
     "hrsh7th/nvim-cmp",
