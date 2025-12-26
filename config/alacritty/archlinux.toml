@@ -14,5 +14,6 @@ size = 15
 style = { shape = "Underline", blinking = "Always" }
 
 [env]
-TERM = "tmux-256color"
+# TERM = "tmux-256color"
+TERM = "xterm-256color"
 COLORTERM = "truecolor"
