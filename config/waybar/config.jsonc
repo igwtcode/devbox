@@ -3,13 +3,10 @@
 	"spacing": 3,
 	"position": "bottom", // Waybar position (top|bottom|left|right)
 	"margin-top": 0,
-	"margin-bottom": 9,
-	"margin-left": 18,
-	"margin-right": 18,
-	"modules-left": [
-		// "custom/rofilauncher",
-		"hyprland/workspaces"
-	],
+	"margin-bottom": 11,
+	"margin-left": 21,
+	"margin-right": 21,
+	"modules-left": ["hyprland/workspaces"],
 	"reload_style_on_change": true,
 	"modules-center": [],
 	"modules-right": [
@@ -19,43 +16,18 @@
 		"network",
 		"battery",
 		"pulseaudio",
-		"bluetooth",
-		// "backlight",
-		"custom/lang",
+		// "bluetooth",
+		// "custom/lang",
 		"clock"
-		// "custom/power"
 	],
-	"custom/rofilauncher": {
-		"format": " ",
-		"on-click": "rofi -show drun",
-		"tooltip-format": "Open Application Launcher"
-	},
 	"hyprland/workspaces": {
 		"on-scroll-up": "hyprctl dispatch workspace r-1",
 		"on-scroll-down": "hyprctl dispatch workspace r+1",
 		"on-click": "activate",
 		"active-only": false,
-		"all-outputs": false,
+		"all-outputs": true,
 		"sort-by-name": true,
-		"format": " {name} {icon} ",
-		"format-icons": {
-			// "1": "",
-			// "2": "󱕵",
-			// "3": "",
-			// "4": "󰊻",
-			// "6": "",
-			// "7": "",
-			// "8": "",
-			// "9": "",
-			// "7": "",
-			// "8": "",
-			// "9": " ",
-			// "10": "󰖳",
-			// "3": "󱋊",
-			"default": "",
-			"active": ""
-			// "default": ""
-		}
+		"format": "{name}"
 		// "persistent-workspaces": {
 		//   // "*": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 		//   "DP-1": [1, 2, 3, 4, 5, 6, 7, 10],
@@ -140,39 +112,10 @@
 		"on-click": "blueman-manager",
 		"format-no-controller": ""
 	},
-	"backlight": {
-		"device": "intel_backlight",
-		"format": " {icon} ",
-		"tooltip": false,
-		// "format": "{icon} {percent}%",
-		"scroll-step": 5,
-		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			""
-		]
-	},
 	"clock": {
 		"timezone": "Europe/Berlin",
 		"tooltip-format": "<big>{:%d %Y %B}</big>\n<tt>{calendar}</tt>",
-		"format": " {:%a %Y-%m-%d %H:%M}",
-		"format-alt": " {:%H:%M}"
-	},
-	"custom/power": {
-		"tooltip-format": "Power",
-		"on-click": "~/.config/rofi/powermenu.sh",
-		"format": " "
+		"format": "{:%a %m-%d %H:%M}",
+		"format-alt": "{:%H:%M}"
 	}
 }
