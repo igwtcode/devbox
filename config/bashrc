@@ -23,28 +23,31 @@ os_alias=$(os_alias)
 export EDITOR=nvim
 export VISUAL=nvim
 
-export LG_CONFIG_FILE=$HOME/.config/lazygit/config.yaml
-export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
-export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
-
+export LG_CONFIG_FILE=$HOME/.config/lazygit/config.yml
+export STARSHIP_CONFIG=$HOME/.config/starship/config.toml
+export LS_COLORS=""
+export EZA_COLORS=""
+export EZA_CONFIG_DIR=$HOME/.config/eza
+export TF_PLUGIN_CACHE_DIR="$HOME/.cache/terraform-plugins"
 export SAM_CLI_TELEMETRY=0
 
 export FZF_DEFAULT_OPTS=" \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
---color=selected-bg:#45475a \
---height=45% \
+--color=fg:#c0caf5,fg+:#74c7ec,bg+:#313244 \
+--color=header:#89dceb,info:#f38ba8,pointer:#f9e2af,marker:#fab387 \
+--color=prompt:#74c7ec,spinner:#ff9e64,hl:#f38ba8,hl+:#f38ba8 \
+--color=border:#45475a \
+--color=separator:#45475a,scrollbar:#585b70 \
+--color=query:#cdd6f4:regular \
+--border=rounded \
+--highlight-line \
+--info=inline-right \
+--layout=reverse \
+--height=~50% \
 --reverse \
 --prompt ' '"
-# --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
-# --tmux \
-# --multi"
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin:$GOPATH/bin/bin:$HOME/.bun/bin:$HOME/.local/bin:$HOME/bin
-# nvim_mason=$HOME/.local/share/nvim/mason/bin
-# export PATH=$nvim_mason:$PATH
-# unset nvim_mason
 if [[ "$os_alias" == "mac" ]]; then
   export PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/opt/gnu-sed/libexec/gnubin:/opt/homebrew/opt/grep/libexec/gnubin:/opt/homebrew/opt/libpq/bin:$PATH
 elif [[ "$os_alias" == "al2023" ]]; then
@@ -72,48 +75,17 @@ if [[ "$os_alias" == "mac" || "$os_alias" == "al2023" ]]; then
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 elif [[ "$os_alias" == "archlinux" ]]; then
-  export MOZ_ENABLE_WAYLAND=1
-  export SUDO_ASKPASS=$HOME/.config/rofi/askpass.sh
-
   source /usr/share/nvm/init-nvm.sh
 fi
 
-if [[ "$os_alias" == "archlinux" ]]; then
-  [[ -n "$WAYLAND_DISPLAY" || -n "$DISPLAY" ]] && eval "$(starship init bash)"
-else
-  eval "$(starship init bash)"
-fi
-
-eval "$(zoxide init --cmd cd bash)"
-
-if command -v supabase &>/dev/null; then
-  source <(supabase completion bash)
-fi
+eval "$(starship init bash)"
+eval "$(zoxide init bash)"
+source <(fzf --bash)
+source <(gh completion -s bash)
 
 complete -C "$(which aws_completer)" aws
 complete -C "$(which terraform)" terraform
 
-source <(fzf --bash)
-source <(gh completion -s bash)
-
-if command -v op &>/dev/null; then
-  source <(op completion bash)
-fi
-
-if command -v kubectl &>/dev/null; then
-  source <(kubectl completion bash)
-fi
-
-if command -v tbx &>/dev/null; then
-  source <(tbx completion bash)
-fi
-
-if command -v tbx-v1 &>/dev/null; then
-  source <(tbx-v1 completion zsh)
-fi
-
-alias .....='cd ../../../..'
-alias ....='cd ../../..'
 alias ...='cd ../..'
 alias ..='cd ..'
 alias b=bat
