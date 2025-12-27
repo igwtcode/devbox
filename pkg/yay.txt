@@ -135,6 +135,7 @@ slurp
 sof-firmware
 starship
 superfile
+teams-for-linux
 telegram-desktop
 terminus-font
 terraform
