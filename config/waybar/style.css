@@ -28,6 +28,7 @@
 #custom-lang,
 #custom-lock,
 #custom-hypridle,
+#power-profiles-daemon,
 #custom-power {
   /* background-color: @surface0; */
   /* background-color: rgba(31, 32, 44, 0.72); */
@@ -134,4 +135,20 @@
 
 #custom-lang {
   color: @lavender;
+}
+
+#power-profiles-daemon {
+  padding: 0 15px;
+}
+
+#power-profiles-daemon.performance {
+  color: @sky;
+}
+
+#power-profiles-daemon.power-saver {
+  color: @yellow;
+}
+
+#power-profiles-daemon.balanced{
+  color: @teal;
 }

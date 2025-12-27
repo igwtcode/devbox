@@ -15,6 +15,7 @@
 		"memory",
 		"network",
 		"battery",
+		"power-profiles-daemon",
 		"pulseaudio",
 		// "bluetooth",
 		// "custom/lang",
@@ -84,6 +85,17 @@
 		// "format-good": "", // An empty format will hide the module
 		// "format-full": "",
 		"format-icons": [" ", " ", " ", " ", " "]
+	},
+	"power-profiles-daemon": {
+		"format": "{icon}",
+		"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+		"tooltip": true,
+		"format-icons": {
+			"default": "",
+			"performance": "",
+			"balanced": " ",
+			"power-saver": " "
+		}
 	},
 	"pulseaudio": {
 		"scroll-step": 5, // %, can be a float
