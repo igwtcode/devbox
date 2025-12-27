@@ -1,4 +1,4 @@
-general.import = ["~/.config/alacritty/tokyonight-night.toml"]
+general.import = ["~/.config/alacritty/theme.toml"]
 
 [window]
 padding = { x = 21, y = 12 }
@@ -6,17 +6,13 @@ opacity = 0.81
 option_as_alt = "Both"
 
 [font]
-# normal = { family = "JetBrainsMonoNL Nerd Font", style = "Medium" }
-# bold = { family = "JetBrainsMonoNL Nerd Font", style = "Medium" }
 normal = { family = "GeistMono Nerd Font", style = "Medium" }
 bold = { family = "GeistMono Nerd Font", style = "Medium" }
 size = 16
 
 [cursor]
 style = { shape = "Block", blinking = "Off" }
-# style = { shape = "Underline", blinking = "Always" }
 
 [env]
-# TERM = "tmux-256color"
 TERM = "xterm-256color"
 COLORTERM = "truecolor"
