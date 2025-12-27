@@ -47,6 +47,7 @@ ghostty
 git
 git-delta
 github-cli
+git-remote-codecommit
 gnome-calculator
 gnome-characters
 gnome-clocks
@@ -171,7 +172,7 @@ wireguard-tools
 wireplumber
 wpa_supplicant
 xclip
-xdg-desktop-portal-gnome
+xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
 xdg-user-dirs
 xdg-utils
