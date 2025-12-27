@@ -1,0 +1,150 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[](fg:text)\
+$os\
+[](fg:text bg:blue)\
+$directory\
+[](fg:blue bg:surface1)\
+$git_branch\
+$git_status\
+[](fg:surface1 bg:surface0)\
+$bun\
+$nodejs\
+$rust\
+$golang\
+$python\
+$terraform\
+$docker_context\
+[](fg:surface0 bg:base)\
+$cmd_duration\
+[](fg:base bg:mantle)\
+$time\
+[ ](fg:mantle)\
+\n$character"""
+
+palette = "catppuccin_mocha"
+
+[os]
+disabled = false
+format = "[ $symbol ](bg:text fg:mantle)"
+
+[directory]
+style = "fg:base bg:blue bold"
+format = "[ $path ]($style)"
+truncate_to_repo = true
+truncation_length = 3
+
+[git_branch]
+symbol = ""
+style = "bg:surface1"
+format = '[[ $symbol $branch ](fg:green bg:surface1)]($style)'
+
+[git_status]
+style = "bg:surface1"
+format = '[[($all_status$ahead_behind )](fg:green bg:surface1)]($style)'
+
+[bun]
+symbol = ""
+style = "bg:surface0"
+format = '[[ $symbol ($version) ](fg:yellow bg:surface0)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:surface0"
+detect_files = ['package.json', '.node-version', '!bunfig.toml', '!bun.lock']
+format = '[[ $symbol ($version) ](fg:teal bg:surface0)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:surface0"
+format = '[[ $symbol ($version) ](fg:red bg:surface0)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:surface0"
+format = '[[ $symbol ($version) ](fg:sapphire bg:surface0)]($style)'
+
+[python]
+symbol = ""
+style = "bg:surface0"
+format = '[[ $symbol ($version)( \($virtualenv\)) ](fg:purple bg:surface0)]($style)'
+
+[terraform]
+symbol = "󱁢"
+style = "bg:surface0"
+format = '[[ $symbol ($version) $workspace ](fg:lavender bg:surface0)]($style)'
+
+[docker_context]
+symbol = ""
+style = "bg:surface0"
+format = '[[ $symbol ($version) ](fg:sky bg:surface0)]($style)'
+
+[cmd_duration]
+min_time = 999
+style = "bg:base"
+format = "[ $duration ](fg:flamingo bg:base)($style)"
+show_milliseconds = false
+
+[time]
+disabled = false
+time_format = "%R"                                      # Hour:Minute Format
+style = "bg:mantle"
+format = '[[  $time ](fg:overlay1 bg:mantle)]($style)'
+
+[character]
+success_symbol = "[](bold fg:blue)"
+error_symbol = "[ ✗ ](bold fg:red)"
+vimcmd_symbol = "[  ](bold fg:lavender)"
+vimcmd_replace_one_symbol = "[  ](bold fg:purple)"
+vimcmd_replace_symbol = "[  ](bold fg:purple)"
+vimcmd_visual_symbol = "[  ](bold fg:maroon)"
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+purple = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
+
+[os.symbols]
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Fedora = "󰣛"
+Gentoo = "󰣨"
+Linux = "󰌽"
+Macos = ""
+Manjaro = ""
+Mint = "󰣭"
+Raspbian = "󰐿"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+SUSE = ""
+Ubuntu = "󰕈"
+Windows = "󰍲"
