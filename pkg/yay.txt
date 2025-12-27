@@ -14,6 +14,7 @@ bat
 biome
 blueman
 bluez
+bridge-utils
 brightnessctl
 btop
 btrfs-progs
@@ -25,12 +26,15 @@ cliphist
 cmake
 curl
 dialog
+dmidecode
+dnsmasq
 dnsutils
 docker
 docker-buildx
 docker-compose
 dosfstools
 dunst
+edk2-ovmf
 evince
 eza
 fastfetch
@@ -72,6 +76,7 @@ hyprpaper
 hyprsunset
 inetutils
 intel-ucode
+iptables
 ipset
 jq
 k9s
@@ -80,6 +85,7 @@ kubectl
 lazydocker
 lazygit
 less
+libvirt
 linux
 linux-firmware
 linux-headers
@@ -127,6 +133,7 @@ python-cfn-lint
 python-pip
 python-virtualenv
 python-yaml
+qemu-full
 qt5-wayland
 qt6ct
 qt6-declarative
@@ -140,6 +147,7 @@ rustup
 slurp
 sof-firmware
 starship
+swtpm
 superfile
 teams-for-linux-bin
 telegram-desktop
@@ -162,6 +170,9 @@ uv
 v2rayn-bin
 v4l-utils
 vim
+virt-install
+virt-manager
+virt-viewer
 vlc
 vscodium-bin
 vscodium-bin-marketplace

@@ -14,6 +14,10 @@ install_or_update_aws_sam_cli
 config_tools
 
 setup_services
+setup_libvirt
 setup_user_services
 
 echo_green "setup complete!"
+
+# virsh -c qemu:///system list --all
+# virt-manager

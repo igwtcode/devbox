@@ -143,6 +143,8 @@ if [[ "$os_alias" == "mac" ]]; then
   export PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/opt/gnu-sed/libexec/gnubin:/opt/homebrew/opt/grep/libexec/gnubin:/opt/homebrew/opt/libpq/bin:$PATH
 elif [[ "$os_alias" == "al2023" ]]; then
   export PATH=$PATH:/home/linuxbrew/.linuxbrew/opt/libpq/bin
+elif [[ "$os_alias" == "archlinux" ]]; then
+  export LIBVIRT_DEFAULT_URI="qemu:///system"
 fi
 
 if [[ "$os_alias" == "mac" || "$os_alias" == "al2023" ]]; then
