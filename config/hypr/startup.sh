@@ -9,6 +9,9 @@ killall -q \
   hyprsunset \
   dunst \
   polkit-gnome-authentication-agent \
+  xdg-desktop-portal-hyprland \
+  xdg-desktop-portal-gtk \
+  xdg-desktop-portal-gnome \
   xdg-desktop-portal-wlr \
   xdg-desktop-portal
 
@@ -22,7 +25,6 @@ hyprpaper &
 hyprsunset &
 dunst &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-/usr/lib/xdg-desktop-portal-wlr &
-sleep 1
 /usr/lib/xdg-desktop-portal &
+/usr/lib/xdg-desktop-portal-hyprland &
 # wl-paste --watch cliphist store &
