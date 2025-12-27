@@ -6,15 +6,15 @@ configuration {
   show-icons: true;
   sort: true;
   sorting-method: "fzf";
-  display-drun: "   ";
+  display-drun: "  ";
 }
 
 window {
-  width: 693px;
+  width: 777px;
 }
 
 listview {
-  lines: 18;
+  lines: 12;
 }
 
 entry {

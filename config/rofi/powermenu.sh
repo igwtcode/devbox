@@ -12,19 +12,16 @@ case $selected_option in
     hyprlock
     ;;
   Suspend)
-    # this uses gnome polkit agent to ask password
-    # in this case no need for script in SUDO_ASKPASS
-    # pkexec systemctl poweroff
-    sudo -A systemctl suspend
+    pkexec systemctl suspend
     ;;
   Hibernate)
-    sudo -A systemctl hibernate
+    pkexec systemctl hibernate
     ;;
   Reboot)
-    sudo -A systemctl reboot
+    pkexec systemctl reboot
     ;;
   Shutdown)
-    sudo -A systemctl poweroff
+    pkexec systemctl poweroff
     ;;
   Logout)
     # TODO: Check this

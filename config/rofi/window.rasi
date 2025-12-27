@@ -4,7 +4,7 @@
 
 configuration {
   show-icons: true;
-  display-window: "   ";
+  display-window: "  ";
 }
 
 window {
@@ -12,8 +12,7 @@ window {
 }
 
 listview {
-  lines: 12;
-  fixed-height: false;
+  lines: 10;
 }
 
 entry {
