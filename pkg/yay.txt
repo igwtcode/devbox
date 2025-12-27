@@ -11,6 +11,7 @@ base
 base-devel
 bash-completion
 bat
+biome
 blueman
 bluez
 brightnessctl
@@ -122,6 +123,7 @@ poppler
 power-profiles-daemon
 python
 python-boto3
+python-cfn-lint
 python-pip
 python-virtualenv
 python-yaml
