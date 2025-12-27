@@ -15,3 +15,5 @@ config_tools
 
 setup_services
 setup_user_services
+
+echo_green "setup complete!"

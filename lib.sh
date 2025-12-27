@@ -43,6 +43,7 @@ setup_terraform_plugin_cache() {
 }
 
 init() {
+  echo_gray "initializing directories and base config..."
   create_cache_dir
   create_config_dir
   setup_terraform_plugin_cache
@@ -50,17 +51,20 @@ init() {
 }
 
 setup_arch_timezone() {
+  echo_gray "setting timezone to Europe/Berlin..."
   sudo ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
   sudo hwclock --systohc
 }
 
 init_pacman_keyring() {
+  echo_gray "initializing pacman keyring..."
   sudo pacman-key --init
   sudo pacman-key --populate archlinux
   sudo pacman -Sy --needed --noconfirm archlinux-keyring
 }
 
 update_pacman() {
+  echo_gray "updating pacman packages..."
   sudo pacman -Syu --noconfirm
   sudo rm -rf /var/cache/pacman/pkg/download-*
   sudo pacman -Sc --noconfirm
@@ -70,7 +74,11 @@ install_yay() (
   [[ ! -d "$DEST_CONFIG_DIR/yay" ]] && {
     cp -r "$SRC_CONFIG_DIR/yay" "$DEST_CONFIG_DIR/yay"
   }
-  command -v yay &>/dev/null && exit 0
+  command -v yay &>/dev/null && {
+    echo_gray "yay already installed"
+    exit 0
+  }
+  echo_amber "installing yay..."
   dir=$(mktemp -d)
   trap 'rm -rf "$dir"' EXIT
   git clone https://aur.archlinux.org/yay.git "$dir"
@@ -80,6 +88,7 @@ install_yay() (
 )
 
 update_yay() {
+  echo_gray "updating yay packages..."
   yay -Syu --noconfirm
   yay -Yc --noconfirm
 }
@@ -101,12 +110,17 @@ add_brew_path_to_session() {
 
 install_brew() {
   add_brew_path_to_session
-  command -v brew &>/dev/null && return 0
+  command -v brew &>/dev/null && {
+    echo_gray "homebrew already installed"
+    return 0
+  }
+  echo_amber "installing homebrew..."
   NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   add_brew_path_to_session
 }
 
 update_brew() {
+  echo_gray "updating homebrew packages..."
   add_brew_path_to_session
   brew update
   brew upgrade
@@ -126,15 +140,20 @@ update_dnf() {
 
 prepare_os() {
   if is_arch; then
+    echo_green "detected os: archlinux"
     setup_arch_timezone
     init_pacman_keyring
     update_pacman
     install_yay
     update_yay
   elif is_ubuntu; then
+    echo_green "detected os: ubuntu"
     update_apt
   elif is_fedora; then
+    echo_green "detected os: fedora"
     update_dnf
+  elif is_mac; then
+    echo_green "detected os: macos"
   fi
 
   if is_ubuntu || is_fedora || is_mac; then
@@ -175,10 +194,12 @@ yay_install_pkg() {
 }
 
 install_packages() {
+  echo_gray "installing packages..."
   # shellcheck disable=SC2034
   local os_pkg=() brew_pkg=()
   if is_arch; then
     read_package_file_to_array "yay" os_pkg
+    echo_gray "found ${#os_pkg[@]} packages to install"
     yay_install_pkg os_pkg
   elif is_ubuntu; then
     read_package_file_to_array "apt" os_pkg
@@ -186,25 +207,28 @@ install_packages() {
     read_package_file_to_array "dnf" os_pkg
   elif is_mac; then
     read_package_file_to_array "brew-mac" brew_pkg
+    echo_gray "found ${#brew_pkg[@]} packages to install"
     brew_install_pkg brew_pkg
   fi
 }
 
 install_or_update_rust() {
   ! command -v rustup &>/dev/null && return
+  echo_gray "updating rust toolchain..."
   rustup default stable
   rustup update
 }
 
 install_or_update_aws_cli() (
+  echo_gray "installing/updating aws cli..."
   dir=$(mktemp -d)
   trap 'rm -rf "$dir"' EXIT
   cd "$dir" || exit 1
   local url filename
   url="https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
   filename="awscliv2.zip"
-  curl "$url" -o "$filename"
-  unzip "$filename"
+  curl -sS "$url" -o "$filename"
+  unzip -q "$filename"
   sudo ./aws/install \
     --bin-dir /usr/local/bin \
     --install-dir /usr/local/aws-cli \
@@ -212,6 +236,7 @@ install_or_update_aws_cli() (
 )
 
 install_or_update_aws_sam_cli() (
+  echo_gray "installing/updating aws sam cli..."
   dir=$(mktemp -d)
   trap 'rm -rf "$dir"' EXIT
   cd "$dir" || exit 1
@@ -219,8 +244,8 @@ install_or_update_aws_sam_cli() (
   url="https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip"
   filename="aws-sam-cli-linux-x86_64.zip"
   dir_name="sam-installation"
-  curl -L "$url" -o "$filename"
-  unzip "$filename" -d "$dir_name"
+  curl -sSL "$url" -o "$filename"
+  unzip -q "$filename" -d "$dir_name"
   sudo ./$dir_name/install --update
 )
 
@@ -236,6 +261,7 @@ install_or_update_aws_sam_cli() (
 
 setup_zsh_as_default() {
   if [[ "$(realpath "$SHELL")" != "$(which zsh)" ]]; then
+    echo_amber "changing default shell to zsh..."
     sudo chsh -s "$(which zsh)" "$USER"
   fi
 }
@@ -244,6 +270,7 @@ setup_tmux() {
   link_config "tmux"
   local tmux_tpm="$DEST_CONFIG_DIR/tmux/plugins/tpm"
   [[ -d "$tmux_tpm" ]] || {
+    echo_gray "installing tmux plugin manager..."
     git clone https://github.com/tmux-plugins/tpm "$tmux_tpm" &&
       "$tmux_tpm"/bin/install_plugins
   }
@@ -252,6 +279,7 @@ setup_tmux() {
 setup_services() {
   is_mac && return
 
+  echo_gray "configuring system services..."
   # Add user to docker group for running docker without sudo
   sudo usermod -aG docker "$USER"
 
@@ -266,6 +294,7 @@ setup_services() {
 
   # Enable and start necessary services
   for svc in "${services[@]}"; do
+    echo_gray "enabling service: $svc"
     sudo systemctl enable --now "$svc"
   done
 }
@@ -274,17 +303,20 @@ setup_user_services() {
   is_mac && return
   mkdir -p "$DEST_SERVICE_DIR"
 
+  echo_gray "configuring user services..."
   local services=("wl-paste.service")
   for svc in "${services[@]}"; do
     ln -sfn "$SRC_SERVICE_DIR/$svc" "$DEST_SERVICE_DIR/$svc"
   done
   systemctl --user daemon-reload
   for svc in "${services[@]}"; do
+    echo_gray "enabling user service: $svc"
     systemctl --user enable --now "$svc"
   done
 }
 
 config_tools() {
+  echo_gray "linking config files..."
   link_bin_dir
   link_home "vim" ".vim"
   link_home "vimrc" ".vimrc"
