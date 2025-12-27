@@ -17,6 +17,7 @@ brightnessctl
 btop
 btrfs-progs
 bun-bin
+bzip2
 bzip3
 chromium
 cliphist
@@ -29,6 +30,7 @@ docker-buildx
 docker-compose
 dosfstools
 dunst
+evince
 eza
 fastfetch
 fd
@@ -45,7 +47,6 @@ ghostty
 git
 git-delta
 github-cli
-git-remote-codecommit
 gnome-calculator
 gnome-characters
 gnome-clocks
@@ -87,6 +88,7 @@ mise
 mpv
 mtools
 nano
+nautilus
 neovim
 networkmanager
 nfs-utils
@@ -116,6 +118,7 @@ pipewire-libcamera
 pipewire-pulse
 polkit-gnome
 poppler
+power-profiles-daemon
 python
 python-boto3
 python-pip
@@ -135,7 +138,7 @@ slurp
 sof-firmware
 starship
 superfile
-teams-for-linux
+teams-for-linux-bin
 telegram-desktop
 terminus-font
 terraform
@@ -148,12 +151,20 @@ ttf-cascadia-mono-nerd
 ttf-jetbrains-mono-nerd
 ttf-meslo-nerd
 tumbler
+udiskie
 unrar
 unzip
+usage
+uv
+v2rayn-bin
+v4l-utils
 vim
 vlc
 vscodium-bin
 vscodium-bin-marketplace
+vulkan-driver
+vulkan-tools
+wavpack
 waybar
 wget
 wireguard-tools
@@ -164,8 +175,11 @@ xdg-desktop-portal-gnome
 xdg-desktop-portal-hyprland
 xdg-user-dirs
 xdg-utils
+xfsprogs
 yq
+yt-dlp
 zathura
+zed
 zip
 zoxide
 zsh
