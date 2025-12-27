@@ -12,13 +12,13 @@ theme = Catppuccin Mocha
 
 window-theme = dark
 window-save-state= always
-window-padding-y = 0
-window-padding-x = 0
+window-padding-y = 10
+window-padding-x = 18
 window-padding-balance = true
 window-padding-color = background
 
 shell-integration-features = no-cursor,sudo,no-title
-cursor-style = underline
+cursor-style = block
 mouse-hide-while-typing = true
 cursor-color=f9e2af
 cursor-text=090909
@@ -26,32 +26,10 @@ cursor-text=090909
 background-opacity = 0.84
 # background-blur = 27
 
-keybind = ctrl+shift+r=reload_config
-
-macos-non-native-fullscreen = true
+# macos-non-native-fullscreen = true
 # macos-titlebar-style = tabs
 
-# term = xterm-256color
+term = xterm-256color
 # shell-integration = zsh
 
-# palette = 0=#45475a
-# palette = 1=#f38ba8
-# palette = 2=#a6e3a1
-# palette = 3=#f9e2af
-# palette = 4=#89b4fa
-# palette = 5=#f5c2e7
-# palette = 6=#94e2d5
-# palette = 7=#bac2de
-# palette = 8=#585b70
-# palette = 9=#f38ba8
-# palette = 10=#a6e3a1
-# palette = 11=#f9e2af
-# palette = 12=#89b4fa
-# palette = 13=#f5c2e7
-# palette = 14=#94e2d5
-# palette = 15=#a6adc8
-# background = 1e1e2e
-# foreground = cdd6f4
-# cursor-color = f5e0dc
-# selection-background = 353749
-# selection-foreground = cdd6f4
+keybind = ctrl+shift+r=reload_config
