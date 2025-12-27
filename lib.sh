@@ -8,10 +8,22 @@ DEST_CONFIG_DIR=$HOME/.config
 SRC_SERVICE_DIR=$(pwd)/service
 DEST_SERVICE_DIR=$DEST_CONFIG_DIR/systemd/user
 
+echo_gray() { echo -e "\033[90m$1\033[0m"; }
+echo_amber() { echo -e "\033[33m$1\033[0m"; }
+echo_red() { echo -e "\033[31m$1\033[0m"; }
+echo_green() { echo -e "\033[32m$1\033[0m"; }
+echo_blue() { echo -e "\033[34m$1\033[0m"; }
+echo_cyan() { echo -e "\033[36m$1\033[0m"; }
+echo_magenta() { echo -e "\033[35m$1\033[0m"; }
+
 is_arch() { [[ -f /etc/arch-release ]]; }
 is_ubuntu() { [[ -f /etc/os-release ]] && grep -qi 'ubuntu' /etc/os-release; }
 is_fedora() { [[ -f /etc/fedora-release ]]; }
 is_mac() { [[ "$(uname -s)" == "Darwin" ]]; }
+
+link_bin_dir() { ln -sfn "$(pwd)/bin" "$HOME/bin"; }
+link_home() { ln -sfn "$SRC_CONFIG_DIR/$1" "$HOME/${2:-$1}"; }
+link_config() { ln -sfn "$SRC_CONFIG_DIR/$1" "$DEST_CONFIG_DIR/${2:-$1}"; }
 
 pkg_file() {
   local filename
@@ -27,11 +39,14 @@ create_config_dir() { mkdir -p "$DEST_CONFIG_DIR"; }
 
 setup_terraform_plugin_cache() {
   mkdir -p "$CACHE_DIR/terraform-plugins"
-  ln -sfn "$SRC_CONFIG_DIR/terraformrc" "$HOME/.terraformrc"
+  link_home "terraformrc" ".terraformrc"
 }
 
-setup_git_config() {
-  ln -sfn "$SRC_CONFIG_DIR/gitconfig" "$HOME/.gitconfig"
+init() {
+  create_cache_dir
+  create_config_dir
+  setup_terraform_plugin_cache
+  link_home "gitconfig" ".gitconfig"
 }
 
 setup_arch_timezone() {
@@ -93,18 +108,39 @@ install_brew() {
 
 update_brew() {
   add_brew_path_to_session
-  brew update && brew upgrade && brew cleanup
+  brew update
+  brew upgrade
+  brew cleanup
 }
 
 update_apt() {
-  sudo apt update &&
-    sudo apt full-upgrade -y &&
-    sudo apt autoremove -y &&
-    sudo apt autoclean -y
+  sudo apt update
+  sudo apt full-upgrade -y
+  sudo apt autoremove -y
+  sudo apt autoclean -y
 }
 
 update_dnf() {
   sudo dnf upgrade -y
+}
+
+prepare_os() {
+  if is_arch; then
+    setup_arch_timezone
+    init_pacman_keyring
+    update_pacman
+    install_yay
+    update_yay
+  elif is_ubuntu; then
+    update_apt
+  elif is_fedora; then
+    update_dnf
+  fi
+
+  if is_ubuntu || is_fedora || is_mac; then
+    install_brew
+    update_brew
+  fi
 }
 
 read_package_file_to_array() {
@@ -197,3 +233,104 @@ install_or_update_aws_sam_cli() (
 #   curl -L -o devpod "$url" &&
 #     sudo install -c -m 0755 devpod /usr/local/bin
 # )
+
+setup_zsh_as_default() {
+  if [[ "$(realpath "$SHELL")" != "$(which zsh)" ]]; then
+    sudo chsh -s "$(which zsh)" "$USER"
+  fi
+}
+
+setup_tmux() {
+  link_config "tmux"
+  local tmux_tpm="$DEST_CONFIG_DIR/tmux/plugins/tpm"
+  [[ -d "$tmux_tpm" ]] || {
+    git clone https://github.com/tmux-plugins/tpm "$tmux_tpm" &&
+      "$tmux_tpm"/bin/install_plugins
+  }
+}
+
+setup_services() {
+  is_mac && return
+
+  # Add user to docker group for running docker without sudo
+  sudo usermod -aG docker "$USER"
+
+  local services=("docker")
+  is_arch && services+=(
+    "acpid"
+    "bluetooth"
+    "fstrim.timer"
+    "NetworkManager"
+    "power-profiles-daemon"
+  )
+
+  # Enable and start necessary services
+  for svc in "${services[@]}"; do
+    sudo systemctl enable --now "$svc"
+  done
+}
+
+setup_user_services() {
+  is_mac && return
+  mkdir -p "$DEST_SERVICE_DIR"
+
+  local services=("wl-paste.service")
+  for svc in "${services[@]}"; do
+    ln -sfn "$SRC_SERVICE_DIR/$svc" "$DEST_SERVICE_DIR/$svc"
+  done
+  systemctl --user daemon-reload
+  for svc in "${services[@]}"; do
+    systemctl --user enable --now "$svc"
+  done
+}
+
+config_tools() {
+  link_bin_dir
+  link_home "vim" ".vim"
+  link_home "vimrc" ".vimrc"
+  link_config "nvim"
+  link_config "eza"
+
+  link_config "bat"
+  # Rebuild bat cache for syntax highlighting
+  bat cache --build &>/dev/null
+
+  link_config "lazydocker"
+  link_config "lazygit"
+  link_config "starship"
+
+  link_home "bashrc" ".bashrc"
+  link_home "zshrc" ".zshrc"
+  setup_zsh_as_default
+  setup_tmux
+
+  local os_alias
+  if is_arch; then
+    os_alias="archlinux"
+  elif is_mac; then
+    os_alias="mac"
+  fi
+
+  link_config "kitty"
+
+  ln -sfn "$SRC_CONFIG_DIR/alacritty/$os_alias.toml" "$SRC_CONFIG_DIR/alacritty/alacritty.toml"
+  link_config "alacritty"
+
+  ln -sfn "$SRC_CONFIG_DIR/ghostty/$os_alias" "$SRC_CONFIG_DIR/ghostty/config"
+  link_config "ghostty"
+
+  link_config "wallpaper"
+  link_config "k9s"
+
+  if is_arch; then
+    link_config "btop"
+    # Fix btop Intel graphics issue (set performance monitoring capability)
+    sudo setcap cap_perfmon=+ep "$(which btop)"
+
+    link_config "code-flags.conf"
+    link_config "dunst"
+    link_config "hypr"
+    link_config "rofi"
+    link_config "waybar"
+  fi
+}
