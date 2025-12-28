@@ -22,6 +22,7 @@ bun-bin
 bzip2
 bzip3
 chromium
+claude-code
 cliphist
 cmake
 curl
@@ -76,8 +77,8 @@ hyprpaper
 hyprsunset
 inetutils
 intel-ucode
-iptables
 ipset
+iptables
 jq
 k9s
 kitty
@@ -147,8 +148,8 @@ rustup
 slurp
 sof-firmware
 starship
-swtpm
 superfile
+swtpm
 teams-for-linux-bin
 telegram-desktop
 terminus-font
