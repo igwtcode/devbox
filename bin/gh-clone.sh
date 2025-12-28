@@ -16,10 +16,10 @@ USER_EMAIL="$USER_ID+$USER_LOGIN@users.noreply.github.com"
 
 echo_gray "building repos list for $USER_LOGIN ..."
 
-REPO_NAMES=($(gh repo list --json nameWithOwner --jq '.[].nameWithOwner'))
+REPO_NAMES=($(gh repo list --limit 1000 --json nameWithOwner --jq '.[].nameWithOwner'))
 ORG_NAMES=($(gh api user/memberships/orgs --jq '.[].organization.login'))
 for org in "${ORG_NAMES[@]}"; do
-  org_repo_names=($(gh repo list "$org" --json nameWithOwner --jq '.[].nameWithOwner'))
+  org_repo_names=($(gh repo list "$org" --limit 1000 --json nameWithOwner --jq '.[].nameWithOwner'))
   REPO_NAMES+=("${org_repo_names[@]}")
 done
 
