@@ -1,6 +1,8 @@
 # archlinux
 
-connect to internet during installation process
+## Wifi connection
+
+during installation:
 
 ```bash
 # get device name
@@ -17,7 +19,7 @@ station <name> connect <SSID>
 exit
 ```
 
-after installation, on first run:
+after installation:
 
 ```bash
 nmcli device wifi connect "<SSID>" password "<password>"
@@ -33,10 +35,22 @@ Check these in `/etc/pacman.conf`
 
 ```bash
 Color
-CheckSpace
-VerbosePkgLists
-ParallelDownloads = 15
-ILoveCandy
+# CheckSpace
+# VerbosePkgLists
+ParallelDownloads = 5
+# ILoveCandy
+```
+
+## Fix mirror list
+
+```bash
+reflector --country Germany \
+  --age 12 \
+  --sort rate \
+  --fastest 36 \
+  --protocol "https,rsync,ftp" \
+  --exclude 'moson.org' \
+  --save /etc/pacman.d/mirrorlist
 ```
 
 ## Tmux
