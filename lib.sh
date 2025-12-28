@@ -249,6 +249,21 @@ install_or_update_aws_sam_cli() (
   sudo ./$dir_name/install --update
 )
 
+install_gtk_them() (
+  for d in ~/.themes/*; do
+    [[ ${d##*/} =~ [Cc]atppuccin ]] && return
+  done
+
+  local name="Catppuccin-GTK-Theme"
+  echo_gray "installing $name..."
+  dir=$(mktemp -d)
+  trap 'rm -rf "$dir"' EXIT
+  cd "$dir" || exit 1
+  git clone --depth=1 https://github.com/Fausto-Korpsvart/$name.git
+  cd "$name/themes" || exit 1
+  ./install.sh -c dark -l -t all
+)
+
 # install_devpod() (
 #   dir=$(mktemp -d)
 #   trap 'rm -rf "$dir"' EXIT
@@ -394,5 +409,13 @@ config_tools() {
     link_config "hypr"
     link_config "rofi"
     link_config "waybar"
+  fi
+
+  if ! is_mac; then
+    install_gtk_them
+    link_config "gtk-3.0"
+    link_config "gtk-4.0"
+    link_config "qt5ct"
+    link_config "qt6ct"
   fi
 }

@@ -18,6 +18,3 @@ setup_libvirt
 setup_user_services
 
 echo_green "setup complete!"
-
-# virsh -c qemu:///system list --all
-# virt-manager
