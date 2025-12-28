@@ -12,10 +12,10 @@ configuration {
 
 * {
   //bg: #1e1e2e30;
-  bg: transparent;
-  bg-alt: #18181839;
+  bg: #18181877;
+  bg-alt: #18181877;
   bg-selected: #769ff033;
-  input-bg: #769ff018;
+  input-bg: #18181877;
 
   fg: #cdd6f4;
   fg-alt: #7f849c;
@@ -90,6 +90,7 @@ inputbar {
   children: [entry];
   children: [prompt, entry];
   background-color: @bg;
+  border-radius: 0px;
 }
 
 listview {
@@ -97,6 +98,7 @@ listview {
   columns: 1;
   lines: 12;
   fixed-height: true;
+  border-radius: 0px;
 }
 
 mainbox {
