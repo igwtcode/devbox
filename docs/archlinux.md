@@ -1,5 +1,24 @@
 # archlinux
 
+connect to internet during installation process
+
+```bash
+# get device name
+ip -c a
+
+iwctl --passphrase <passphrase> station <name> connect <SSID>
+
+# or in iwctl
+iwctl
+device list
+station <name> scan
+station <name> get-networks
+station <name> connect <SSID>
+exit
+```
+
+after installation, on first run:
+
 ```bash
 nmcli device wifi connect "<SSID>" password "<password>"
 ```
@@ -19,6 +38,12 @@ VerbosePkgLists
 ParallelDownloads = 15
 ILoveCandy
 ```
+
+## Tmux
+
+- open tmux with `tmux`.
+  If plugins are not auto installed on first run,
+  press `Ctrl-a + I` to install all plugins.
 
 ## virtualbox
 
