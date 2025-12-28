@@ -378,6 +378,7 @@ config_tools() {
 
   link_home "bashrc" ".bashrc"
   link_home "zshrc" ".zshrc"
+  link_home "zprofile" ".zprofile"
   setup_zsh_as_default
   setup_tmux
 
