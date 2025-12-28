@@ -420,3 +420,9 @@ config_tools() {
     link_config "qt6ct"
   fi
 }
+
+config_services() {
+  setup_services
+  setup_libvirt
+  setup_user_services
+}
