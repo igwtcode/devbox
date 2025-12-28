@@ -12,14 +12,14 @@ configuration {
 
 * {
   //bg: #1e1e2e30;
-  bg: #18181877;
-  bg-alt: #18181877;
+  bg: #1e1e2e99;
+  bg-alt: #1e1e2e88;
   bg-selected: #769ff033;
-  input-bg: #18181877;
+  input-bg: #31324477;
 
   fg: #cdd6f4;
-  fg-alt: #7f849c;
-  fg-selected: #769ff0;
+  fg-alt: #9399b2;
+  fg-selected: #89b4fa;
   bd-c: #b4befe69;
 
   myhighlight: bold #f38ba8;
