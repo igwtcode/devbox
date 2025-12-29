@@ -17,6 +17,7 @@ bootstrap() {
 }
 
 post_config_os() {
+  post_config_generic
   link_home "bash/$OS_ALIAS.sh" ".bashrc"
   link_home "zsh/$OS_ALIAS.sh" ".zshrc"
 }

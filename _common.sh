@@ -149,9 +149,11 @@ install_or_update_aws_sam_cli_mac() (
 )
 
 install_gtk_theme() (
-  for d in ~/.themes/*; do
-    [[ ${d##*/} =~ [Cc]atppuccin ]] && return
-  done
+  if [[ -d ~/.themes ]]; then
+    for d in ~/.themes/*; do
+      [[ ${d##*/} =~ [Cc]atppuccin ]] && return
+    done
+  fi
 
   local name="Catppuccin-GTK-Theme"
   echo_gray "installing $name..."
@@ -176,9 +178,9 @@ install_devpod() (
 )
 
 setup_zsh_as_default() {
-  if [[ "$(realpath "$SHELL")" != "$(which zsh)" ]]; then
+  if [[ "$(realpath "$SHELL")" != "$(command -v zsh)" ]]; then
     echo_amber "changing default shell to zsh..."
-    sudo chsh -s "$(which zsh)" "$USER"
+    sudo chsh -s "$(command -v zsh)" "$USER"
   fi
 }
 
@@ -194,7 +196,7 @@ build_bat_cache() {
 
 fix_btop_graphics() {
   # Fix btop Intel graphics issue (set performance monitoring capability)
-  sudo setcap cap_perfmon=+ep "$(which btop)"
+  sudo setcap cap_perfmon=+ep "$(command -v btop)" 2>/dev/null || true
 }
 
 setup_tmux() {
@@ -215,7 +217,6 @@ pre_config_generic() {
 }
 
 post_config_generic() {
-  setup_zsh_as_default
   link_bin_dir
   link_home "vim" ".vim"
   link_home "vimrc" ".vimrc"
@@ -234,6 +235,7 @@ post_config_generic() {
 
 post_config_linux() {
   post_config_generic
+  setup_zsh_as_default
 
   add_user_to_docker_group
   fix_btop_graphics
