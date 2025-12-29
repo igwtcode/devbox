@@ -90,14 +90,14 @@ install_or_update_rust() {
   rustup update
 }
 
-install_or_update_aws_cli() (
+install_or_update_aws_cli_linux() (
   echo_gray "installing/updating aws cli..."
   dir=$(mktemp -d)
   trap 'rm -rf "$dir"' EXIT
   cd "$dir" || exit 1
   local url filename
-  url="https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
-  filename="awscliv2.zip"
+  filename="awscli-exe-linux-x86_64.zip"
+  url="https://awscli.amazonaws.com/$filename"
   curl -sS "$url" -o "$filename"
   unzip -q "$filename"
   sudo ./aws/install \
@@ -106,15 +106,43 @@ install_or_update_aws_cli() (
     --update
 )
 
-install_or_update_aws_sam_cli() (
+install_or_update_aws_cli_mac() (
+  echo_gray "installing/updating aws cli..."
+  dir=$(mktemp -d)
+  trap 'rm -rf "$dir"' EXIT
+  cd "$dir" || exit 1
+  local url filename
+  filename="AWSCLIV2.pkg"
+  url="https://awscli.amazonaws.com/$filename"
+  curl -sS "$url" -o "$filename"
+  sudo installer -pkg "$filename" -target /
+)
+
+install_or_update_aws_sam_cli_linux() (
   echo_gray "installing/updating aws sam cli..."
   dir=$(mktemp -d)
   trap 'rm -rf "$dir"' EXIT
   cd "$dir" || exit 1
   local url filename dir_name
-  url="https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip"
-  filename="aws-sam-cli-linux-x86_64.zip"
   dir_name="sam-installation"
+  filename="aws-sam-cli-linux-x86_64.zip"
+  url="https://github.com/aws/aws-sam-cli/releases/latest/download/$filename"
+  curl -sSL "$url" -o "$filename"
+  unzip -q "$filename" -d "$dir_name"
+  sudo ./$dir_name/install --update
+)
+
+install_or_update_aws_sam_cli_mac() (
+  echo_gray "installing/updating aws sam cli..."
+  dir=$(mktemp -d)
+  trap 'rm -rf "$dir"' EXIT
+  cd "$dir" || exit 1
+  local arch url filename dir_name
+  arch=$(uname -m)
+  dir_name="sam-installation"
+  filename="aws-sam-cli-macos-arm64.zip"
+  [[ "$arch" != "arm64" ]] && filename="aws-sam-cli-macos-x86_64.zip"
+  url="https://github.com/aws/aws-sam-cli/releases/latest/download/$filename"
   curl -sSL "$url" -o "$filename"
   unzip -q "$filename" -d "$dir_name"
   sudo ./$dir_name/install --update
@@ -227,7 +255,7 @@ usage() {
 }
 
 set_run_mode() {
-  case "${1}" in
+  case "${1:-}" in
   update)
     RUN_MODE="update"
     ;;
@@ -240,6 +268,10 @@ set_run_mode() {
   -h | --help)
     usage
     exit 0
+    ;;
+  "")
+    usage
+    exit 1
     ;;
   *)
     echo_red "Unknown option: $1"

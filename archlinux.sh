@@ -88,8 +88,8 @@ bootstrap() {
   update_yay
   yay_install_pkg
   install_or_update_rust
-  install_or_update_aws_cli
-  install_or_update_aws_sam_cli
+  install_or_update_aws_cli_linux
+  install_or_update_aws_sam_cli_linux
   install_gtk_theme
 }
 
@@ -119,8 +119,8 @@ post_config_os() {
 do_update() {
   update_yay
   install_or_update_rust
-  install_or_update_aws_cli
-  install_or_update_aws_sam_cli
+  install_or_update_aws_cli_linux
+  install_or_update_aws_sam_cli_linux
 }
 
 main() {

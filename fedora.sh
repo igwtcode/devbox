@@ -26,8 +26,8 @@ bootstrap() {
   brew_install_pkg "brew"
   brew_install_pkg "brew-$OS_ALIAS"
   install_or_update_rust
-  install_or_update_aws_cli
-  install_or_update_aws_sam_cli
+  install_or_update_aws_cli_linux
+  install_or_update_aws_sam_cli_linux
   install_gtk_theme
 }
 
@@ -42,8 +42,8 @@ do_update() {
   update_dnf
   update_brew
   install_or_update_rust
-  install_or_update_aws_cli
-  install_or_update_aws_sam_cli
+  install_or_update_aws_cli_linux
+  install_or_update_aws_sam_cli_linux
 }
 
 main() {
