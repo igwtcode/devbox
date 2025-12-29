@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 CACHE_DIR=$HOME/.cache
 SRC_CONFIG_DIR=$(pwd)/config
 DEST_CONFIG_DIR=$HOME/.config
@@ -18,12 +20,20 @@ link_home() { ln -sfn "$SRC_CONFIG_DIR/$1" "$HOME/${2:-$1}"; }
 link_config() { ln -sfn "$SRC_CONFIG_DIR/$1" "$DEST_CONFIG_DIR/${2:-$1}"; }
 
 link_alacritty() {
-  ln -sfn "$SRC_CONFIG_DIR/alacritty/$OS_ALIAS.toml" "$SRC_CONFIG_DIR/alacritty/alacritty.toml"
+  local filepath
+  filepath="$SRC_CONFIG_DIR/alacritty/$OS_ALIAS.toml"
+  [[ ! -f "$filepath" ]] && filepath="$SRC_CONFIG_DIR/alacritty/linux.toml"
+  [[ ! -f "$filepath" ]] && filepath="$SRC_CONFIG_DIR/alacritty/archlinux.toml"
+  ln -sfn "$filepath" "$SRC_CONFIG_DIR/alacritty/alacritty.toml"
   link_config "alacritty"
 }
 
 link_ghostty() {
-  ln -sfn "$SRC_CONFIG_DIR/ghostty/$OS_ALIAS" "$SRC_CONFIG_DIR/ghostty/config"
+  local filepath
+  filepath="$SRC_CONFIG_DIR/ghostty/$OS_ALIAS"
+  [[ ! -f "$filepath" ]] && filepath="$SRC_CONFIG_DIR/ghostty/linux"
+  [[ ! -f "$filepath" ]] && filepath="$SRC_CONFIG_DIR/ghostty/archlinux"
+  ln -sfn "$filepath" "$SRC_CONFIG_DIR/ghostty/config"
   link_config "ghostty"
 }
 
@@ -110,7 +120,7 @@ install_or_update_aws_sam_cli() (
   sudo ./$dir_name/install --update
 )
 
-install_gtk_them() (
+install_gtk_theme() (
   for d in ~/.themes/*; do
     [[ ${d##*/} =~ [Cc]atppuccin ]] && return
   done
@@ -187,10 +197,9 @@ post_config_generic() {
   link_config "lazygit"
   link_config "starship"
   link_config "kitty"
-  link_config "bat"
   link_alacritty
   link_ghostty
-
+  link_config "bat"
   build_bat_cache
   setup_tmux
 }

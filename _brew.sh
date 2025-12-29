@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 IS_BREW_IN_PATH=""
 
 # Add brew to PATH for this session
@@ -35,7 +37,9 @@ update_brew() {
 }
 
 brew_install_pkg() {
-  local -n items=$1 # nameref to caller's array
+  local items=()
+  read_package_file_to_array "$1" items
   [[ ${#items[@]} == 0 ]] && return
-  printf "%s\n" "${items[@]}" | xargs brew install -q
+  echo_gray "found ${#items[@]} brew packages to install"
+  brew install -q "${items[@]}"
 }

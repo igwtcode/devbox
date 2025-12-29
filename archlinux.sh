@@ -47,7 +47,7 @@ yay_install_pkg() {
   local items=()
   read_package_file_to_array "$OS_ALIAS" items
   [[ ${#items[@]} == 0 ]] && return
-  echo_gray "found ${#items[@]} packages to install"
+  echo_gray "found ${#items[@]} yay packages to install"
   yay -S --needed --noconfirm "${items[@]}"
 }
 
@@ -80,26 +80,25 @@ setup_libvirt() {
   # virt-manager
 }
 
-install() {
+bootstrap() {
   setup_timezone
   init_pacman_keyring
   update_pacman
   install_yay
   update_yay
-  install_packages
+  yay_install_pkg
   install_or_update_rust
   install_or_update_aws_cli
   install_or_update_aws_sam_cli
-  install_gtk_them
+  install_gtk_theme
 }
 
 post_config_os() {
   post_config_linux
 
-  # FIXME: OS specific
-  link_home "bashrc" ".bashrc"
-  link_home "zshrc" ".zshrc"
-  link_home "zprofile" ".zprofile"
+  link_home "bash/$OS_ALIAS.sh" ".bashrc"
+  link_home "zsh/$OS_ALIAS.sh" ".zshrc"
+  link_home "zsh/$OS_ALIAS-profile.sh" ".zprofile"
 
   link_config "wallpaper"
   link_config "code-flags.conf"
@@ -134,7 +133,7 @@ main() {
     return
   elif should_full; then
     pre_config_generic
-    install
+    bootstrap
     post_config_os
     return
   fi

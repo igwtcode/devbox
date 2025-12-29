@@ -1,0 +1,6 @@
+1password-cli
+alacritty
+ghostty
+jq
+k9s
+kitty

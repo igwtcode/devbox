@@ -4,42 +4,24 @@ set -euo pipefail
 source ./_common.sh
 source ./_brew.sh
 
-OS_ALIAS="fedora"
-
-update_dnf() {
-  sudo dnf upgrade -y
-}
-
-dnf_install_pkg() {
-  local items=()
-  read_package_file_to_array "$OS_ALIAS" items
-  [[ ${#items[@]} == 0 ]] && return
-  echo_gray "found ${#items[@]} dnf packages to install"
-  sudo dnf install -y "${items[@]}"
-}
+OS_ALIAS="mac"
 
 bootstrap() {
-  update_dnf
-  dnf_install_pkg
   install_brew
   update_brew
   brew_install_pkg "brew"
-  brew_install_pkg "brew-$OS_ALIAS"
+  brew_install_pkg "brew-mac"
   install_or_update_rust
   install_or_update_aws_cli
   install_or_update_aws_sam_cli
-  install_gtk_theme
 }
 
 post_config_os() {
-  post_config_linux
-
-  link_home "bash/linux.sh" ".bashrc"
-  link_home "zsh/linux.sh" ".zshrc"
+  link_home "bash/$OS_ALIAS.sh" ".bashrc"
+  link_home "zsh/$OS_ALIAS.sh" ".zshrc"
 }
 
 do_update() {
-  update_dnf
   update_brew
   install_or_update_rust
   install_or_update_aws_cli

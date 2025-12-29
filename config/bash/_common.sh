@@ -1,28 +1,7 @@
-#!/usr/bin/env bash
 # vim: ft=sh
-
-# If not running interactively, don't do anything
-# [[ $- != *i* ]] && return
-
-# mac, archlinux or al2023
-os_alias() {
-  if [[ "$OSTYPE" == "darwin"* ]]; then
-    echo "mac"
-  elif [[ -f /etc/os-release ]]; then
-    local os_id=$(grep ^ID= /etc/os-release | cut -d'=' -f2 | tr -d '"')
-    if [[ "$os_id" == "arch" ]]; then
-      echo "archlinux"
-    elif [[ "$os_id" == "amzn" ]]; then
-      echo "al2023"
-    fi
-  fi
-}
-
-os_alias=$(os_alias)
 
 export EDITOR=nvim
 export VISUAL=nvim
-
 export LG_CONFIG_FILE=$HOME/.config/lazygit/config.yml
 export STARSHIP_CONFIG=$HOME/.config/starship/config.toml
 export LS_COLORS=""
@@ -30,7 +9,8 @@ export EZA_COLORS=""
 export EZA_CONFIG_DIR=$HOME/.config/eza
 export TF_PLUGIN_CACHE_DIR="$HOME/.cache/terraform-plugins"
 export SAM_CLI_TELEMETRY=0
-
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin:$GOPATH/bin/bin:$HOME/.bun/bin:$HOME/.local/bin:$HOME/bin
 export FZF_DEFAULT_OPTS=" \
 --color=fg:#c0caf5,fg+:#74c7ec,bg+:#313244 \
 --color=header:#89dceb,info:#f38ba8,pointer:#f9e2af,marker:#fab387 \
@@ -46,38 +26,6 @@ export FZF_DEFAULT_OPTS=" \
 --reverse \
 --prompt ' '"
 
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin:$GOPATH/bin/bin:$HOME/.bun/bin:$HOME/.local/bin:$HOME/bin
-if [[ "$os_alias" == "mac" ]]; then
-  export PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/opt/gnu-sed/libexec/gnubin:/opt/homebrew/opt/grep/libexec/gnubin:/opt/homebrew/opt/libpq/bin:$PATH
-elif [[ "$os_alias" == "al2023" ]]; then
-  export PATH=$PATH:/home/linuxbrew/.linuxbrew/opt/libpq/bin
-fi
-
-if [[ "$os_alias" == "mac" || "$os_alias" == "al2023" ]]; then
-  export HOMEBREW_NO_ANALYTICS=1
-  export HOMEBREW_NO_AUTO_UPDATE=1
-
-  if [[ -d /opt/homebrew ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-  elif [[ -d /home/linuxbrew/.linuxbrew ]]; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-  fi
-
-  export NVM_DIR="$HOME/.nvm"
-  [ -d "$NVM_DIR" ] || {
-    git clone https://github.com/nvm-sh/nvm.git "$NVM_DIR" &&
-      (
-        cd "$NVM_DIR" &&
-          git checkout "$(git describe --abbrev=0 --tags --match 'v[0-9]*' $(git rev-list --tags --max-count=1))"
-      )
-  }
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-elif [[ "$os_alias" == "archlinux" ]]; then
-  source /usr/share/nvm/init-nvm.sh
-fi
-
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 source <(fzf --bash)
@@ -86,13 +34,20 @@ source <(gh completion -s bash)
 complete -C "$(which aws_completer)" aws
 complete -C "$(which terraform)" terraform
 
+if command -v tbx &>/dev/null; then
+  source <(tbx completion zsh)
+fi
+
+if command -v tbx-v1 &>/dev/null; then
+  source <(tbx-v1 completion zsh)
+fi
+
 alias ...='cd ../..'
 alias ..='cd ..'
 alias b=bat
 alias bg=' bg'
 alias c=clear
 alias clear=' clear'
-alias cp-awsprofile="sel-awsprofile | tr -d '\n' | wl-copy"
 alias cp='cp -i'
 alias exit=' exit'
 alias fg=' fg'
@@ -112,13 +67,6 @@ alias rm='rm -i'
 alias sel-awsprofile="grep -E '^\[.+\]$' ~/.aws/credentials | sed -E 's/^\[(.+)\]$/\1/' | sort -u | fzf"
 alias tf=terraform
 alias v=nvim
-
-if [[ "$os_alias" == "mac" ]]; then
-  alias cp-awsprofile="sel-awsprofile | tr -d '\n' | pbcopy"
-elif [[ "$os_alias" == "archlinux" ]]; then
-  alias cp-awsprofile="sel-awsprofile | tr -d '\n' | wl-copy"
-  alias ch="cliphist list | fzf --no-sort -d $'\t' --with-nth 2 | cliphist decode | wl-copy"
-fi
 
 xx() {
   # find "$(readlink -f $HOME/bin)" -maxdepth 1 -type f -perm -u+x | while read -r file; do
@@ -140,5 +88,3 @@ gg() {
   local dir=$(fd -t d -d 3 -H -E node_modules -E '.git' -E '.terraform' -E '.vscode' --base-directory $base_dir --min-depth 2 | fzf)
   [[ -n "$dir" ]] && cd "$base_dir/$dir"
 }
-
-[[ -f "$HOME/.customrc.sh" ]] && source $HOME/.customrc.sh

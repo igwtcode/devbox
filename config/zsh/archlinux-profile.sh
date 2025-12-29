@@ -1,4 +1,3 @@
-#!/usr/bin/env zsh
 # vim: ft=sh
 
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" -eq 1 ]; then

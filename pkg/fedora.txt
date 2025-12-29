@@ -1,0 +1,16 @@
+@development-tools
+ca-certificates
+curl
+file
+fontconfig
+gnupg2
+htop
+openssh-clients
+openssl-devel
+pkg-config
+python3
+python3-pip
+unzip
+wget
+zip
+zsh
