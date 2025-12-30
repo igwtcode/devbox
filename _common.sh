@@ -18,6 +18,7 @@ echo_magenta() { echo -e "\033[35m$1\033[0m"; }
 link_bin_dir() { ln -sfn "$(pwd)/bin" "$HOME/bin"; }
 link_home() { ln -sfn "$SRC_CONFIG_DIR/$1" "$HOME/${2:-$1}"; }
 link_config() { ln -sfn "$SRC_CONFIG_DIR/$1" "$DEST_CONFIG_DIR/${2:-$1}"; }
+cp_config() { cp -rf "$SRC_CONFIG_DIR/$1" "$DEST_CONFIG_DIR/${2:-$1}"; }
 
 link_alacritty() {
   local filepath

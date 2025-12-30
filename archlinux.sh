@@ -21,9 +21,7 @@ update_pacman() {
 }
 
 install_yay() (
-  [[ ! -d "$DEST_CONFIG_DIR/yay" ]] && {
-    cp -r "$SRC_CONFIG_DIR/yay" "$DEST_CONFIG_DIR/yay"
-  }
+  [[ ! -d "$DEST_CONFIG_DIR/yay" ]] && cp_config "yay"
   command -v yay &>/dev/null && {
     echo_gray "yay already installed"
     exit 0
@@ -77,8 +75,9 @@ post_config_os() {
   link_config "hypr"
   link_config "rofi"
   link_config "waybar"
+
   link_config "gtk-3.0"
-  link_config "gtk-4.0"
+  cp_config "gtk-4.0"
   link_config "qt5ct"
   link_config "qt6ct"
 

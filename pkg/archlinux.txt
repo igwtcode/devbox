@@ -93,6 +93,7 @@ linux-firmware
 linux-headers
 loupe
 make
+man-db
 man-pages
 mise
 mpv
