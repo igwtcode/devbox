@@ -1,5 +1,19 @@
 #!/usr/bin/env bash
 
+# Error handler - shows what failed and where
+trap_err() {
+  local exit_code=$?
+  local line_no=${BASH_LINENO[0]}
+  local cmd="${BASH_COMMAND}"
+  local script="${BASH_SOURCE[1]:-$0}"
+  echo_red "ERROR: Command failed with exit code $exit_code"
+  echo_red "  Script: $script"
+  echo_red "  Line: $line_no"
+  echo_red "  Command: $cmd"
+  exit $exit_code
+}
+trap 'trap_err' ERR
+
 CACHE_DIR=$HOME/.cache
 SRC_CONFIG_DIR=$(pwd)/config
 DEST_CONFIG_DIR=$HOME/.config
