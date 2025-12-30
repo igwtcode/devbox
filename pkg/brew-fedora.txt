@@ -1,5 +1,0 @@
-1password-cli
-alacritty
-ghostty
-k9s
-kitty

@@ -15,6 +15,8 @@ add_docker_dnf_repo() {
     --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
 }
 
+enable_dnf_ghostty() { dnf copr enable scottames/ghostty; }
+
 dnf_install_pkg() {
   local items=()
   read_package_file_to_array "$OS_ALIAS" items
@@ -26,11 +28,11 @@ dnf_install_pkg() {
 bootstrap() {
   update_dnf
   add_docker_dnf_repo
+  enable_dnf_ghostty
   dnf_install_pkg
   install_brew
   update_brew
-  brew_install_pkg "brew"
-  brew_install_pkg "brew-$OS_ALIAS"
+  brew_install_pkg "$OS_ALIAS-brew"
   install_or_update_rust
   install_or_update_aws_cli_linux
   install_or_update_aws_sam_cli_linux

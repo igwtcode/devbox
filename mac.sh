@@ -9,8 +9,7 @@ OS_ALIAS="mac"
 bootstrap() {
   install_brew
   update_brew
-  brew_install_pkg "brew"
-  brew_install_pkg "brew-$OS_ALIAS"
+  brew_install_pkg "$OS_ALIAS-brew"
   install_or_update_rust
   install_or_update_aws_cli_mac
   install_or_update_aws_sam_cli_mac
