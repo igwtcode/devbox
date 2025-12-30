@@ -1,0 +1,17 @@
+alacritty
+bat
+font-geist-mono-nerd-font
+font-jetbrains-mono-nerd-font
+font-meslo-lg-nerd-font
+font-ubuntu-mono-nerd-font
+gh
+hashicorp/tap/terraform
+k9s
+kitty
+lazydocker
+oven-sh/bun/bun
+rustup
+starship
+yq
+zsh-autosuggestions
+zsh-syntax-highlighting

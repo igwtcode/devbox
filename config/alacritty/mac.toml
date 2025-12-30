@@ -1,4 +1,4 @@
-general.import = ["~/.config/alacritty/tokyonight-night.toml"]
+general.import = ["~/.config/alacritty/theme.toml"]
 
 [window]
 padding = { x = 21, y = 12 }
@@ -27,5 +27,6 @@ style = { shape = "Block", blinking = "Off" }
 # style = { shape = "Beam", blinking = "Always" }
 
 [env]
+# TERM = "tmux-256color"
 TERM = "xterm-256color"
 COLORTERM = "truecolor"

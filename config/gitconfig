@@ -20,6 +20,20 @@
 [pull]
   rebase = true
 
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default
+
+[credential "https://github.com"]
+  helper =
+  helper = !gh auth git-credential
+
+[credential "https://gist.github.com"]
+  helper =
+  helper = !gh auth git-credential
+
 [delta]
   features = catppuccin-mocha
   navigate = true
@@ -27,12 +41,6 @@
 
 [interactive]
   diffFilter = delta --color-only
-
-[merge]
-  conflictstyle = diff3
-
-[diff]
-  colorMoved = default
 
 [delta "catppuccin-mocha"]
 	blame-palette = "#1e1e2e #181825 #11111b #313244 #45475a"
@@ -65,11 +73,3 @@
 		bold yellow => syntax "#544f4e"
 	# Should match the name of the bat theme
 	syntax-theme = "Catppuccin-Mocha"
-
-[credential "https://github.com"]
-  helper =
-  helper = !gh auth git-credential
-
-[credential "https://gist.github.com"]
-  helper =
-  helper = !gh auth git-credential

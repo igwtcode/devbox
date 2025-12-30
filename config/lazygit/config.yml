@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+git:
+  log:
+    showWholeGraph: true
+    showGraph: when-maximised
+  branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --date=local --pretty=medium {{branchName}} --
+  allBranchesLogCmds:
+    - git log --graph --color=always --abbrev-commit --decorate --date=local --pretty=medium --
+  pagers:
+    - colorArg: always
+      pager: delta --features catppuccin-mocha --paging=never --tabs=2
+gui:
+  timeFormat: 01/02 15:04:05
+  shortTimeFormat: "Today 15:04:05"
+  nerdFontsVersion: "3"
+  showRandomTip: false
+  showDivergenceFromBaseBranch: arrowAndNumber
+  showFileIcons: false
+  sidePanelWidth: 0.16
+  # Catpuccin Mocha
+  authorColors:
+    "*": "#b4befe"
+  theme:
+    activeBorderColor:
+      - "#fab387"
+      - bold
+    inactiveBorderColor:
+      - "#a6adc8"
+    optionsTextColor:
+      - "#89b4fa"
+    selectedLineBgColor:
+      - "#313244"
+    cherryPickedCommitBgColor:
+      - "#45475a"
+    cherryPickedCommitFgColor:
+      - "#b4befe"
+    unstagedChangesColor:
+      - "#f38ba8"
+    defaultFgColor:
+      - "#cdd6f4"
+    searchingActiveBorderColor:
+      - "#f9e2af"

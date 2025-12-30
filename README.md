@@ -11,11 +11,5 @@ Tools and configurations
 ## Usage
 
 ```bash
-./main.sh
+./install.sh
 ```
-
-## After
-
-- open tmux with `tmux`.
-  If plugins are not auto installed on first run,
-  press `Ctrl-a + I` to install all plugins.

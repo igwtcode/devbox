@@ -1,0 +1,13 @@
+bat
+font-geist-mono-nerd-font
+font-jetbrains-mono-nerd-font
+font-meslo-lg-nerd-font
+font-ubuntu-mono-nerd-font
+hashicorp/tap/terraform
+k9s
+lazydocker
+oven-sh/bun/bun
+tldr
+yq
+zsh-autosuggestions
+zsh-syntax-highlighting

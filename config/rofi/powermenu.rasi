@@ -8,7 +8,7 @@ window {
 
 listview {
   columns: 2;
-  lines: 6;
+  lines: 5;
 }
 
 entry {

@@ -1,24 +1,25 @@
-/* vim: ft=sass */
+// vim: ft=sass ts=2 sts=2 sw=2 et
 
 @theme "/dev/null"
 
 configuration {
   // font: "MesloLGS Nerd Font Medium 14";
   // font: "JetBrainsMono Nerd Font Medium 14";
-  font: "GeistMono Nerd Font 14";
+  font: "GeistMono Nerd Font Propo 15";
   terminal: "ghostty";
   case-smart: true;
 }
 
 * {
   //bg: #1e1e2e30;
-  bg: transparent;
-  bg-alt: #11111199;
+  bg: #1e1e2e99;
+  bg-alt: #1e1e2e88;
   bg-selected: #769ff033;
+  input-bg: #31324477;
 
   fg: #cdd6f4;
-  fg-alt: #7f849c;
-  fg-selected: #769ff0;
+  fg-alt: #9399b2;
+  fg-selected: #89b4fa;
   bd-c: #b4befe69;
 
   myhighlight: bold #f38ba8;
@@ -34,13 +35,13 @@ window {
   width: 33%;
   background-color: @bg;
   border: 3px;
-  padding: 15px;
+  padding: 0px;
   border-color: @bd-c;
   transparency: "real";
 }
 
 element {
-  padding: 12;
+  padding: 15;
   background-color: transparent;
   text-color: @fg;
 }
@@ -76,10 +77,10 @@ element-icon {
 }
 
 entry {
-  font: "GeistMono Nerd Font 15";
-  padding: 12;
-  margin: 0 0 18 0;
-  background-color: @bg-alt;
+  font: "GeistMono Nerd Font 16";
+  padding: 15;
+  margin: 18 10;
+  background-color: @input-bg;
   vertical-align: 0.5;
   horizontal-align: 0.5;
   text-color: @fg-alt;
@@ -89,13 +90,15 @@ inputbar {
   children: [entry];
   children: [prompt, entry];
   background-color: @bg;
+  border-radius: 0px;
 }
 
 listview {
   background-color: @bg-alt;
   columns: 1;
   lines: 12;
-  // fixed-height:   false;
+  fixed-height: true;
+  border-radius: 0px;
 }
 
 mainbox {
@@ -104,9 +107,12 @@ mainbox {
 }
 
 prompt {
+  font: "GeistMono Nerd Font 18";
   enabled: true;
-  padding: 12;
-  margin: 0 10 18 0;
-  background-color: @bg-alt;
+  padding: 15;
+  margin: 18 10;
+  vertical-align: 0.5;
+  horizontal-align: 0.5;
+  background-color: transparent;
   text-color: @fg;
 }

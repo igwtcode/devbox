@@ -2,7 +2,6 @@
 
 # font-family = "SFMono Nerd Font Mono Bold"
 font-family = "GeistMono NF Medium"
-
 font-size = 16
 font-feature = -calt
 font-feature = -liga
@@ -11,8 +10,8 @@ font-synthetic-style = true
 adjust-cell-height = 10%
 
 # background = 181818
-# theme = Catppuccin Mocha
-theme = TokyoNight Night
+theme = Catppuccin Mocha
+# theme = TokyoNight Night
 # theme = Nord Wave
 # theme = GitHub Dark Default
 # theme = Nvim Dark
@@ -34,8 +33,8 @@ cursor-text=090909
 # adjust-cursor-height = 32%
 # adjust-cursor-thickness = 32%
 
-background-opacity = 0.84
+background-opacity = 0.81
 
-# term = xterm-256color
+term = xterm-256color
 
 keybind = ctrl+shift+r=reload_config

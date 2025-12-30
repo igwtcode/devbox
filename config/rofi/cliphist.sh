@@ -6,6 +6,6 @@ cliphist list |
     -dmenu \
     -matching-negate-char '\0' \
     -display-columns 2 \
-    -p ' ' \
+    -p '  ' \
     -config ~/.config/rofi/cliphist.rasi |
   cliphist decode | wl-copy

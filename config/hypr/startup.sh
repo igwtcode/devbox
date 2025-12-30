@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# vim: ft=sh
+
+# Kill existing instances of required services
+killall -q \
+  waybar \
+  hypridle \
+  hyprpaper \
+  hyprsunset \
+  dunst \
+  polkit-gnome-authentication-agent \
+  xdg-desktop-portal-hyprland \
+  xdg-desktop-portal-gtk \
+  xdg-desktop-portal-gnome \
+  xdg-desktop-portal-wlr \
+  xdg-desktop-portal
+
+# Update environment variables for dbus
+dbus-update-activation-environment --systemd --all
+
+# Start necessary services
+waybar &
+hypridle &
+hyprpaper &
+hyprsunset &
+dunst &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+/usr/lib/xdg-desktop-portal &
+/usr/lib/xdg-desktop-portal-hyprland &
+# wl-paste --watch cliphist store &
