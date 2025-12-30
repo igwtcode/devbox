@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -eu
 source ./_common.sh
 source ./_brew.sh
 

@@ -24,11 +24,7 @@ install_brew() {
     return 0
   }
   echo_amber "installing homebrew..."
-  # Run in subshell with pipefail disabled to avoid SIGPIPE issues from installer
-  (
-    set +o pipefail
-    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  )
+  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   add_brew_path_to_session
 }
 
