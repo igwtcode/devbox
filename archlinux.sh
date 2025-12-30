@@ -51,35 +51,6 @@ yay_install_pkg() {
   yay -S --needed --noconfirm "${items[@]}"
 }
 
-setup_libvirt() {
-  ! command -v libvirtd &>/dev/null && return
-
-  echo_gray "configuring libvirt/qemu-kvm..."
-
-  # Add user to libvirt group for system-mode access
-  sudo usermod -aG libvirt "$USER"
-
-  # Enable and start libvirtd service
-  echo_gray "enabling libvirtd service..."
-  sudo systemctl enable --now libvirtd.service
-
-  # Set default network to autostart
-  echo_gray "enabling default virtual network..."
-  sudo virsh net-autostart default 2>/dev/null || true
-  sudo virsh net-start default 2>/dev/null || true
-
-  # Set ACL on images directory for user access
-  local images_dir="/var/lib/libvirt/images"
-  if [[ -d "$images_dir" ]]; then
-    echo_gray "setting ACL on $images_dir..."
-    sudo setfacl -R -m "u:$USER:rwX" "$images_dir"
-    sudo setfacl -m "d:u:$USER:rwx" "$images_dir"
-  fi
-
-  # virsh -c qemu:///system list --all
-  # virt-manager
-}
-
 bootstrap() {
   setup_timezone
   init_pacman_keyring
