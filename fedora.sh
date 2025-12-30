@@ -10,6 +10,11 @@ update_dnf() {
   sudo dnf upgrade -y
 }
 
+add_docker_dnf_repo() {
+  sudo dnf config-manager addrepo \
+    --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
+}
+
 dnf_install_pkg() {
   local items=()
   read_package_file_to_array "$OS_ALIAS" items
@@ -20,6 +25,7 @@ dnf_install_pkg() {
 
 bootstrap() {
   update_dnf
+  add_docker_dnf_repo
   dnf_install_pkg
   install_brew
   update_brew

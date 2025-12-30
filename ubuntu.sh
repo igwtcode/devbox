@@ -13,6 +13,14 @@ update_apt() {
   sudo apt autoclean -y
 }
 
+add_docker_apt_repo() {
+  sudo apt install ca-certificates curl
+  sudo install -m 0755 -d /etc/apt/keyrings
+  sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+  sudo chmod a+r /etc/apt/keyrings/docker.asc
+  sudo apt update
+}
+
 apt_install_pkg() {
   local items=()
   read_package_file_to_array "$OS_ALIAS" items
@@ -23,6 +31,7 @@ apt_install_pkg() {
 
 bootstrap() {
   update_apt
+  add_docker_apt_repo
   apt_install_pkg
   install_brew
   update_brew

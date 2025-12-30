@@ -1,6 +1,12 @@
-@development-tools
 ca-certificates
+containerd.io
 curl
+@development-tools
+docker-buildx-plugin
+docker-ce
+docker-ce-cli
+docker-compose-plugin
+fastfetch
 file
 fontconfig
 gnupg2
@@ -10,6 +16,7 @@ openssl-devel
 pkg-config
 python3
 python3-pip
+python3-venv
 unzip
 wget
 zip

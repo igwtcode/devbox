@@ -7,6 +7,7 @@ acpid
 alacritty
 alsa-utils
 ansible
+ansible-lint
 base
 base-devel
 bash-completion
@@ -140,6 +141,7 @@ qt6ct
 qt6-declarative
 qt6-svg
 qt6-wayland
+reflector
 ripgrep
 rofi-wayland
 rsync
