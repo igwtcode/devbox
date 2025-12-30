@@ -1,4 +1,4 @@
-# vim: ft=sh
+#!/usr/bin/env zsh
 
 syntax_highlighting_theme() {
   # Catppuccin Mocha Theme (for zsh-syntax-highlighting)

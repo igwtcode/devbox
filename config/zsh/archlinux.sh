@@ -1,6 +1,6 @@
-# vim: ft=sh
+#!/usr/bin/env zsh
 
-source "${0:A:h}/_common.sh"
+source "$(dirname "$(realpath ~/.zshrc)")/_common.sh"
 
 export LIBVIRT_DEFAULT_URI="qemu:///system"
 

@@ -1,6 +1,6 @@
-# vim: ft=sh
+#!/usr/bin/env zsh
 
-source "${0:A:h}/_common.sh"
+source "$(dirname "$(realpath ~/.zshrc)")/_common.sh"
 
 export PATH=/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/opt/gnu-sed/libexec/gnubin:/opt/homebrew/opt/grep/libexec/gnubin:$PATH
 export HOMEBREW_NO_ANALYTICS=1

@@ -1,4 +1,4 @@
-# vim: ft=sh
+#!/usr/bin/env bash
 
 export EDITOR=nvim
 export VISUAL=nvim

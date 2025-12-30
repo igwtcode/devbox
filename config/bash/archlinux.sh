@@ -1,4 +1,4 @@
-# vim: ft=sh
+#!/usr/bin/env bash
 
 source "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/_common.sh"
 
