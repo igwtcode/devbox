@@ -11,5 +11,8 @@ Tools and configurations
 ## Usage
 
 ```bash
-./install.sh
+# ./<os>.sh <full|update|config>
+# ./ubuntu.sh full
+# ./fedora.sh full
+./archlinux.sh full
 ```
