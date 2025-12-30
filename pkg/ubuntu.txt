@@ -42,5 +42,3 @@ wget
 zip
 zoxide
 zsh
-zsh-autosuggestions
-zsh-syntax-highlighting

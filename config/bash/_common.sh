@@ -35,11 +35,11 @@ complete -C "$(which aws_completer)" aws
 complete -C "$(which terraform)" terraform
 
 if command -v tbx &>/dev/null; then
-  source <(tbx completion zsh)
+  source <(tbx completion bash)
 fi
 
 if command -v tbx-v1 &>/dev/null; then
-  source <(tbx-v1 completion zsh)
+  source <(tbx-v1 completion bash)
 fi
 
 alias ...='cd ../..'

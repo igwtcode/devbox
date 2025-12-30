@@ -9,3 +9,5 @@ lazydocker
 oven-sh/bun/bun
 tldr
 yq
+zsh-autosuggestions
+zsh-syntax-highlighting

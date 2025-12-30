@@ -13,3 +13,5 @@ oven-sh/bun/bun
 rustup
 starship
 yq
+zsh-autosuggestions
+zsh-syntax-highlighting
