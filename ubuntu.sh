@@ -31,7 +31,7 @@ bootstrap() {
   install_or_update_rust
   install_or_update_aws_cli_linux
   install_or_update_aws_sam_cli_linux
-  install_gtk_theme
+  # install_gtk_theme
 }
 
 post_config_os() {

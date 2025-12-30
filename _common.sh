@@ -270,10 +270,10 @@ post_config_linux() {
   fix_btop_graphics
   link_config "btop"
   link_config "k9s"
-  link_config "gtk-3.0"
-  link_config "gtk-4.0"
-  link_config "qt5ct"
-  link_config "qt6ct"
+  # link_config "gtk-3.0"
+  # link_config "gtk-4.0"
+  # link_config "qt5ct"
+  # link_config "qt6ct"
   enable_service "docker"
   setup_user_service "wl-paste.service"
 }

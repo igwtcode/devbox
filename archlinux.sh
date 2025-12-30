@@ -77,6 +77,10 @@ post_config_os() {
   link_config "hypr"
   link_config "rofi"
   link_config "waybar"
+  link_config "gtk-3.0"
+  link_config "gtk-4.0"
+  link_config "qt5ct"
+  link_config "qt6ct"
 
   setup_libvirt
 
