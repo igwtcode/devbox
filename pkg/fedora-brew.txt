@@ -1,5 +1,5 @@
-1password-cli
 alacritty
+bat
 font-geist-mono-nerd-font
 font-jetbrains-mono-nerd-font
 font-meslo-lg-nerd-font

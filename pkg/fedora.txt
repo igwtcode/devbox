@@ -1,5 +1,4 @@
 ansible
-bat
 ca-certificates
 cmake
 containerd.io

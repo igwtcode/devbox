@@ -51,6 +51,7 @@ bootstrap() {
 }
 
 post_config_os() {
+  add_brew_path_to_session
   post_config_linux
 
   link_home "bash/linux.sh" ".bashrc"

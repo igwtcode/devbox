@@ -1,6 +1,5 @@
 alacritty
 ansible
-bat
 build-essential
 ca-certificates
 cmake
