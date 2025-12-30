@@ -1,4 +1,5 @@
 bat
+fd
 font-geist-mono-nerd-font
 font-jetbrains-mono-nerd-font
 font-meslo-lg-nerd-font

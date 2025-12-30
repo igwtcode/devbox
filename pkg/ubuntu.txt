@@ -3,6 +3,7 @@ ansible
 btop
 build-essential
 ca-certificates
+cliphist
 cmake
 containerd.io
 curl
@@ -12,7 +13,6 @@ docker-ce-cli
 docker-compose-plugin
 eza
 fastfetch
-fd-find
 file
 fontconfig
 fzf
