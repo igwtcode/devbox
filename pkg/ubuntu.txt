@@ -1,5 +1,6 @@
 alacritty
 ansible
+btop
 build-essential
 ca-certificates
 cmake
