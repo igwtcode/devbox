@@ -12,10 +12,11 @@ update_dnf() {
 
 add_docker_dnf_repo() {
   sudo dnf config-manager addrepo \
+    --overwrite \
     --from-repofile https://download.docker.com/linux/fedora/docker-ce.repo
 }
 
-enable_dnf_ghostty() { dnf copr enable scottames/ghostty; }
+enable_dnf_ghostty() { sudo dnf copr enable -y scottames/ghostty; }
 
 dnf_install_pkg() {
   local items=()

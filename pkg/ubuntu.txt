@@ -39,6 +39,7 @@ tmux
 tokei
 tree
 unzip
+vim
 wget
 zip
 zoxide

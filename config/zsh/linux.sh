@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
+export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
 source "$(dirname "$(realpath ~/.zshrc)")/_common.sh"
 
 export HOMEBREW_NO_ANALYTICS=1
