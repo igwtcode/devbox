@@ -19,7 +19,7 @@ bridge-utils
 brightnessctl
 btop
 btrfs-progs
-bun-bin
+bun
 bzip2
 bzip3
 claude-code

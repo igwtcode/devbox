@@ -5,6 +5,23 @@ source ./_common.sh
 
 OS_ALIAS="archlinux"
 TIMEZONE=Europe/Berlin
+IS_MIRROR_UPDATED=""
+
+update_mirrors() {
+  [[ -n "$IS_MIRROR_UPDATED" ]] && return 0
+  echo_gray "updating mirror list..."
+  sudo reflector \
+    --country Germany,Netherlands,France \
+    --age 6 \
+    --protocol https \
+    --sort rate \
+    --fastest 18 \
+    --exclude 'moson.org' \
+    --exclude 'ovh.net' \
+    --save /etc/pacman.d/mirrorlist || return 1
+  sudo sed -i '1i Server = https://geo.mirror.pkgbuild.com/$repo/os/$arch' /etc/pacman.d/mirrorlist || return 1
+  IS_MIRROR_UPDATED="true"
+}
 
 init_pacman_keyring() {
   echo_gray "initializing pacman keyring..."
@@ -14,6 +31,7 @@ init_pacman_keyring() {
 }
 
 update_pacman() {
+  update_mirrors
   echo_gray "updating pacman packages..."
   sudo pacman -Syu --noconfirm
   sudo rm -rf /var/cache/pacman/pkg/download-*
@@ -36,12 +54,14 @@ install_yay() (
 )
 
 update_yay() {
+  update_mirrors
   echo_gray "updating yay packages..."
   yay -Syu --noconfirm
   yay -Yc --noconfirm
 }
 
 yay_install_pkg() {
+  update_mirrors
   local items=()
   read_package_file_to_array "$OS_ALIAS" items
   [[ ${#items[@]} == 0 ]] && return
