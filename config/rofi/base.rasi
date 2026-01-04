@@ -6,7 +6,7 @@ configuration {
   // font: "MesloLGS Nerd Font Medium 14";
   // font: "JetBrainsMono Nerd Font Medium 14";
   font: "GeistMono Nerd Font Propo 15";
-  terminal: "alacritty";
+  terminal: "ghostty";
   case-smart: true;
 }
 
