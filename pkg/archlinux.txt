@@ -180,6 +180,7 @@ virt-viewer
 visual-studio-code-bin
 vlc
 vulkan-driver
+vulkan-intel
 vulkan-tools
 wavpack
 waybar
