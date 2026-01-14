@@ -84,6 +84,7 @@ jq
 k9s
 kitty
 kubectl
+kubeseal
 lazydocker
 lazygit
 less
