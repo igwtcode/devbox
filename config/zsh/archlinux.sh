@@ -9,6 +9,8 @@ syntax_highlighting_theme
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/nvm/init-nvm.sh
 
+alias randraw="openssl rand -hex 32 | tr -d '\n' | wl-copy"
+alias randbase64="openssl rand 60 | base64 -w 0 | tr -d '\n' | wl-copy"
 alias cp-awsprofile="sel-awsprofile | tr -d '\n' | wl-copy"
 alias task='go-task'
 alias ch="cliphist list | fzf --no-sort -d $'\t' --with-nth 2 | cliphist decode | wl-copy"
