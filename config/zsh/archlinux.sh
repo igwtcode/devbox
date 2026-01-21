@@ -133,4 +133,8 @@ _xsvc_completion() {
 }
 compdef _xsvc_completion xsvc
 
+
+export TASK_EXE='go-task'
+eval "$(task --completion zsh)"
+
 [[ -f "$HOME/.customrc.sh" ]] && source $HOME/.customrc.sh
