@@ -14,6 +14,7 @@ alias randbase64="openssl rand 60 | base64 -w 0 | tr -d '\n' | wl-copy"
 alias cp-awsprofile="sel-awsprofile | tr -d '\n' | wl-copy"
 alias task='go-task'
 alias ch="cliphist list | fzf --no-sort -d $'\t' --with-nth 2 | cliphist decode | wl-copy"
+alias k='kubectl'
 
 _cmdfzf() {
   local list_cmd=$1
