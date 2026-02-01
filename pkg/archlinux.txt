@@ -81,6 +81,7 @@ intel-ucode
 ipset
 iptables
 jq
+just
 k9s
 kitty
 kubectl
