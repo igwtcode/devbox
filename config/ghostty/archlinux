@@ -2,12 +2,12 @@
 
 # font-family = "SFMono Nerd Font Mono Bold"
 font-family = "GeistMono NF Medium"
-font-size = 16
+font-size = 15
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
 font-synthetic-style = true
-adjust-cell-height = 10%
+adjust-cell-height = 9%
 
 # background = 181818
 theme = Catppuccin Mocha
@@ -19,8 +19,8 @@ theme = Catppuccin Mocha
 window-decoration = false
 window-theme = dark
 window-save-state= always
-window-padding-y = 10
-window-padding-x = 18
+window-padding-y = 9
+window-padding-x = 12
 window-padding-balance = true
 window-padding-color = background
 
