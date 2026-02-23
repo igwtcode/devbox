@@ -1,19 +1,20 @@
 # vim: ft=conf
 
-font-family = "Liga SFMono Nerd Font"
+# font-family = "Liga SFMono Nerd Font"
+font-family = "GeistMono NF Medium"
 font-size = 16
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
 font-synthetic-style = true
-adjust-cell-height = 10%
+adjust-cell-height = 9%
 
 theme = Catppuccin Mocha
 
 window-theme = dark
 window-save-state= always
-window-padding-y = 10
-window-padding-x = 18
+window-padding-y = 9
+window-padding-x = 11
 window-padding-balance = true
 window-padding-color = background
 
@@ -23,10 +24,10 @@ mouse-hide-while-typing = true
 cursor-color=f9e2af
 cursor-text=090909
 
-background-opacity = 0.84
+# background-opacity = 0.84
 # background-blur = 27
 
-# macos-non-native-fullscreen = true
+macos-non-native-fullscreen = true
 # macos-titlebar-style = tabs
 
 term = xterm-256color

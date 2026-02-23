@@ -3,7 +3,7 @@ general.import = ["~/.config/alacritty/theme.toml"]
 [window]
 padding = { x = 21, y = 12 }
 decorations = "buttonless"
-opacity = 0.87
+opacity = 0.77
 blur = true
 startup_mode = "SimpleFullscreen"
 option_as_alt = "Both"
