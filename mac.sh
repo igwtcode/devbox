@@ -12,7 +12,7 @@ bootstrap() {
   brew_install_pkg "$OS_ALIAS-brew"
   install_or_update_rust
   install_or_update_aws_cli_mac
-  install_or_update_aws_sam_cli_mac
+  # install_or_update_aws_sam_cli_mac
 }
 
 post_config_os() {
@@ -25,7 +25,7 @@ do_update() {
   update_brew
   install_or_update_rust
   install_or_update_aws_cli_mac
-  install_or_update_aws_sam_cli_mac
+  # install_or_update_aws_sam_cli_mac
 }
 
 main() {
