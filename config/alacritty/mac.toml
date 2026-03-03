@@ -1,9 +1,9 @@
 general.import = ["~/.config/alacritty/theme.toml"]
 
 [window]
-padding = { x = 21, y = 12 }
+padding = { x = 11, y = 11 }
 decorations = "buttonless"
-opacity = 0.77
+opacity = 0.71
 blur = true
 startup_mode = "SimpleFullscreen"
 option_as_alt = "Both"
@@ -16,7 +16,7 @@ option_as_alt = "Both"
 # bold = { family = "MesloLGM Nerd Font", style = "Bold" }
 normal = { family = "GeistMono Nerd Font", style = "Medium" }
 bold = { family = "GeistMono Nerd Font", style = "Medium" }
-size = 16
+size = 18
 # offset = { y = 3 }
 # glyph_offset = { y = 6 }
 # builtin_box_drawing = false
