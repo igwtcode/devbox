@@ -21,6 +21,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 syntax_highlighting_theme
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+eval "$(task --completion zsh)"
 
 alias cp-awsprofile="sel-awsprofile | tr -d '\n' | pbcopy"
 
