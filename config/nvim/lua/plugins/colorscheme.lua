@@ -31,6 +31,7 @@ return {
         shade = "dark",
         percentage = 0.39,
       },
+      no_italic = true, -- Force no italic
       integrations = {
         aerial = true,
         alpha = true,
