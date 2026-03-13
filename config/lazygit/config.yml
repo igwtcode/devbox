@@ -10,6 +10,7 @@ git:
     - colorArg: always
       pager: delta --features catppuccin-mocha --paging=never --tabs=2
 gui:
+  useHunkModeInStagingView: false
   timeFormat: 01/02 15:04:05
   shortTimeFormat: "Today 15:04:05"
   nerdFontsVersion: "3"
