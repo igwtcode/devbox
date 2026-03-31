@@ -187,6 +187,9 @@ alias sel-awsprofile="grep -E '^\[.+\]$' ~/.aws/credentials | sed -E 's/^\[(.+)\
 alias tf=terraform
 alias v=nvim
 
+ytv() { yt-dlp --cookies-from-browser firefox --no-playlist --progress -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]" --merge-output-format mp4 -o "$HOME/Downloads/%(title)s.%(ext)s" "$1" }
+yta() { yt-dlp --cookies-from-browser firefox --no-playlist --progress -x --audio-format mp3 --audio-quality 0 -o "$HOME/Downloads/%(title)s.%(ext)s" "$1" }
+
 xx() {
   local base_dir="$HOME/bin"
   local b=$(fd -t x -d 3 -H -I --base-directory "$base_dir" | fzf)
