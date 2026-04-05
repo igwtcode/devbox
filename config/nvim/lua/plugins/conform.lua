@@ -28,6 +28,7 @@ return {
         yaml = { "prettier" },
         yml = { "prettier" },
         go = { "goimports", "gofumpt", "gofmt" },
+        kdl = { "kdlfmt" },
       },
       -- The options you set here will be merged with the builtin formatters.
       -- You can also define any custom formatters here.
