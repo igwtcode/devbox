@@ -27,7 +27,7 @@ cursor-text=090909
 background-opacity = 0.7
 # background-blur = 27
 
-macos-non-native-fullscreen = true
+macos-non-native-fullscreen = false
 # macos-titlebar-style = tabs
 
 term = xterm-256color
